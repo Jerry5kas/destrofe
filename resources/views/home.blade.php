@@ -19,12 +19,12 @@
 <!-- resources/views/components/navbar.blade.php -->
 @php
     $menuItems = [
-        ['label' => 'Insights', 'url' => '/insights'],
-        ['label' => 'Branchen', 'url' => '/branchen'],
+        ['label' => 'Home', 'url' => '/'],
+        ['label' => 'Quantum', 'url' => '/quantum'],
         ['label' => 'Services', 'url' => '/services'],
         ['label' => 'Products', 'url' => '/products'],
-        ['label' => 'Karriere', 'url' => '/karriere'],
-        ['label' => 'Über Us', 'url' => '/about'],
+        ['label' => 'Training', 'url' => '/training'],
+        ['label' => 'Blog', 'url' => '/blog'],
     ];
 @endphp
 
@@ -85,7 +85,7 @@
 
                 <div>
                     <div class="text-2xl font-extrabold text-gray-900 leading-tight">Destro Solution</div>
-                    <div class="text-sm text-gray-500">A clean & professional header</div>
+                    <div class="text-sm text-gray-500">Bringing SDV to Life</div>
                 </div>
             </div>
         </div>
@@ -127,31 +127,19 @@
                     </svg>
 
                     <!-- Desktop menu (left) -->
-                    <div class="hidden md:flex items-center space-x-6">
+                    <div class="hidden md:flex items-center space-x-8">
                         @foreach ($menuItems as $item)
                             <a href="{{ $item['url'] }}"
-                               class="group relative text-gray-800 font-medium px-0 py-0">
-                                <span class="{{ request()->is(trim($item['url'], '/')) ? 'text-[#0000CC]' : '' }}">
+                               class="group relative text-gray-800 font-medium px-3 py-2 transition-all duration-300 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600' : '' }}">
+                                <span class="relative z-10">
                                     {{ $item['label'] }}
                                 </span>
 
-                                <!-- underline: active = full, else hover expand -->
-                                <span
-                                    class="absolute left-0 -bottom-1 h-[2px] bg-[#0000CC] transition-all duration-300"
-                                    :class=" {{ request()->is(trim($item['url'], '/')) ? '' : '' }}"
-                                    style="@if(request()->is(trim($item['url'], '/'))) width:100%; @else width:0%; @endif"
-                                ></span>
-
-                                <!-- alternative approach to animate hover (works even without inline style if you prefer group-hover) -->
-                                <style>
-                                    /* To avoid Tailwind purging a few classes we also add this tiny rule for hover effect */
-                                    .nav-link-{{ \Illuminate\Support\Str::slug($item['label']) }}:hover .hover-underline {
-                                        width: 100% !important;
-                                    }
-                                </style>
-                                <span
-                                    class="hover-underline absolute left-0 -bottom-1 h-[2px] bg-[#0000CC] transition-all duration-300"
-                                    style="@if(request()->is(trim($item['url'], '/'))) width:100%; @else width:0; @endif"></span>
+                                <!-- Gradient blue underline with smooth hover effect -->
+                                <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"></span>
+                                
+                                <!-- Subtle background hover effect -->
+                                <!-- <span class="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-100 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span> -->
                             </a>
                         @endforeach
                     </div>
@@ -161,19 +149,28 @@
                 <div class="flex items-center space-x-4">
                     <div class="hidden md:flex items-center space-x-4">
                         <!-- Search -->
-                        <button class="text-gray-600 hover:text-[#0000CC] p-2">
-                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button class="group relative text-gray-600 hover:text-blue-600 p-3 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 hover:shadow-md hover:scale-105">
+                            <svg class="h-5 w-5 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z"/>
                             </svg>
+                            <!-- Subtle glow effect -->
+                            <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"></div>
                         </button>
 
                         <!-- Language -->
-                        <button class="text-gray-600 hover:text-[#0000CC] p-2">
-                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button class="group relative text-gray-600 hover:text-blue-600 p-3 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 hover:shadow-md hover:scale-105">
+                            <!-- <svg class="h-5 w-5 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9z"/>
+                            </svg> -->
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
                             </svg>
+
+                            <!-- Subtle glow effect -->
+                            <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"></div>
                         </button>
                     </div>
 
@@ -233,211 +230,400 @@
         </div>
     </nav>
 
-<!-- Banner / Hero Section -->
-<div x-data="slider()" x-init="start()" class="relative w-full overflow-hidden bg-gray-50">
 
-    <!-- Slides -->
-    <div class="relative h-[500px] sm:h-[600px] lg:h-[650px]">
-        <template x-for="(slide, index) in slides" :key="index">
-            <div
-                x-show="activeIndex === index"
-                x-transition
-                class="absolute inset-0 w-full h-full flex flex-col lg:flex-row"
-            >
-                <!-- Desktop Background Image -->
+<!-- Banner / Hero Section with Navigation -->
+<div x-data="slider()" x-init="start()" class="w-full">
+    <!-- Banner -->
+    <div class="relative w-full overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
+        <!-- Slides -->
+        <div class="relative h-[500px] sm:h-[600px] lg:h-[700px]">
+            <template x-for="(slide, index) in slides" :key="index">
                 <div
-                    class="hidden lg:block absolute inset-0 bg-cover bg-center"
-                    :style="`background-image: url(${slide.image})`">
-                </div>
-                <div class="hidden lg:block absolute inset-0 bg-black/30"></div>
-
-                <!-- Content Wrapper -->
-                <div
-                    class="relative flex-1 flex items-center justify-center lg:justify-start px-6 sm:px-12 lg:px-20 z-10"
-                    :class="{
-          'lg:justify-start text-left': slide.position === 'left',
-          'lg:justify-center text-center': slide.position === 'center',
-          'lg:justify-end text-right': slide.position === 'right'
-        }"
+                    x-show="activeIndex === index"
+                    x-transition:enter="transition ease-out duration-500"
+                    x-transition:enter-start="opacity-0 transform scale-105"
+                    x-transition:enter-end="opacity-100 transform scale-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 transform scale-100"
+                    x-transition:leave-end="opacity-0 transform scale-95"
+                    class="absolute inset-0 w-full h-full flex flex-col lg:flex-row"
                 >
-                    <!-- Text Card -->
-                    <div class="relative max-w-lg bg-white/70 backdrop-blur rounded-xl p-6 lg:p-10 shadow-md">
-                        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" x-text="slide.title"></h2>
-                        <p class="text-gray-700 text-base sm:text-lg mb-6" x-text="slide.text"></p>
-                        <a :href="slide.link"
-                           class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium shadow transition">
-                            <span x-text="slide.button"></span>
-                        </a>
+                    <!-- Desktop Background Image -->
+                    <div
+                        class="hidden lg:block absolute inset-0 bg-cover bg-center bg-no-repeat"
+                        :style="`background-image: url(${slide.image})`">
+                    </div>
+                    <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-transparent"></div>
+
+                    <!-- Content Wrapper -->
+                    <div
+                        class="relative flex-1 flex items-center justify-center lg:justify-start px-6 sm:px-12 lg:px-20 z-10"
+                        :class="{
+              'lg:justify-start text-left': slide.position === 'left',
+              'lg:justify-center text-center': slide.position === 'center',
+              'lg:justify-end text-right': slide.position === 'right'
+            }"
+                    >
+                        <!-- Text Card with Glass Morphism -->
+                        <div class="relative max-w-2xl group">
+                            <!-- Glass morphism background -->
+                            <div class="absolute inset-0 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl"></div>
+                            
+                            <!-- Gradient overlay for depth -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-3xl"></div>
+                            
+                            <!-- Content -->
+                            <div class="relative p-8 lg:p-12">
+                                <!-- Title with animation -->
+                                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight transform transition-all duration-700 group-hover:scale-105" 
+                                    x-text="slide.title"
+                                    x-transition:enter="transition ease-out duration-700"
+                                    x-transition:enter-start="opacity-0 translate-y-8"
+                                    x-transition:enter-end="opacity-100 translate-y-0">
+                                </h2>
+                                
+                                <!-- Description with animation -->
+                                <p class="text-white/90 text-lg sm:text-xl mb-8 leading-relaxed transform transition-all duration-700 delay-100 group-hover:translate-x-2" 
+                                   x-text="slide.text"
+                                   x-transition:enter="transition ease-out duration-700 delay-200"
+                                   x-transition:enter-start="opacity-0 translate-y-8"
+                                   x-transition:enter-end="opacity-100 translate-y-0">
+                                </p>
+                                
+                                <!-- CTA Button with enhanced animation -->
+                                <a :href="slide.link"
+                                   class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500/90 to-blue-600/90 backdrop-blur-sm hover:from-blue-600 hover:to-blue-700 text-white rounded-2xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 border border-white/20"
+                                   x-transition:enter="transition ease-out duration-700 delay-300"
+                                   x-transition:enter-start="opacity-0 translate-y-8"
+                                   x-transition:enter-end="opacity-100 translate-y-0">
+                                    <span x-text="slide.button"></span>
+                                    <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <!-- Subtle glow effect -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile layout: Image on top, card below -->
+                    <div class="lg:hidden w-full">
+                        <div class="relative h-80 overflow-hidden">
+                            <img :src="slide.image" alt="" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                        <div class="bg-white w-full p-8 shadow-lg">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-4" x-text="slide.title"></h2>
+                            <p class="text-gray-700 text-lg mb-6" x-text="slide.text"></p>
+                            <a :href="slide.link"
+                               class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                                <span x-text="slide.button"></span>
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Mobile layout: Image on top, card below -->
-                <div class="lg:hidden w-full">
-                    <img :src="slide.image" alt="" class="w-full h-64 object-cover">
-                    <div class="bg-white w-full p-6 shadow-md">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4" x-text="slide.title"></h2>
-                        <p class="text-gray-700 text-base mb-6" x-text="slide.text"></p>
-                        <a :href="slide.link"
-                           class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium shadow transition">
-                            <span x-text="slide.button"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </template>
+            </template>
+        </div>
     </div>
 
+    <!-- Navigation Controls (Below Banner) -->
+    <div class="bg-white py-6 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <!-- Left Arrow -->
+                <button @click="prev()"
+                        class="group flex items-center justify-center w-12 h-12 border-2 border-blue-600 text-blue-600 rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                    <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
 
-
-    <!-- Indicators -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3">
-        <template x-for="(slide, index) in slides" :key="index">
-            <div class="relative">
-                <!-- Inactive dot -->
-                <div class="w-3 h-3 rounded-full bg-blue-400/40" x-show="activeIndex !== index"></div>
-                <!-- Active progress bar -->
-                <div x-show="activeIndex === index"
-                     class="h-3 rounded-full bg-blue-600 overflow-hidden w-10">
-                    <div class="h-full bg-blue-600"
-                         :style="{ width: progress + '%' }"
-                         class="transition-all duration-100"></div>
+                <!-- Indicators -->
+                <div class="flex items-center space-x-4">
+                    <template x-for="(slide, index) in slides" :key="index">
+                        <div class="relative cursor-pointer" @click="goToSlide(index)">
+                            <!-- Inactive dot -->
+                            <div class="w-3 h-3 rounded-full bg-blue-200 transition-all duration-300 hover:bg-blue-400" 
+                                 x-show="activeIndex !== index"></div>
+                            <!-- Active progress bar -->
+                            <div x-show="activeIndex === index"
+                                 class="h-3 rounded-full bg-blue-200 overflow-hidden w-16 transition-all duration-200 ease-in-out">
+                                <div class="h-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-50 ease-linear"
+                                     :style="{ width: progress + '%' }"></div>
+                            </div>
+                        </div>
+                    </template>
                 </div>
+
+                <!-- Right Arrow -->
+                <button @click="next()"
+                        class="group flex items-center justify-center w-12 h-12 border-2 border-blue-600 text-blue-600 rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                    <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
             </div>
-        </template>
+        </div>
     </div>
-
-    <!-- Left Arrow -->
-    <button @click="prev()"
-            class="absolute top-1/2 left-4 -translate-y-1/2 w-10 h-10 flex items-center justify-center border-2 border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white transition">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-    </button>
-
-    <!-- Right Arrow -->
-    <button @click="next()"
-            class="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 flex items-center justify-center border-2 border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white transition">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-    </button>
 </div>
+
+
+<!-- Our Drive Section -->
+<section class="bg-gray-50 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <!-- Left Content -->
+            <div class="space-y-6">
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                    Our drive, our purpose
+                    <br>
+                    <span class="text-blue-600">Enabling You To Shape A Better</span>
+                    <br>
+                    Tomorrow
+                </h2>
+            </div>
+            
+            <!-- Right Content -->
+            <div class="space-y-8">
+                <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
+                    As a technology and business partner, MHP digitizes its clients' processes and products and supports them in their IT transformations along the entire value chain. As a digitalization pioneer in the mobility and manufacturing sectors, MHP applies its expertise to a wide range of industries and is the premium partner for thought leaders on their path to a Better Tomorrow.
+                </p>
+                
+                <!-- CTA Button -->
+                <div class="pt-4">
+                    <a href="#" class="inline-flex items-center px-8 py-4 border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        Who we are
+                        <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section x-data="{ cards: [
     {
       title: 'Digitale Kompetenz als Wettbewerbsvorteil',
       text: 'Strategisch transformieren, unternehmerisch profitieren',
-      image: 'https://via.placeholder.com/600x400?text=Image+1',
-      link: '#'
+      image: '{{asset("images/img_1.png")}}',
+      link: '#',
+      category: 'Digital Transformation'
     },
     {
       title: 'Mit KI die volle Datenpower entfesseln',
       text: 'Produktivität maximieren, Geschäftsergebnisse transformieren.',
-      image: 'https://via.placeholder.com/600x400?text=Image+2',
-      link: '#'
+      image: '{{asset("images/img_2.png")}}',
+      link: '#',
+      category: 'Artificial Intelligence'
+    },
+    {
+      title: 'Agilität für nachhaltigen Erfolg',
+      text: 'Schneller anpassen, langfristig profitieren.',
+      image: '{{asset("images/img.png")}}',
+      link: '#',
+      category: 'Agile Solutions'
+    },
+    {
+      title: 'Cloud-First Strategien',
+      text: 'Skalierbare Lösungen für moderne Unternehmen.',
+      image: '{{asset("images/dark1.jpg")}}',
+      link: '#',
+      category: 'Cloud Computing'
     }
-] }" class="bg-gray-50 py-12">
+] }" class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-24">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">Zukunft beginnt jetzt</h2>
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                Zukunft beginnt jetzt
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Entdecken Sie unsere innovativen Lösungen für die digitale Transformation
+            </p>
+        </div>
 
-        <!-- Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-
+        <!-- Enhanced Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <template x-for="(card, index) in cards" :key="index">
-                <div class="bg-white rounded-3xl shadow hover:shadow-lg transition flex flex-col overflow-hidden">
-
-                    <!-- Image -->
-                    <div class="h-56 sm:h-64 overflow-hidden">
-                        <img :src="card.image" alt="" class="w-full h-full object-cover">
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden hover:-translate-y-2"
+                     x-intersect="$el.style.opacity = '0'; $el.style.transform = 'translateY(30px)'; setTimeout(() => { $el.style.opacity = '1'; $el.style.transform = 'translateY(0)'; }, index * 100)"
+                     style="transition: all 0.6s ease-out;">
+                    
+                    <!-- Image Container with Overlay -->
+                    <div class="relative h-48 sm:h-56 overflow-hidden">
+                        <img :src="card.image" alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- Category Badge -->
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full" x-text="card.category"></span>
+                        </div>
                     </div>
 
                     <!-- Content -->
                     <div class="flex flex-col justify-between flex-1 p-6">
                         <div>
-                            <h3 class="text-xl font-semibold text-gray-900 mb-2" x-text="card.title"></h3>
-                            <p class="text-gray-600 text-sm sm:text-base" x-text="card.text"></p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300" x-text="card.title"></h3>
+                            <p class="text-gray-600 text-sm leading-relaxed" x-text="card.text"></p>
                         </div>
 
-                        <!-- Arrow Button -->
-                        <div class="mt-6">
+                        <!-- Enhanced Arrow Button -->
+                        <div class="mt-6 flex justify-between items-center">
                             <a :href="card.link"
-                               class="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                               class="group/btn inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                                <svg class="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                                 </svg>
+                            </a>
+                            <!-- Learn More Link -->
+                            <a :href="card.link" class="text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors duration-300">
+                                Learn more →
                             </a>
                         </div>
                     </div>
 
+                    <!-- Hover Glow Effect -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
             </template>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center mt-16">
+            <a href="#" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                View All Solutions
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
         </div>
     </div>
 </section>
 
-<section
-    x-data="{
-    cards: [
-      {
-        title: 'Digitale Kompetenz als Wettbewerbsvorteil',
-        text: 'Strategisch transformieren, unternehmerisch profitieren',
-        image: 'https://via.placeholder.com/600x400?text=Image+1',
-        link: '#'
-      },
-      {
-        title: 'Mit KI die volle Datenpower entfesseln',
-        text: 'Produktivität maximieren, Geschäftsergebnisse transformieren.',
-        image: 'https://via.placeholder.com/600x400?text=Image+2',
-        link: '#'
-      },
-      {
-        title: 'Agilität für nachhaltigen Erfolg',
-        text: 'Schneller anpassen, langfristig profitieren.',
-        image: 'https://via.placeholder.com/600x400?text=Image+3',
-        link: '#'
-      }
-    ]
-  }"
-    class="bg-gray-50 py-12 sm:py-16 lg:py-20"
->
+
+
+<!-- Inspirational Topics Section -->
+<section class="bg-white py-16 lg:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+                Inspirational Topics
+            </h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Discover insights, success stories, and innovative solutions
+            </p>
+        </div>
 
-        <!-- Section Title -->
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-10 sm:mb-14">
-            Zukunft beginnt jetzt
-        </h2>
-
-        <!-- Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <!-- Card -->
-            <template x-for="(card, index) in cards" :key="index">
-                <div
-                    class="bg-white rounded-3xl shadow hover:shadow-lg transition flex flex-col overflow-hidden"
-                >
-                    <!-- Image -->
-                    <div class="h-52 sm:h-56 lg:h-64 overflow-hidden">
-                        <img :src="card.image" alt="" class="w-full h-full object-cover">
+        <!-- Alternating Content Blocks -->
+        <div class="space-y-16">
+            <!-- Publications Block -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Content -->
+                <div class="order-2 lg:order-1" 
+                     x-intersect="$el.style.opacity = '0'; $el.style.transform = 'translateX(-50px)'; setTimeout(() => { $el.style.opacity = '1'; $el.style.transform = 'translateX(0)'; }, 200)"
+                     style="transition: all 0.8s ease-out;">
+                    <div class="max-w-lg">
+                        <h3 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                            Publications
+                        </h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            Learn more about MHP studies and white papers and download your free copy. Access our latest research and insights.
+                        </p>
+                        <a href="#" class="group inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            Read more
+                            <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
-
-                    <!-- Content -->
-                    <div class="flex flex-col justify-between flex-1 p-6">
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2" x-text="card.title"></h3>
-                            <p class="text-gray-600 text-sm sm:text-base" x-text="card.text"></p>
-                        </div>
-
-                        <!-- Arrow Button -->
-                        <div class="mt-6">
-                            <a :href="card.link"
-                               class="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </a>
+                </div>
+                
+                <!-- Image -->
+                <div class="order-1 lg:order-2 relative"
+                     x-intersect="$el.style.opacity = '0'; $el.style.transform = 'translateX(50px)'; setTimeout(() => { $el.style.opacity = '1'; $el.style.transform = 'translateX(0)'; }, 400)"
+                     style="transition: all 0.8s ease-out;">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl group">
+                        <img src="{{asset('images/dark1.jpg')}}" alt="Professional with tablet" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <!-- Floating Badge -->
+                        <div class="absolute top-6 right-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                            <span class="text-sm font-semibold text-gray-900">Research</span>
                         </div>
                     </div>
                 </div>
-            </template>
+            </div>
+
+            <!-- Success Stories Block -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Image -->
+                <div class="relative"
+                     x-intersect="$el.style.opacity = '0'; $el.style.transform = 'translateX(-50px)'; setTimeout(() => { $el.style.opacity = '1'; $el.style.transform = 'translateX(0)'; }, 200)"
+                     style="transition: all 0.8s ease-out;">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl group">
+                        <img src="{{asset('images/dark2.jpg')}}" alt="Success story" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <!-- Floating Badge -->
+                        <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                            <span class="text-sm font-semibold text-gray-900">Case Study</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div 
+                     x-intersect="$el.style.opacity = '0'; $el.style.transform = 'translateX(50px)'; setTimeout(() => { $el.style.opacity = '1'; $el.style.transform = 'translateX(0)'; }, 400)"
+                     style="transition: all 0.8s ease-out;">
+                    <div class="max-w-lg">
+                        <h3 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                            Success Stories
+                        </h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            We want our clients to be successful. Because your success is our success, too. By providing excellent service, we help you achieve your goals.
+                        </p>
+                        <a href="#" class="group inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            Read more
+                            <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA Section -->
+        <div class="mt-20 text-center"
+             x-intersect="$el.style.opacity = '0'; $el.style.transform = 'translateY(30px)'; setTimeout(() => { $el.style.opacity = '1'; $el.style.transform = 'translateY(0)'; }, 600)"
+             style="transition: all 0.8s ease-out;">
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-3xl p-12 shadow-lg">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                    Ready to Transform Your Business?
+                </h3>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Join thousands of successful companies who have transformed their operations with our innovative solutions.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#" class="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        Get Started Today
+                        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="inline-flex items-center px-8 py-4 border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-xl font-semibold transition-all duration-300 hover:scale-105">
+                        Learn More
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -512,58 +698,75 @@
             activeIndex: 0,
             progress: 0,
             interval: null,
-            duration: 5000, // 5 seconds per slide
+            duration: 6000, // 6 seconds per slide for better UX
+            isPaused: false,
             slides: [
                 {
-                    title: "Finden. Leasen. Losfahren.",
-                    text: "Für die Deutsche Leasing AG entwickelt MHP eine innovative Vertriebslösung für Gewerbekunden, die Maßstäbe setzt.",
-                    button: "Success Story lesen",
+                    title: "Transformation needs leadership",
+                    text: "Why 75% fail - and how leadership makes the difference. Discover the key elements of successful digital transformation.",
+                    button: "Download white paper",
                     link: "#",
-                    image: "{{asset('images/img.png')}}",
+                    image: "{{asset('images/dark1.jpg')}}",
                     position: "right"
                 },
                 {
                     title: "Digital. Smart. Future.",
-                    text: "MHP liefert innovative Lösungen für die digitale Transformation in allen Branchen.",
-                    button: "Mehr erfahren",
+                    text: "MHP delivers innovative solutions for digital transformation across all industries with proven expertise.",
+                    button: "Learn more",
                     link: "#",
-                    image: "{{asset('images/img_1.png')}}",
+                    image: "{{asset('images/dark2.jpg')}}",
                     position: "left"
                 },
                 {
-                    title: "Driving Innovation.",
-                    text: "Wir entwickeln Strategien und Technologien, die Unternehmen nachhaltig verändern.",
-                    button: "Kontakt aufnehmen",
+                    title: "Driving Innovation Forward",
+                    text: "We develop strategies and technologies that sustainably transform businesses and create lasting value.",
+                    button: "Get in touch",
                     link: "#",
-                    image: "{{asset('images/img_2.png')}}",
-                    position: "left"
+                    image: "{{asset('images/light.jpg')}}",
+                    position: "center"
                 }
             ],
             start() {
                 this.animateProgress();
+                // Pause on hover
+                this.$el.addEventListener('mouseenter', () => this.pause());
+                this.$el.addEventListener('mouseleave', () => this.resume());
             },
             animateProgress() {
                 clearInterval(this.interval);
                 this.progress = 0;
-                let step = 100 / (this.duration / 100); // increment per 100ms
+                const totalSteps = this.duration / 16; // 60fps (16ms per frame)
+                const step = 100 / totalSteps;
                 this.interval = setInterval(() => {
-                    this.progress += step;
-                    if (this.progress >= 100) {
-                        this.next();
+                    if (!this.isPaused) {
+                        this.progress += step;
+                        if (this.progress >= 100) {
+                            this.progress = 100;
+                            this.next();
+                        }
                     }
-                }, 100);
+                }, 16); // 60fps for smooth animation
             },
             next() {
                 this.activeIndex = (this.activeIndex + 1) % this.slides.length;
+                this.progress = 0; // Reset progress immediately
                 this.animateProgress();
             },
             prev() {
                 this.activeIndex = (this.activeIndex - 1 + this.slides.length) % this.slides.length;
+                this.progress = 0; // Reset progress immediately
                 this.animateProgress();
             },
             goToSlide(i) {
                 this.activeIndex = i;
+                this.progress = 0; // Reset progress immediately
                 this.animateProgress();
+            },
+            pause() {
+                this.isPaused = true;
+            },
+            resume() {
+                this.isPaused = false;
             }
         }
     }
