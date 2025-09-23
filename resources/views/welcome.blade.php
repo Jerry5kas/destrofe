@@ -292,64 +292,136 @@
             }
         }
 
-        /* Data Flow Dots */
-        .dot-cyan, .dot-indigo {
+        /* Professional Data Flow Animation */
+        .data-flow-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            /*background: rgba(0, 0, 0, 0.1);*/
+            /*border-radius: 20px;*/
+            backdrop-filter: blur(10px);
+            /*border: 1px solid rgba(255, 255, 255, 0.1);*/
+        }
+
+        .data-flow-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
+            border-radius: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .data-flow-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .data-flow-path {
+            position: relative;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg,
+                rgba(59, 130, 246, 0.3) 0%,
+                rgba(6, 182, 212, 0.5) 50%,
+                rgba(139, 92, 246, 0.3) 100%);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .data-flow-path::before {
+            content: '';
             position: absolute;
-            width: 8px;
-            height: 8px;
-            border-radius: 9999px;
-            top: 50%;
-            transform: translateY(-50%);
-            opacity: 0.9;
-            box-shadow: 0 0 6px currentColor;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.8) 50%,
+                transparent 100%);
+            animation: dataFlow 3s ease-in-out infinite;
         }
 
-        /* Car → Cloud (cyan) */
-        .dot-cyan {
-            background-color: #22d3ee; /* cyan-400 */
-            color: #22d3ee;
-            animation: move-right 2s linear infinite;
+        .data-packet {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+            animation: packetFlow 2.5s ease-in-out infinite;
         }
 
-        /* Cloud → Car (indigo) */
-        .dot-indigo {
-            background-color: #6366f1; /* indigo-500 */
-            color: #6366f1;
-            animation: move-left 2s linear infinite;
+        .data-packet:nth-child(1) {
+            animation-delay: 0s;
         }
 
-        /* Keyframes */
-        @keyframes move-right {
+        .data-packet:nth-child(2) {
+            animation-delay: 0.8s;
+        }
+
+        .data-packet:nth-child(3) {
+            animation-delay: 1.6s;
+        }
+
+        @keyframes dataFlow {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes packetFlow {
             0% {
                 left: 0%;
                 opacity: 0;
+                transform: scale(0.5);
             }
-            10% {
+            20% {
                 opacity: 1;
+                transform: scale(1);
             }
-            90% {
+            80% {
                 opacity: 1;
+                transform: scale(1);
             }
             100% {
                 left: 100%;
                 opacity: 0;
+                transform: scale(0.5);
             }
         }
 
-        @keyframes move-left {
-            0% {
-                left: 100%;
-                opacity: 0;
+        /* Bidirectional flow indicator */
+        .flow-indicator {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                opacity: 0.7;
             }
-            10% {
+            50% {
+                transform: translateX(-50%) scale(1.2);
                 opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                left: 0%;
-                opacity: 0;
             }
         }
 
@@ -387,6 +459,21 @@
             .neon-border {
                 border-width: 1px;
             }
+
+            .logo-gradient {
+                font-size: 1.5rem;
+            }
+
+            .logo-icon {
+                width: 28px;
+                height: 28px;
+                margin-right: 8px;
+            }
+
+            .logo-icon svg {
+                width: 10px;
+                height: 10px;
+            }
         }
 
         /* Performance optimizations */
@@ -418,6 +505,363 @@
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
             letter-spacing: 0.02em;
+        }
+
+        /* Enhanced Logo Styles */
+        .logo-gradient {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4, #8b5cf6, #ec4899);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoGradientShift 4s ease infinite;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+            position: relative;
+        }
+
+        .logo-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4, #8b5cf6, #ec4899);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: blur(1px);
+            opacity: 0.5;
+            z-index: -1;
+            animation: logoGradientShift 4s ease infinite;
+        }
+
+        @keyframes logoGradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 100% 50%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            75% {
+                background-position: 0% 100%;
+            }
+        }
+
+        /* Logo hover effects */
+        .logo-gradient:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6));
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Logo icon */
+        .logo-icon {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            margin-right: 12px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4, #8b5cf6);
+            border-radius: 10px;
+            position: relative;
+            vertical-align: middle;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, #ffffff, #e2e8f0);
+            border-radius: 3px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Logo icon inner design */
+        .logo-icon svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            z-index: 2;
+        }
+
+        /* Enhanced Navigation Styles */
+        .nav-link {
+            position: relative;
+            padding: 8px 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            color: #3b82f6 !important;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 280px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px var(--shadow-primary);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            transition: width 0.3s ease;
+        }
+
+        .dropdown-item:hover::before {
+            width: 100%;
+        }
+
+        .dropdown-item:hover {
+            color: #3b82f6;
+            padding-left: 30px;
+            transform: translateX(5px);
+        }
+
+        .dropdown-item-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .dropdown-item-desc {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            line-height: 1.4;
+        }
+
+        /* Dropdown Arrow */
+        .dropdown-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Mobile Dropdown */
+        .mobile-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-dropdown.open {
+            max-height: 500px;
+        }
+
+        .mobile-dropdown-item {
+            padding: 12px 20px;
+            color: var(--text-tertiary);
+            text-decoration: none;
+            display: block;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-dropdown-item:hover {
+            color: #3b82f6;
+            border-left-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Advanced Contact Element Styles */
+        .contact-element {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-element::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .contact-element:hover::before {
+            left: 100%;
+        }
+
+        .contact-element:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.15));
+        }
+
+        .contact-icon {
+            width: 14px;
+            height: 14px;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
+        }
+
+        .contact-element:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.5));
+        }
+
+        .contact-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-element:hover .contact-text {
+            color: #3b82f6;
+            transform: translateX(2px);
+        }
+
+        /* Pulse animation for contact element */
+        .contact-element {
+            animation: contactPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes contactPulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+            }
+        }
+
+        /* Floating particles effect */
+        .contact-element::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 6px;
+            height: 6px;
+            background: #3b82f6;
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatParticle 2s ease-in-out infinite;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% {
+                opacity: 0;
+                transform: translateY(0) scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1);
+            }
+        }
+
+        /* Theme-specific adjustments */
+        [data-theme="light"] .contact-element {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(6, 182, 212, 0.08));
+            border-color: rgba(59, 130, 246, 0.15);
+        }
+
+        [data-theme="light"] .contact-element:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(6, 182, 212, 0.12));
+            border-color: rgba(59, 130, 246, 0.25);
         }
 
         .font-hero {
@@ -496,30 +940,65 @@
             box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
         }
 
-        /* Theme Toggle */
-        .theme-toggle {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: rgba(59, 130, 246, 0.1);
-            border: 2px solid rgba(59, 130, 246, 0.3);
-            border-radius: 50%;
-            color: #3b82f6;
-            cursor: pointer;
+        /* Navbar Theme Toggle */
+        .navbar-theme-toggle {
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 1000;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 10px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
         }
 
-        .theme-toggle:hover {
-            background: rgba(59, 130, 246, 0.2);
-            border-color: rgba(59, 130, 246, 0.5);
+        .navbar-theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .navbar-theme-toggle:hover::before {
+            left: 100%;
+        }
+
+        .navbar-theme-toggle:hover {
             transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.5);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.15));
+        }
+
+        .navbar-theme-toggle svg {
+            width: 18px;
+            height: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-theme-toggle:hover svg {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Theme-specific adjustments */
+        [data-theme="light"] .navbar-theme-toggle {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(6, 182, 212, 0.08));
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        [data-theme="light"] .navbar-theme-toggle:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(6, 182, 212, 0.12));
+            border-color: rgba(59, 130, 246, 0.3);
         }
 
         /* Dark Theme Variables (Default) */
@@ -599,21 +1078,1213 @@
             background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-quaternary));
         }
 
-        /* Theme-aware card styles */
-        .theme-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-primary);
+        /* Enhanced About Section Cards */
+        .about-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            transition: left 0.6s ease;
+        }
+
+        .about-card:hover::before {
+            left: 100%;
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.15) 0%, 
+                rgba(255, 255, 255, 0.08) 100%);
+        }
+
+        /* About card icon styling */
+        .about-card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.2) 0%, 
+                rgba(6, 182, 212, 0.2) 100%);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .about-card-icon svg {
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover .about-card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .about-card:hover .about-card-icon::before {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.3) 0%, 
+                rgba(6, 182, 212, 0.3) 100%);
+        }
+
+        .about-card:hover .about-card-icon svg {
+            transform: scale(1.1);
+        }
+
+        /* About card title */
+        .about-card-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
             color: var(--text-primary);
             transition: all 0.3s ease;
         }
 
-        .theme-card:hover {
-            background: var(--bg-tertiary);
-            border-color: var(--accent-primary);
-            box-shadow: 0 8px 25px var(--shadow-primary);
+        .about-card:hover .about-card-title {
+            color: #3b82f6;
+            transform: translateY(-2px);
         }
 
-        /* Hero Background with GIF */
+        /* About card description */
+        .about-card-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-tertiary);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover .about-card-description {
+            color: var(--text-secondary);
+        }
+
+        /* Theme-specific adjustments */
+        [data-theme="light"] .about-card {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.05) 0%, 
+                rgba(0, 0, 0, 0.02) 100%);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .about-card:hover {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.08) 0%, 
+                rgba(0, 0, 0, 0.04) 100%);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        /* Enhanced Product Cards */
+        .product-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%, 
+                rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-primary);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            cursor: pointer;
+            border-radius: 24px;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            transition: left 1s ease;
+            z-index: 1;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-16px) scale(1.04);
+            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.6);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.15) 0%, 
+                rgba(255, 255, 255, 0.08) 100%);
+        }
+
+        /* Product card image container */
+        .product-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+            margin: -24px -24px 24px -24px;
+        }
+
+        .product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .product-card:hover .product-card-image img {
+            transform: scale(1.1);
+            filter: brightness(1) contrast(1.2);
+        }
+
+        /* Product card image overlay */
+        .product-card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.3) 0%, 
+                rgba(0, 0, 0, 0.1) 100%);
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover .product-card-image::after {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.2) 0%, 
+                rgba(6, 182, 212, 0.1) 100%);
+        }
+
+        /* Product card icon */
+        .product-card-icon {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.9) 0%, 
+                rgba(6, 182, 212, 0.9) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .product-card-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-card-icon {
+            transform: scale(1.2) rotate(10deg);
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 1) 0%, 
+                rgba(6, 182, 212, 1) 100%);
+        }
+
+        .product-card:hover .product-card-icon svg {
+            transform: scale(1.1);
+        }
+
+        /* Product card content */
+        .product-card-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 24px 24px 24px;
+        }
+
+        /* Product card title */
+        .product-card-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            transition: all 0.4s ease;
+            line-height: 1.3;
+        }
+
+        .product-card:hover .product-card-title {
+            color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        /* Product card description */
+        .product-card-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-tertiary);
+            transition: all 0.4s ease;
+            margin-bottom: 16px;
+        }
+
+        .product-card:hover .product-card-description {
+            color: var(--text-secondary);
+        }
+
+        /* Product card features */
+        .product-card-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .product-card-features li {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .product-card-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-card-features li {
+            color: var(--text-secondary);
+            transform: translateX(4px);
+        }
+
+        .product-card:hover .product-card-features li::before {
+            color: #06b6d4;
+            transform: scale(1.2);
+        }
+
+        /* Product card badge */
+        .product-card-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 20px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .product-card:hover .product-card-badge {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Theme-specific adjustments */
+        [data-theme="light"] .product-card {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.04) 0%, 
+                rgba(0, 0, 0, 0.01) 100%);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .product-card:hover {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.08) 0%, 
+                rgba(0, 0, 0, 0.04) 100%);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        [data-theme="light"] .product-card-image::after {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.05) 100%);
+        }
+
+        [data-theme="light"] .product-card:hover .product-card-image::after {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.15) 0%, 
+                rgba(6, 182, 212, 0.08) 100%);
+        }
+
+        /* Enhanced Service Cards */
+        .service-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%, 
+                rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-primary);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            cursor: pointer;
+            border-radius: 24px;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            transition: left 1s ease;
+            z-index: 1;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-16px) scale(1.04);
+            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.6);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.15) 0%, 
+                rgba(255, 255, 255, 0.08) 100%);
+        }
+
+        /* Service card image container */
+        .service-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+            margin: -24px -24px 24px -24px;
+        }
+
+        .service-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .service-card:hover .service-card-image img {
+            transform: scale(1.1);
+            filter: brightness(1) contrast(1.2);
+        }
+
+        /* Service card image overlay */
+        .service-card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.3) 0%, 
+                rgba(0, 0, 0, 0.1) 100%);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-card-image::after {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.2) 0%, 
+                rgba(6, 182, 212, 0.1) 100%);
+        }
+
+        /* Service card icon */
+        .service-card-icon {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.9) 0%, 
+                rgba(6, 182, 212, 0.9) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .service-card-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-card-icon {
+            transform: scale(1.2) rotate(10deg);
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 1) 0%, 
+                rgba(6, 182, 212, 1) 100%);
+        }
+
+        .service-card:hover .service-card-icon svg {
+            transform: scale(1.1);
+        }
+
+        /* Service card content */
+        .service-card-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 24px 24px 24px;
+        }
+
+        /* Service card title */
+        .service-card-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            transition: all 0.4s ease;
+            line-height: 1.3;
+        }
+
+        .service-card:hover .service-card-title {
+            color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        /* Service card description */
+        .service-card-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-tertiary);
+            transition: all 0.4s ease;
+            margin-bottom: 16px;
+        }
+
+        .service-card:hover .service-card-description {
+            color: var(--text-secondary);
+        }
+
+        /* Service card features */
+        .service-card-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-card-features li {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .service-card-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-card-features li {
+            color: var(--text-secondary);
+            transform: translateX(4px);
+        }
+
+        .service-card:hover .service-card-features li::before {
+            color: #06b6d4;
+            transform: scale(1.2);
+        }
+
+        /* Service card badge */
+        .service-card-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 20px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .service-card:hover .service-card-badge {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Theme-specific adjustments */
+        [data-theme="light"] .service-card {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.04) 0%, 
+                rgba(0, 0, 0, 0.01) 100%);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .service-card:hover {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.08) 0%, 
+                rgba(0, 0, 0, 0.04) 100%);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        [data-theme="light"] .service-card-image::after {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.05) 100%);
+        }
+
+        [data-theme="light"] .service-card:hover .service-card-image::after {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.15) 0%, 
+                rgba(6, 182, 212, 0.08) 100%);
+        }
+
+        /* Enhanced SDV Solution Cards */
+        .sdv-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%, 
+                rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-primary);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            cursor: pointer;
+            border-radius: 24px;
+        }
+
+        .sdv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            transition: left 1s ease;
+            z-index: 1;
+        }
+
+        .sdv-card:hover::before {
+            left: 100%;
+        }
+
+        .sdv-card:hover {
+            transform: translateY(-16px) scale(1.04);
+            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.6);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.15) 0%, 
+                rgba(255, 255, 255, 0.08) 100%);
+        }
+
+        /* SDV card image container */
+        .sdv-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+            margin: -24px -24px 24px -24px;
+        }
+
+        .sdv-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .sdv-card:hover .sdv-card-image img {
+            transform: scale(1.1);
+            filter: brightness(1) contrast(1.2);
+        }
+
+        /* SDV card image overlay */
+        .sdv-card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.3) 0%, 
+                rgba(0, 0, 0, 0.1) 100%);
+            transition: all 0.4s ease;
+        }
+
+        .sdv-card:hover .sdv-card-image::after {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.2) 0%, 
+                rgba(6, 182, 212, 0.1) 100%);
+        }
+
+        /* SDV card icon */
+        .sdv-card-icon {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.9) 0%, 
+                rgba(6, 182, 212, 0.9) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .sdv-card-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .sdv-card:hover .sdv-card-icon {
+            transform: scale(1.2) rotate(10deg);
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 1) 0%, 
+                rgba(6, 182, 212, 1) 100%);
+        }
+
+        .sdv-card:hover .sdv-card-icon svg {
+            transform: scale(1.1);
+        }
+
+        /* SDV card content */
+        .sdv-card-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 24px 24px 24px;
+        }
+
+        /* SDV card title */
+        .sdv-card-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            transition: all 0.4s ease;
+            line-height: 1.3;
+        }
+
+        .sdv-card:hover .sdv-card-title {
+            color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        /* SDV card description */
+        .sdv-card-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-tertiary);
+            transition: all 0.4s ease;
+            margin-bottom: 16px;
+        }
+
+        .sdv-card:hover .sdv-card-description {
+            color: var(--text-secondary);
+        }
+
+        /* SDV card features */
+        .sdv-card-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sdv-card-features li {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .sdv-card-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .sdv-card:hover .sdv-card-features li {
+            color: var(--text-secondary);
+            transform: translateX(4px);
+        }
+
+        .sdv-card:hover .sdv-card-features li::before {
+            color: #06b6d4;
+            transform: scale(1.2);
+        }
+
+        /* SDV card badge */
+        .sdv-card-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 20px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .sdv-card:hover .sdv-card-badge {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Theme-specific adjustments */
+        [data-theme="light"] .sdv-card {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.04) 0%, 
+                rgba(0, 0, 0, 0.01) 100%);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .sdv-card:hover {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.08) 0%, 
+                rgba(0, 0, 0, 0.04) 100%);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        [data-theme="light"] .sdv-card-image::after {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.05) 100%);
+        }
+
+        [data-theme="light"] .sdv-card:hover .sdv-card-image::after {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.15) 0%, 
+                rgba(6, 182, 212, 0.08) 100%);
+        }
+
+        /* Enhanced Contact Section */
+        .contact-container {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.05) 0%, 
+                rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.03) 0%, 
+                rgba(6, 182, 212, 0.02) 100%);
+            border-radius: 24px;
+            z-index: 1;
+        }
+
+        /* Contact Info Cards */
+        .contact-info-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%, 
+                rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+        }
+
+        .contact-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                transparent 100%);
+            transition: left 0.8s ease;
+        }
+
+        .contact-info-card:hover::before {
+            left: 100%;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.06) 100%);
+        }
+
+        /* Contact Icon */
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.2) 0%, 
+                rgba(6, 182, 212, 0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-icon::before {
+            content: '';
+            position: absolute;
+            top: 6;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.3) 0%, 
+                rgba(6, 182, 212, 0.3) 100%);
+            border-radius: 16px;
+            transition: all 0.4s ease;
+        }
+
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+            color: #3b82f6;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-card:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .contact-info-card:hover .contact-icon::before {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.4) 0%, 
+                rgba(6, 182, 212, 0.4) 100%);
+        }
+
+        .contact-info-card:hover .contact-icon svg {
+            color: #06b6d4;
+            transform: scale(1.1);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%, 
+                rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 28px;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.02) 0%, 
+                rgba(6, 182, 212, 0.01) 100%);
+            border-radius: 24px;
+            z-index: 1;
+        }
+
+        /* Form Inputs */
+        .form-input {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.06) 0%, 
+                rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px 20px;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(59, 130, 246, 0.5);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 100%);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-tertiary);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus::placeholder {
+            color: var(--text-secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Form Textarea */
+        .form-textarea {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.06) 0%, 
+                rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px 20px;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            resize: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: rgba(59, 130, 246, 0.5);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 100%);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-textarea::placeholder {
+            color: var(--text-tertiary);
+            transition: all 0.3s ease;
+        }
+
+        .form-textarea:focus::placeholder {
+            color: var(--text-secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Submit Button */
+        .submit-button {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            border: none;
+            border-radius: 16px;
+            padding: 16px 32px;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                transparent 100%);
+            transition: left 0.6s ease;
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #2563eb, #0891b2);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        /* Contact Details */
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-detail:hover {
+            transform: translateX(8px);
+        }
+
+        .contact-detail-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.15) 0%, 
+                rgba(6, 182, 212, 0.15) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-detail-icon svg {
+            width: 16px;
+            height: 16px;
+            color: #3b82f6;
+            transition: all 0.3s ease;
+        }
+
+        .contact-detail:hover .contact-detail-icon {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.25) 0%, 
+                rgba(6, 182, 212, 0.25) 100%);
+            transform: scale(1.1);
+        }
+
+        .contact-detail:hover .contact-detail-icon svg {
+            color: #06b6d4;
+        }
+
+        /* Theme-specific adjustments */
+        [data-theme="light"] .contact-container {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.03) 0%, 
+                rgba(0, 0, 0, 0.01) 100%);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .contact-container::before {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.02) 0%, 
+                rgba(6, 182, 212, 0.01) 100%);
+        }
+
+        [data-theme="light"] .contact-info-card {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.04) 0%, 
+                rgba(0, 0, 0, 0.01) 100%);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .contact-info-card:hover {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.06) 0%, 
+                rgba(0, 0, 0, 0.03) 100%);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        [data-theme="light"] .contact-form {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.04) 0%, 
+                rgba(0, 0, 0, 0.01) 100%);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .form-input,
+        [data-theme="light"] .form-textarea {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.03) 0%, 
+                rgba(0, 0, 0, 0.01) 100%);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .form-input:focus,
+        [data-theme="light"] .form-textarea:focus {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.05) 0%, 
+                rgba(0, 0, 0, 0.02) 100%);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        /* Enhanced Hero Background */
         .hero-bg {
             position: relative;
             overflow: hidden;
@@ -631,18 +2302,135 @@
                 rgba(6, 182, 212, 0.1) 50%,
                 rgba(139, 92, 246, 0.1) 100%);
             animation: gradientShift 8s ease infinite;
-            z-index: -1;
+            z-index: 1;
         }
 
-        .hero-gif {
+        .hero-bg-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.3;
-            z-index: -2;
+            opacity: 0.4;
+            z-index: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Theme-specific hero backgrounds */
+        [data-theme="dark"] .hero-bg-image {
+            content: url('/images/dark1.jpg');
+        }
+
+        [data-theme="light"] .hero-bg-image {
+            content: url('/images/light.jpg');
+        }
+
+        /* Hero text styling */
+        .hero-title {
+            color: var(--text-primary);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+
+        [data-theme="dark"] .hero-title {
+            color: #ffffff;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        [data-theme="light"] .hero-title {
+            color: #1a202c;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Professional gradient text for descriptions */
+        .hero-description {
+            background: linear-gradient(135deg,
+                #ffffff 0%,
+                #e2e8f0 30%,
+                #cbd5e1 60%,
+                #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 10;
+            font-weight: 500;
+        }
+
+        [data-theme="light"] .hero-description {
+            background: linear-gradient(135deg,
+                #1e293b 0%,
+                #334155 30%,
+                #475569 60%,
+                #64748b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Enhanced Explore Button */
+        .explore-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .explore-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .explore-button:hover::before {
+            left: 100%;
+        }
+
+        .explore-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            border-color: rgba(59, 130, 246, 0.6);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
+        }
+
+        .explore-icon {
+            width: 20px;
+            height: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .explore-button:hover .explore-icon {
+            transform: translateX(3px) rotate(5deg);
+        }
+
+        /* Theme-specific button adjustments */
+        [data-theme="light"] .explore-button {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(6, 182, 212, 0.08));
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        [data-theme="light"] .explore-button:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.15));
+            border-color: rgba(59, 130, 246, 0.4);
         }
     </style>
 </head>
@@ -698,23 +2486,145 @@
     :class="scrolled ? 'theme-bg-secondary backdrop-blur-md theme-shadow-primary' : 'bg-transparent'">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         <!-- Logo -->
-        <a href="#home" class="text-2xl font-logo theme-text-primary hover:text-blue-400 transition-colors duration-300">DestroSolutions</a>
+        <a href="#home" class="flex items-center text-2xl logo-gradient hover:scale-105 transition-all duration-300">
+            <div class="logo-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="text-blue-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+            </div>
+            DestroSolutions
+        </a>
 
         <!-- Desktop Menu -->
-        <nav class="hidden md:flex space-x-8 text-sm font-medium">
-            <a href="#home" class="theme-text-secondary hover:text-blue-400 transition">Home</a>
-            <a href="#about" class="theme-text-secondary hover:text-blue-400 transition">About</a>
-            <a href="#products" class="theme-text-secondary hover:text-blue-400 transition">Products</a>
-            <a href="#services" class="theme-text-secondary hover:text-blue-400 transition">Services</a>
-            <a href="#contact" class="theme-text-secondary hover:text-blue-400 transition">Contact</a>
+        <nav class="hidden md:flex space-x-2 text-sm font-medium">
+            <a href="#home" class="nav-link theme-text-secondary">Home</a>
+
+            <a href="#quantum" class="nav-link theme-text-secondary">Quantum</a>
+
+            <!-- Services Dropdown -->
+            <div class="dropdown">
+                <a href="#services" class="nav-link theme-text-secondary flex items-center">
+                    Services
+                    <svg class="dropdown-arrow w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </a>
+                <div class="dropdown-content">
+                    <a href="#cybersecurity" class="dropdown-item">
+                        <div class="dropdown-item-title">Cybersecurity Management</div>
+                        <div class="dropdown-item-desc">Comprehensive security frameworks and management systems</div>
+                    </a>
+                    <a href="#functional-safety" class="dropdown-item">
+                        <div class="dropdown-item-title">Functional Safety</div>
+                        <div class="dropdown-item-desc">Expert guidance in functional safety standards</div>
+                    </a>
+                    <a href="#ota-updates" class="dropdown-item">
+                        <div class="dropdown-item-title">Software Update Management</div>
+                        <div class="dropdown-item-desc">Secure and reliable OTA update systems</div>
+                    </a>
+                    <a href="#aspice" class="dropdown-item">
+                        <div class="dropdown-item-title">ASPICE</div>
+                        <div class="dropdown-item-desc">Automotive SPICE process improvement services</div>
+                    </a>
+                    <a href="#autosar" class="dropdown-item">
+                        <div class="dropdown-item-title">AUTOSAR</div>
+                        <div class="dropdown-item-desc">AUTOSAR architecture implementation services</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Products Dropdown -->
+            <div class="dropdown">
+                <a href="#products" class="nav-link theme-text-secondary flex items-center">
+                    Products
+                    <svg class="dropdown-arrow w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </a>
+                <div class="dropdown-content">
+                    <a href="#automator-ai" class="dropdown-item">
+                        <div class="dropdown-item-title">Automator AI</div>
+                        <div class="dropdown-item-desc">Automation policies for vehicle functions</div>
+                    </a>
+                    <a href="#idps" class="dropdown-item">
+                        <div class="dropdown-item-title">IDPS</div>
+                        <div class="dropdown-item-desc">Intrusion Detection and Prevention System</div>
+                    </a>
+                    <a href="#ai-data-collector" class="dropdown-item">
+                        <div class="dropdown-item-title">AI Data Collector</div>
+                        <div class="dropdown-item-desc">Data acquisition and analytics tool</div>
+                    </a>
+                    <a href="#sbom" class="dropdown-item">
+                        <div class="dropdown-item-title">SBOM</div>
+                        <div class="dropdown-item-desc">Software Bill of Materials</div>
+                    </a>
+                    <a href="#vsoc" class="dropdown-item">
+                        <div class="dropdown-item-title">vSOC</div>
+                        <div class="dropdown-item-desc">Vehicle Security Operation Center</div>
+                    </a>
+                    <a href="#ota-updater" class="dropdown-item">
+                        <div class="dropdown-item-title">OTA Updater</div>
+                        <div class="dropdown-item-desc">Secure over-the-air software updates</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Training Dropdown -->
+            <div class="dropdown">
+                <a href="#training" class="nav-link theme-text-secondary flex items-center">
+                    Training
+                    <svg class="dropdown-arrow w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </a>
+                <div class="dropdown-content">
+                    <a href="#cybersecurity-training" class="dropdown-item">
+                        <div class="dropdown-item-title">Cybersecurity Training</div>
+                        <div class="dropdown-item-desc">Comprehensive cybersecurity education programs</div>
+                    </a>
+                    <a href="#functional-safety-training" class="dropdown-item">
+                        <div class="dropdown-item-title">Functional Safety Training</div>
+                        <div class="dropdown-item-desc">ISO 26262 and safety standards training</div>
+                    </a>
+                    <a href="#aspice-training" class="dropdown-item">
+                        <div class="dropdown-item-title">ASPICE Training</div>
+                        <div class="dropdown-item-desc">Automotive SPICE process training</div>
+                    </a>
+                    <a href="#autosar-training" class="dropdown-item">
+                        <div class="dropdown-item-title">AUTOSAR Training</div>
+                        <div class="dropdown-item-desc">AUTOSAR architecture and implementation</div>
+                    </a>
+                    <a href="#sdv-training" class="dropdown-item">
+                        <div class="dropdown-item-title">SDV Training</div>
+                        <div class="dropdown-item-desc">Software-Defined Vehicle development</div>
+                    </a>
+                </div>
+            </div>
+
+            <a href="#blog" class="nav-link theme-text-secondary">Blog</a>
         </nav>
 
-        <!-- CTA -->
-        <a href="#contact"
-           class="hidden md:inline-block px-5 py-2 bg-gradient-to-r from-blue-500 to-indigo-600
-                hover:from-indigo-600 hover:to-blue-500 rounded-xl shadow-lg transition-transform transform hover:scale-105">
-            Contact Us
-        </a>
+        <!-- Navbar Actions -->
+        <div class="hidden md:flex items-center gap-3">
+            <!-- Theme Toggle -->
+            <button class="navbar-theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                <svg id="navbar-sun-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+                <svg id="navbar-moon-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+            </button>
+
+            <!-- Contact Element -->
+            <a href="#contact" class="contact-element">
+                <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <span class="contact-text">Contact Us</span>
+            </a>
+        </div>
 
         <!-- Mobile Menu Button -->
         <button @click="navOpen = !navOpen" class="md:hidden focus:outline-none relative z-50">
@@ -742,87 +2652,128 @@
          x-transition:leave-start="opacity-100 translate-y-0"
          x-transition:leave-end="opacity-0 -translate-y-5"
          class="md:hidden theme-bg-secondary backdrop-blur-lg theme-shadow-primary">
-        <nav class="flex flex-col px-6 py-6 space-y-4 text-lg">
-            <a href="#home" class="theme-text-secondary hover:text-blue-400 transition">Home</a>
-            <a href="#about" class="theme-text-secondary hover:text-blue-400 transition">About</a>
-            <a href="#products" class="theme-text-secondary hover:text-blue-400 transition">Products</a>
-            <a href="#services" class="theme-text-secondary hover:text-blue-400 transition">Services</a>
-            <a href="#contact" class="theme-text-secondary hover:text-blue-400 transition">Contact</a>
+        <nav class="flex flex-col px-6 py-6 space-y-2 text-lg">
+            <a href="#home" class="nav-link theme-text-secondary">Home</a>
+            <a href="#quantum" class="nav-link theme-text-secondary">Quantum</a>
+
+            <!-- Services Mobile Dropdown -->
+            <div x-data="{ open: false }">
+                <button @click="open = !open" class="nav-link theme-text-secondary flex items-center justify-between w-full">
+                    Services
+                    <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="mobile-dropdown" :class="open ? 'open' : ''">
+                    <a href="#cybersecurity" class="mobile-dropdown-item">Cybersecurity Management</a>
+                    <a href="#functional-safety" class="mobile-dropdown-item">Functional Safety</a>
+                    <a href="#ota-updates" class="mobile-dropdown-item">Software Update Management</a>
+                    <a href="#aspice" class="mobile-dropdown-item">ASPICE</a>
+                    <a href="#autosar" class="mobile-dropdown-item">AUTOSAR</a>
+    </div>
+            </div>
+
+            <!-- Products Mobile Dropdown -->
+            <div x-data="{ open: false }">
+                <button @click="open = !open" class="nav-link theme-text-secondary flex items-center justify-between w-full">
+                    Products
+                    <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+                </button>
+                <div class="mobile-dropdown" :class="open ? 'open' : ''">
+                    <a href="#automator-ai" class="mobile-dropdown-item">Automator AI</a>
+                    <a href="#idps" class="mobile-dropdown-item">IDPS</a>
+                    <a href="#ai-data-collector" class="mobile-dropdown-item">AI Data Collector</a>
+                    <a href="#sbom" class="mobile-dropdown-item">SBOM</a>
+                    <a href="#vsoc" class="mobile-dropdown-item">vSOC</a>
+                    <a href="#ota-updater" class="mobile-dropdown-item">OTA Updater</a>
+                </div>
+            </div>
+
+            <!-- Training Mobile Dropdown -->
+            <div x-data="{ open: false }">
+                <button @click="open = !open" class="nav-link theme-text-secondary flex items-center justify-between w-full">
+                    Training
+                    <svg class="w-4 h-4 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+</button>
+                <div class="mobile-dropdown" :class="open ? 'open' : ''">
+                    <a href="#cybersecurity-training" class="mobile-dropdown-item">Cybersecurity Training</a>
+                    <a href="#functional-safety-training" class="mobile-dropdown-item">Functional Safety Training</a>
+                    <a href="#aspice-training" class="mobile-dropdown-item">ASPICE Training</a>
+                    <a href="#autosar-training" class="mobile-dropdown-item">AUTOSAR Training</a>
+                    <a href="#sdv-training" class="mobile-dropdown-item">SDV Training</a>
+                </div>
+            </div>
+
+            <a href="#blog" class="nav-link theme-text-secondary">Blog</a>
         </nav>
     </div>
 </header>
 
-<!-- Theme Toggle Button -->
-<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-    <svg id="sun-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-    </svg>
-    <svg id="moon-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-    </svg>
-</button>
 
 
 <!-- 🔹 Hero -->
 <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden hero-bg">
     <div class="absolute inset-0">
-        <!-- Automobile GIF Background -->
-        <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyU/giphy.gif" alt="Automotive Technology" class="hero-gif">
-        <!-- Fallback static image -->
-        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1920&q=80" alt="Futuristic City" class="w-full h-full object-cover" style="display: none;">
+        <!-- Theme-based Background Images -->
+        <img src="/images/dark1.jpg" alt="Automotive Technology" class="hero-bg-image">
         <div class="absolute inset-0 theme-overlay-primary"></div>
     </div>
-    <!-- Car ↔ Cloud Data Flow -->
-    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex items-center space-x-12 opacity-95">
-        <div class="w-16 h-16 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 32" class="w-14 h-14 text-blue-500 fill-current"><path d="M4 20c0-4 2-8 6-10l8-6h20l8 6c4 2 6 6 6 10v6h-4a4 4 0 11-8 0H16a4 4 0 11-8 0H4v-6z"/></svg>
+    <!-- Professional Car ↔ Cloud Data Flow -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div class="data-flow-container">
+            <!-- Vehicle Icon -->
+            <div class="data-flow-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -43.92 122.88 122.88" class="w-8 h-8 text-cyan-400" fill="currentColor">
+                    <path d="M99.42,13.57c5.93,0,10.73,4.8,10.73,10.73c0,5.93-4.8,10.73-10.73,10.73s-10.73-4.8-10.73-10.73 C88.69,18.37,93.49,13.57,99.42,13.57L99.42,13.57z M79.05,5c-0.59,1.27-1.06,2.69-1.42,4.23c-0.82,2.57,0.39,3.11,3.19,2.06 c2.06-1.23,4.12-2.47,6.18-3.7c1.05-0.74,1.55-1.47,1.38-2.19c-0.34-1.42-3.08-2.16-5.33-2.6C80.19,2.23,80.39,2.11,79.05,5 L79.05,5z M23.86,19.31c2.75,0,4.99,2.23,4.99,4.99c0,2.75-2.23,4.99-4.99,4.99c-2.75,0-4.99-2.23-4.99-4.99 C18.87,21.54,21.1,19.31,23.86,19.31L23.86,19.31z M99.42,19.31c2.75,0,4.99,2.23,4.99,4.99c0,2.75-2.23,4.99-4.99,4.99 c-2.75,0-4.99-2.23-4.99-4.99C94.43,21.54,96.66,19.31,99.42,19.31L99.42,19.31z M46.14,12.5c2.77-2.97,5.97-4.9,9.67-6.76 c8.1-4.08,13.06-3.58,21.66-3.58l-2.89,7.5c-1.21,1.6-2.58,2.73-4.66,2.84H46.14L46.14,12.5z M23.86,13.57 c5.93,0,10.73,4.8,10.73,10.73c0,5.93-4.8,10.73-10.73,10.73s-10.73-4.8-10.73-10.73C13.13,18.37,17.93,13.57,23.86,13.57 L23.86,13.57z M40.82,10.3c3.52-2.19,7.35-4.15,11.59-5.82c12.91-5.09,22.78-6,36.32-1.9c4.08,1.55,8.16,3.1,12.24,4.06 c4.03,0.96,21.48,1.88,21.91,4.81l-4.31,5.15c1.57,1.36,2.85,3.03,3.32,5.64c-0.13,1.61-0.57,2.96-1.33,4.04 c-1.29,1.85-5.07,3.76-7.11,2.67c-0.65-0.35-1.02-1.05-1.01-2.24c0.06-23.9-28.79-21.18-26.62,2.82H35.48 C44.8,5.49,5.04,5.4,12.1,28.7C9.62,31.38,3.77,27.34,0,18.75c1.03-1.02,2.16-1.99,3.42-2.89c-0.06-0.05,0.06,0.19-0.15-0.17 c-0.21-0.36,0.51-1.87,1.99-2.74C13.02,8.4,31.73,8.52,40.82,10.3L40.82,10.3z"/>
+                </svg>
         </div>
-        <div class="relative w-40 h-6 overflow-hidden">
-            <div class="absolute top-1/2 left-0 w-full h-[2px] -translate-y-1/2 bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 blur-sm opacity-70 animate-pulse"></div>
-            <div class="absolute inset-0 flex items-center">
-                <span class="dot-cyan"></span>
-                <span class="dot-cyan delay-200"></span>
-                <span class="dot-cyan delay-400"></span>
+
+            <!-- Data Flow Path -->
+            <div class="data-flow-path">
+                <div class="flow-indicator"></div>
+                <div class="data-packet"></div>
+                <div class="data-packet"></div>
+                <div class="data-packet"></div>
             </div>
-            <div class="absolute inset-0 flex items-center">
-                <span class="dot-indigo"></span>
-                <span class="dot-indigo delay-300"></span>
-                <span class="dot-indigo delay-600"></span>
+
+            <!-- Cloud Icon -->
+            <div class="data-flow-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                </svg>
             </div>
-        </div>
-        <div class="w-16 h-16 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 40" class="w-14 h-14 text-indigo-400 fill-current"><path d="M48 24a8 8 0 00-7.75-8A12 12 0 0028 8a11.96 11.96 0 00-10.39 6.1A8 8 0 0012 32h36a8 8 0 000-16z"/></svg>
         </div>
     </div>
     <div class="relative z-10 text-center max-w-5xl px-4">
         <div class="fade-in-up stagger-1">
-            <h1 class="text-5xl md:text-8xl font-hero leading-tight theme-text-primary mb-8">
+            <h1 class="text-5xl md:text-8xl font-hero leading-tight hero-title mb-8">
                 Bringing SDV to Life
             </h1>
         </div>
 
         <div class="fade-in-up stagger-2">
-            <p class="text-xl md:text-2xl font-content theme-text-secondary leading-relaxed max-w-4xl mx-auto mb-6">
+            <p class="text-xl md:text-2xl font-content hero-description leading-relaxed max-w-4xl mx-auto mb-6">
                 Innovative products, services and training for the Software-Defined Vehicle Era.
             </p>
         </div>
 
         <div class="fade-in-up stagger-3">
-            <p class="text-lg font-content theme-text-tertiary max-w-3xl mx-auto mb-12">
+            <p class="text-lg font-content hero-description max-w-3xl mx-auto mb-12">
                 Driving the future of mobility with secure, compliant, and intelligent automotive solutions
             </p>
         </div>
 
-        <!-- Enhanced CTA Buttons -->
-        <div class="fade-in-up stagger-4 flex flex-col sm:flex-row justify-center gap-6">
-            <a href="#contact"
-               class="px-8 py-4 bg-blue-600 hover:bg-blue-700 theme-text-primary font-button font-semibold
-                  rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
-                Get In Touch
-            </a>
-            <a href="#about"
-               class="px-8 py-4 border-2 border-gray-400 hover:border-blue-400 hover:bg-blue-400/10
-                  theme-text-secondary hover:theme-text-primary rounded-xl shadow-lg transition-all duration-300 font-button">
+        <!-- Enhanced Explore Button -->
+        <div class="fade-in-up stagger-4 flex justify-center">
+            <a href="#about" class="explore-button">
+                <svg class="explore-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
                 Explore Solutions
             </a>
         </div>
@@ -853,61 +2804,61 @@
 
         <!-- Four Key Pillars -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div class="fade-in-up stagger-1 p-8 rounded-2xl theme-card backdrop-blur-lg hover:border-blue-500/50 transition-all duration-300">
+            <div class="fade-in-up stagger-1 p-8 rounded-2xl about-card">
                 <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-blue-600 flex items-center justify-center">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="about-card-icon">
+                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-title theme-text-primary mb-4">End To End Security</h3>
-                    <p class="theme-text-tertiary text-sm leading-relaxed font-content">
+                    <h3 class="about-card-title">End To End Security</h3>
+                    <p class="about-card-description">
                         Secure-by-design solutions across the full vehicle lifecycle—from development to decommissioning.
                     </p>
                 </div>
             </div>
 
-            <div class="fade-in-up stagger-2 p-8 rounded-2xl theme-card backdrop-blur-lg hover:border-indigo-500/50 transition-all duration-300">
+            <div class="fade-in-up stagger-2 p-8 rounded-2xl about-card">
                 <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-indigo-600 flex items-center justify-center">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="about-card-icon">
+                        <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-title theme-text-primary mb-4">Standards-Aligned Engineering</h3>
-                    <p class="theme-text-tertiary text-sm leading-relaxed font-content">
+                    <h3 class="about-card-title">Standards-Aligned Engineering</h3>
+                    <p class="about-card-description">
                         Built to meet ASPICE, AUTOSAR, CSMS, SUMS, FuSa & SOTIF standards.
                     </p>
                 </div>
             </div>
 
-            <div class="fade-in-up stagger-3 p-8 rounded-2xl theme-card backdrop-blur-lg hover:border-cyan-500/50 transition-all duration-300">
+            <div class="fade-in-up stagger-3 p-8 rounded-2xl about-card">
                 <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-cyan-600 flex items-center justify-center">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="about-card-icon">
+                        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-title theme-text-primary mb-4">Expert Training & Consulting</h3>
-                    <p class="theme-text-tertiary text-sm leading-relaxed font-content">
+                    <h3 class="about-card-title">Expert Training & Consulting</h3>
+                    <p class="about-card-description">
                         Upskill your team skills and expertise to drive innovation in the SDV ERA.
                     </p>
                 </div>
             </div>
 
-            <div class="fade-in-up stagger-4 p-8 rounded-2xl theme-card backdrop-blur-lg hover:border-purple-500/50 transition-all duration-300">
+            <div class="fade-in-up stagger-4 p-8 rounded-2xl about-card">
                 <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-purple-600 flex items-center justify-center">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="about-card-icon">
+                        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-title theme-text-primary mb-4">Accelerating the SDV Shift</h3>
-                    <p class="theme-text-tertiary text-sm leading-relaxed font-content">
+                    <h3 class="about-card-title">Accelerating the SDV Shift</h3>
+                    <p class="about-card-description">
                         Pioneering Software-Defined Vehicle (SDV) transformations with E/E Systems, OTA.
                     </p>
                 </div>
@@ -967,125 +2918,167 @@
         <!-- Products Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" x-data>
             <!-- Automator AI -->
-            <div x-scroll data-delay="0"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                     backdrop-blur-lg rounded-2xl border border-blue-500/30 hover:border-blue-400/60
-                     transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 neon-border">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-blue-400 mb-4">Automator AI</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <div x-scroll data-delay="0" class="opacity-0 translate-y-10 p-6 product-card">
+                <div class="product-card-badge">AI</div>
+                <div class="product-card-image">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Automator AI" loading="lazy">
+                </div>
+                <div class="product-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <div class="product-card-content">
+                    <h3 class="product-card-title">Automator AI</h3>
+                    <p class="product-card-description">
                         Automator lets OEMs use automation policies to instantly create new vehicle functions
                     </p>
+                    <ul class="product-card-features">
+                        <li>Policy-Based Automation</li>
+                        <li>Instant Function Creation</li>
+                        <li>OEM Integration</li>
+                        <li>Real-time Processing</li>
+                    </ul>
                 </div>
             </div>
 
             <!-- IDPS -->
-            <div x-scroll data-delay="200"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                    backdrop-blur-lg rounded-2xl border border-red-500/30 hover:border-red-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-red-500 to-orange-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-red-400 mb-4">IDPS</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <div x-scroll data-delay="200" class="opacity-0 translate-y-10 p-6 product-card">
+                <div class="product-card-badge">Security</div>
+                <div class="product-card-image">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="IDPS" loading="lazy">
+                </div>
+                <div class="product-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <div class="product-card-content">
+                    <h3 class="product-card-title">IDPS</h3>
+                    <p class="product-card-description">
                         Intrusion Detection and Prevention System continuously monitors in-vehicle networks
                         and prevent Cyber attacks today and Quantum Era
                     </p>
+                    <ul class="product-card-features">
+                        <li>Real-time Monitoring</li>
+                        <li>Quantum-Ready Security</li>
+                        <li>Network Protection</li>
+                        <li>Threat Prevention</li>
+                    </ul>
                 </div>
             </div>
 
             <!-- AI Data Collector -->
-            <div x-scroll data-delay="400"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                    backdrop-blur-lg rounded-2xl border border-green-500/30 hover:border-green-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-green-500 to-emerald-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-green-400 mb-4">AI Data Collector</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <div x-scroll data-delay="400" class="opacity-0 translate-y-10 p-6 product-card">
+                <div class="product-card-badge">Analytics</div>
+                <div class="product-card-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="AI Data Collector" loading="lazy">
+                </div>
+                <div class="product-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                    </svg>
+                </div>
+                <div class="product-card-content">
+                    <h3 class="product-card-title">AI Data Collector</h3>
+                    <p class="product-card-description">
                         Data acquisition and analytics tool that Collects & Process data for Vehicle
                         Performance with integrated FIR
                     </p>
+                    <ul class="product-card-features">
+                        <li>Data Acquisition</li>
+                        <li>Performance Analytics</li>
+                        <li>FIR Integration</li>
+                        <li>Real-time Processing</li>
+                    </ul>
                 </div>
             </div>
 
             <!-- SBOM -->
-            <div x-scroll data-delay="0"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                    backdrop-blur-lg rounded-2xl border border-yellow-500/30 hover:border-yellow-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/20">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-yellow-500 to-orange-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-yellow-400 mb-4">SBOM</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <div x-scroll data-delay="0" class="opacity-0 translate-y-10 p-6 product-card">
+                <div class="product-card-badge">Compliance</div>
+                <div class="product-card-image">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="SBOM" loading="lazy">
+                </div>
+                <div class="product-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <div class="product-card-content">
+                    <h3 class="product-card-title">SBOM</h3>
+                    <p class="product-card-description">
                         Software Bill of Materials ensures Visibility, Security, Compliance across your Supply chain
                     </p>
+                    <ul class="product-card-features">
+                        <li>Supply Chain Visibility</li>
+                        <li>Security Compliance</li>
+                        <li>Component Tracking</li>
+                        <li>Risk Assessment</li>
+                    </ul>
                 </div>
             </div>
 
             <!-- vSOC -->
-            <div x-scroll data-delay="200"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                    backdrop-blur-lg rounded-2xl border border-purple-500/30 hover:border-purple-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-500 to-pink-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-purple-400 mb-4">vSOC</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <div x-scroll data-delay="200" class="opacity-0 translate-y-10 p-6 product-card">
+                <div class="product-card-badge">Monitoring</div>
+                <div class="product-card-image">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="vSOC" loading="lazy">
+                </div>
+                <div class="product-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <div class="product-card-content">
+                    <h3 class="product-card-title">vSOC</h3>
+                    <p class="product-card-description">
                         Vehicle Security Operation Center is a centralized hub for monitoring, detecting,
                         and responding to cyber threats across Fleet
                     </p>
+                    <ul class="product-card-features">
+                        <li>Centralized Monitoring</li>
+                        <li>Threat Detection</li>
+                        <li>Fleet Management</li>
+                        <li>Incident Response</li>
+                    </ul>
                 </div>
             </div>
 
             <!-- OTA Updater -->
-            <div x-scroll data-delay="400"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                    backdrop-blur-lg rounded-2xl border border-cyan-500/30 hover:border-cyan-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500 to-blue-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-cyan-400 mb-4">OTA Updater</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <div x-scroll data-delay="400" class="opacity-0 translate-y-10 p-6 product-card">
+                <div class="product-card-badge">Updates</div>
+                <div class="product-card-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" 
+                         alt="OTA Updater" loading="lazy">
+                </div>
+                <div class="product-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                    </svg>
+                </div>
+                <div class="product-card-content">
+                    <h3 class="product-card-title">OTA Updater</h3>
+                    <p class="product-card-description">
                         OTA Updater enables secure over-the-air software updates, with end-to-end Traceability
                     </p>
+                    <ul class="product-card-features">
+                        <li>Secure OTA Updates</li>
+                        <li>End-to-end Traceability</li>
+                        <li>Rollback Capability</li>
+                        <li>Fleet Management</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1108,118 +3101,166 @@
 
         <!-- Services Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" x-data>
-            <div x-scroll data-delay="0"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                    backdrop-blur-lg rounded-2xl border border-blue-500/30 hover:border-blue-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-blue-400 mb-4">Cybersecurity Management Systems</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <!-- Cybersecurity Management Systems -->
+            <div x-scroll data-delay="0" class="opacity-0 translate-y-10 p-6 service-card">
+                <div class="service-card-badge">Security</div>
+                <div class="service-card-image">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Cybersecurity Management Systems" loading="lazy">
+                </div>
+                <div class="service-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <div class="service-card-content">
+                    <h3 class="service-card-title">Cybersecurity Management Systems</h3>
+                    <p class="service-card-description">
                         Comprehensive security frameworks and management systems for automotive cybersecurity compliance.
                     </p>
+                    <ul class="service-card-features">
+                        <li>ISO 21434 Implementation</li>
+                        <li>Security Risk Assessment</li>
+                        <li>Compliance Management</li>
+                        <li>Security Monitoring</li>
+                    </ul>
                 </div>
             </div>
 
-            <div x-scroll data-delay="200"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                    backdrop-blur-lg rounded-2xl border border-red-500/30 hover:border-red-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-red-500 to-orange-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-red-400 mb-4">Functional Safety</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <!-- Functional Safety -->
+            <div x-scroll data-delay="200" class="opacity-0 translate-y-10 p-6 service-card">
+                <div class="service-card-badge">Safety</div>
+                <div class="service-card-image">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Functional Safety" loading="lazy">
+                </div>
+                <div class="service-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                    </svg>
+                </div>
+                <div class="service-card-content">
+                    <h3 class="service-card-title">Functional Safety</h3>
+                    <p class="service-card-description">
                         Expert guidance in functional safety standards and implementation for automotive systems.
                     </p>
+                    <ul class="service-card-features">
+                        <li>ISO 26262 Compliance</li>
+                        <li>Safety Analysis</li>
+                        <li>Hazard Assessment</li>
+                        <li>Safety Validation</li>
+                    </ul>
                 </div>
             </div>
 
-            <div x-scroll data-delay="400"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                    backdrop-blur-lg rounded-2xl border border-green-500/30 hover:border-green-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-green-500 to-emerald-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-green-400 mb-4">Software Update Management Systems</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <!-- Software Update Management Systems -->
+            <div x-scroll data-delay="400" class="opacity-0 translate-y-10 p-6 service-card">
+                <div class="service-card-badge">Updates</div>
+                <div class="service-card-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" 
+                         alt="Software Update Management Systems" loading="lazy">
+                </div>
+                <div class="service-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                    </svg>
+                </div>
+                <div class="service-card-content">
+                    <h3 class="service-card-title">Software Update Management Systems</h3>
+                    <p class="service-card-description">
                         Secure and reliable OTA update management systems for vehicle software lifecycle.
                     </p>
+                    <ul class="service-card-features">
+                        <li>OTA Update Solutions</li>
+                        <li>Rollback Mechanisms</li>
+                        <li>Update Validation</li>
+                        <li>Fleet Management</li>
+                    </ul>
                 </div>
             </div>
 
-            <div x-scroll data-delay="0"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                    backdrop-blur-lg rounded-2xl border border-purple-500/30 hover:border-purple-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-500 to-pink-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-purple-400 mb-4">ASPICE</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <!-- ASPICE -->
+            <div x-scroll data-delay="0" class="opacity-0 translate-y-10 p-6 service-card">
+                <div class="service-card-badge">Process</div>
+                <div class="service-card-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="ASPICE" loading="lazy">
+                </div>
+                <div class="service-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                    </svg>
+                </div>
+                <div class="service-card-content">
+                    <h3 class="service-card-title">ASPICE</h3>
+                    <p class="service-card-description">
                         Automotive SPICE process improvement and assessment services for development excellence.
                     </p>
+                    <ul class="service-card-features">
+                        <li>Process Assessment</li>
+                        <li>Capability Improvement</li>
+                        <li>Quality Management</li>
+                        <li>Best Practices</li>
+                    </ul>
                 </div>
             </div>
 
-            <div x-scroll data-delay="200"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                    backdrop-blur-lg rounded-2xl border border-cyan-500/30 hover:border-cyan-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500 to-blue-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-cyan-400 mb-4">AUTOSAR</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <!-- AUTOSAR -->
+            <div x-scroll data-delay="200" class="opacity-0 translate-y-10 p-6 service-card">
+                <div class="service-card-badge">Architecture</div>
+                <div class="service-card-image">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="AUTOSAR" loading="lazy">
+                </div>
+                <div class="service-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </div>
+                <div class="service-card-content">
+                    <h3 class="service-card-title">AUTOSAR</h3>
+                    <p class="service-card-description">
                         AUTOSAR architecture implementation and migration services for automotive software standardization.
                     </p>
+                    <ul class="service-card-features">
+                        <li>Architecture Design</li>
+                        <li>Migration Support</li>
+                        <li>Configuration Management</li>
+                        <li>Integration Services</li>
+                    </ul>
                 </div>
             </div>
 
-            <div x-scroll data-delay="400"
-                 class="group opacity-0 translate-y-10 p-8 theme-card
-                    backdrop-blur-lg rounded-2xl border border-yellow-500/30 hover:border-yellow-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/20">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-yellow-500 to-orange-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-yellow-400 mb-4">Expert Training & Consulting</h3>
-                    <p class="theme-text-tertiary leading-relaxed">
+            <!-- Expert Training & Consulting -->
+            <div x-scroll data-delay="400" class="opacity-0 translate-y-10 p-6 service-card">
+                <div class="service-card-badge">Training</div>
+                <div class="service-card-image">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Expert Training & Consulting" loading="lazy">
+                </div>
+                <div class="service-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <div class="service-card-content">
+                    <h3 class="service-card-title">Expert Training & Consulting</h3>
+                    <p class="service-card-description">
                         Comprehensive training programs and expert consulting for automotive software development teams.
                     </p>
+                    <ul class="service-card-features">
+                        <li>Custom Training Programs</li>
+                        <li>Expert Consulting</li>
+                        <li>Workshop Sessions</li>
+                        <li>Certification Support</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1242,103 +3283,114 @@
         </div>
 
         <!-- SDV Solutions Grid -->
-        <div class="grid lg:grid-cols-2 gap-12" x-data>
+        <div class="grid lg:grid-cols-2 gap-8" x-data>
             <!-- SDV Cloud -->
-            <div x-scroll data-delay="0"
-                 class="group opacity-0 translate-y-10 p-10 theme-card
-                    backdrop-blur-lg rounded-3xl border border-blue-500/30 hover:border-blue-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 particle-trail">
-                <div class="text-center">
-                    <div class="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-blue-400 mb-6">SDV Cloud</h3>
-                    <div class="space-y-4 text-left">
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                            <p class="theme-text-tertiary">SDV Orchestrator Platform</p>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                            <p class="theme-text-tertiary">Vehicle Software Update Platform & Digital Vehicle Twin</p>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                            <p class="theme-text-tertiary">Subscription Management Platform</p>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <div class="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
-                            <p class="theme-text-tertiary">Virtual Workbenches for Simulations and DevOps</p>
-                        </div>
-                    </div>
+            <div x-scroll data-delay="0" class="opacity-0 translate-y-10 p-6 sdv-card">
+                <div class="sdv-card-badge">Cloud</div>
+                <div class="sdv-card-image">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" 
+                         alt="SDV Cloud" loading="lazy">
+                </div>
+                <div class="sdv-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                    </svg>
+                </div>
+                <div class="sdv-card-content">
+                    <h3 class="sdv-card-title">SDV Cloud</h3>
+                    <p class="sdv-card-description">
+                        Comprehensive cloud platform for Software-Defined Vehicle orchestration, management, and digital twin capabilities.
+                    </p>
+                    <ul class="sdv-card-features">
+                        <li>SDV Orchestrator Platform</li>
+                        <li>Digital Vehicle Twin</li>
+                        <li>Subscription Management</li>
+                        <li>Virtual Workbenches</li>
+                    </ul>
                 </div>
             </div>
 
             <!-- Over-the-Air (OTA) -->
-            <div x-scroll data-delay="200"
-                 class="group opacity-0 translate-y-10 p-10 theme-card
-                    backdrop-blur-lg rounded-3xl border border-green-500/30 hover:border-green-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20">
-                <div class="text-center">
-                    <div class="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-green-400 mb-6">Over-the-Air (OTA)</h3>
-                    <p class="theme-text-tertiary leading-relaxed text-lg">
-                        Over-the-Air updates are essential for modern automotive software. We provide secure and efficient
-                        OTA strategies that reduce recall costs and keep vehicles at peak performance.
+            <div x-scroll data-delay="200" class="opacity-0 translate-y-10 p-6 sdv-card">
+                <div class="sdv-card-badge">OTA</div>
+                <div class="sdv-card-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" 
+                         alt="Over-the-Air (OTA)" loading="lazy">
+                </div>
+                <div class="sdv-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                    </svg>
+                </div>
+                <div class="sdv-card-content">
+                    <h3 class="sdv-card-title">Over-the-Air (OTA)</h3>
+                    <p class="sdv-card-description">
+                        Secure and efficient OTA update strategies that reduce recall costs and keep vehicles at peak performance.
                     </p>
+                    <ul class="sdv-card-features">
+                        <li>Secure Update Delivery</li>
+                        <li>Rollback Capabilities</li>
+                        <li>Fleet Management</li>
+                        <li>Performance Optimization</li>
+                    </ul>
                 </div>
             </div>
 
             <!-- Apps and Services Engineering -->
-            <div x-scroll data-delay="400"
-                 class="group opacity-0 translate-y-10 p-10 theme-card
-                    backdrop-blur-lg rounded-3xl border border-purple-500/30 hover:border-purple-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                <div class="text-center">
-                    <div class="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-purple-400 mb-6">Apps and Services Engineering</h3>
-                    <p class="theme-text-tertiary leading-relaxed text-lg">
+            <div x-scroll data-delay="400" class="opacity-0 translate-y-10 p-6 sdv-card">
+                <div class="sdv-card-badge">Engineering</div>
+                <div class="sdv-card-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Apps and Services Engineering" loading="lazy">
+                </div>
+                <div class="sdv-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <div class="sdv-card-content">
+                    <h3 class="sdv-card-title">Apps and Services Engineering</h3>
+                    <p class="sdv-card-description">
                         Create infotainment apps, driver-assist tools, and cloud-based services that enrich the driving experience.
-                        We cover development from embedded systems to backend services.
                     </p>
+                    <ul class="sdv-card-features">
+                        <li>Infotainment Development</li>
+                        <li>Driver-Assist Tools</li>
+                        <li>Cloud Services</li>
+                        <li>Embedded Systems</li>
+                    </ul>
                 </div>
             </div>
 
             <!-- SDV OPS -->
-            <div x-scroll data-delay="600"
-                 class="group opacity-0 translate-y-10 p-10 theme-card
-                    backdrop-blur-lg rounded-3xl border border-cyan-500/30 hover:border-cyan-400/60
-                    transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20">
-                <div class="text-center">
-                    <div class="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-400
-                               flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-cyan-400 mb-6">SDV OPS</h3>
-                    <p class="theme-text-tertiary leading-relaxed text-lg">
+            <div x-scroll data-delay="600" class="opacity-0 translate-y-10 p-6 sdv-card">
+                <div class="sdv-card-badge">Operations</div>
+                <div class="sdv-card-image">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="SDV OPS" loading="lazy">
+                </div>
+                <div class="sdv-card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </div>
+                <div class="sdv-card-content">
+                    <h3 class="sdv-card-title">SDV OPS</h3>
+                    <p class="sdv-card-description">
                         Optimize operations for Software-Defined Vehicles with automated pipelines, continuous monitoring,
                         and quick incident response.
                     </p>
+                    <ul class="sdv-card-features">
+                        <li>Automated Pipelines</li>
+                        <li>Continuous Monitoring</li>
+                        <li>Incident Response</li>
+                        <li>Performance Optimization</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1359,107 +3411,148 @@
             </p>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-12 items-start" x-data>
-            <!-- Contact Information -->
-            <div x-scroll data-delay="0" class="opacity-0 translate-y-10">
-                <div class="space-y-8">
-                    <div class="p-6 theme-card backdrop-blur-lg rounded-2xl border border-blue-500/30">
-                        <h3 class="text-2xl font-bold text-blue-400 mb-4">Get In Touch</h3>
-                        <p class="theme-text-tertiary leading-relaxed mb-6">
-                            Our expert team is ready to help you navigate the Software-Defined Vehicle landscape.
-                            Whether you need consulting, training, or product implementation, we're here to support your success.
-                        </p>
-                        <div class="space-y-4">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center">
-                                    <svg class="w-6 h-6 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                              d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="theme-text-primary font-semibold">Email Us</p>
-                                    <p class="theme-text-quaternary">info@destrosolutions.com</p>
-                                </div>
+        <div class="contact-container p-6" x-data>
+            <div class="grid lg:grid-cols-2 gap-8 items-start relative z-10">
+                <!-- Contact Information -->
+                <div x-scroll data-delay="0" class="opacity-0 translate-y-10">
+                    <div class="space-y-6">
+                        <!-- Get In Touch Card -->
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-400 flex items-center justify-center">
-                                    <svg class="w-6 h-6 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                    </svg>
+                            <h3 class="text-2xl font-bold text-blue-400 mb-4">Get In Touch</h3>
+                            <p class="theme-text-tertiary leading-relaxed mb-8">
+                                Our expert team is ready to help you navigate the Software-Defined Vehicle landscape.
+                                Whether you need consulting, training, or product implementation, we're here to support your success.
+                            </p>
+                            
+                            <!-- Contact Details -->
+                            <div class="space-y-4">
+                                <div class="contact-detail">
+                                    <div class="contact-detail-icon">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="theme-text-primary font-semibold text-lg">Email Us</p>
+                                        <p class="theme-text-quaternary">info@destrosolutions.com</p>
+                                        <p class="theme-text-quaternary text-sm">We'll respond within 24 hours</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="theme-text-primary font-semibold">Call Us</p>
-                                    <p class="theme-text-quaternary">+49 (0) 123 456 789</p>
+                                
+                                <div class="contact-detail">
+                                    <div class="contact-detail-icon">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="theme-text-primary font-semibold text-lg">Call Us</p>
+                                        <p class="theme-text-quaternary">+49 (0) 123 456 789</p>
+                                        <p class="theme-text-quaternary text-sm">Mon-Fri 9:00 AM - 6:00 PM CET</p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-detail">
+                                    <div class="contact-detail-icon">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="theme-text-primary font-semibold text-lg">Visit Us</p>
+                                        <p class="theme-text-quaternary">Munich, Germany</p>
+                                        <p class="theme-text-quaternary text-sm">Schedule a meeting at our office</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="p-6 theme-card backdrop-blur-lg rounded-2xl border border-purple-500/30">
-                        <h3 class="text-2xl font-bold text-purple-400 mb-4">Why Choose DestroSolutions?</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start space-x-3">
-                                <div class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
-                                <p class="theme-text-tertiary">Expert automotive cybersecurity knowledge</p>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <div class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
-                                <p class="theme-text-tertiary">Standards-compliant solutions (ASPICE, AUTOSAR, ISO 21434)</p>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <div class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
-                                <p class="theme-text-tertiary">Proven track record in SDV transformation</p>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <div class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
-                                <p class="theme-text-tertiary">Comprehensive training and support programs</p>
-                            </li>
-                        </ul>
+                        <!-- Why Choose Us Card -->
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-purple-400 mb-4">Why Choose DestroSolutions?</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
+                                    <p class="theme-text-tertiary">Expert automotive cybersecurity knowledge with 10+ years experience</p>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
+                                    <p class="theme-text-tertiary">Standards-compliant solutions (ASPICE, AUTOSAR, ISO 21434)</p>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
+                                    <p class="theme-text-tertiary">Proven track record in SDV transformation for major OEMs</p>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
+                                    <p class="theme-text-tertiary">Comprehensive training and 24/7 support programs</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Contact Form -->
-            <div x-scroll data-delay="200" class="opacity-0 translate-y-10">
-                <div class="p-8 theme-card backdrop-blur-lg rounded-2xl border border-cyan-500/30">
-                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">Send us a Message</h3>
-                    <form class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <input type="text" placeholder="Your Name" required
-                                   class="p-4 rounded-xl theme-bg-tertiary border theme-border-primary focus:border-cyan-500
-                                          outline-none transition-colors duration-300 theme-text-primary placeholder-gray-400">
-                            <input type="email" placeholder="Your Email" required
-                                   class="p-4 rounded-xl theme-bg-tertiary border theme-border-primary focus:border-cyan-500
-                                          outline-none transition-colors duration-300 theme-text-primary placeholder-gray-400">
+                <!-- Contact Form -->
+                <div x-scroll data-delay="200" class="opacity-0 translate-y-10">
+                    <div class="contact-form">
+                        <div class="contact-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
                         </div>
-                        <input type="text" placeholder="Company/Organization"
-                               class="w-full p-4 rounded-xl theme-bg-tertiary border theme-border-primary focus:border-cyan-500
-                                      outline-none transition-colors duration-300 theme-text-primary placeholder-gray-400">
-                        <select class="w-full p-4 rounded-xl theme-bg-tertiary border theme-border-primary focus:border-cyan-500
-                                     outline-none transition-colors duration-300 theme-text-primary">
-                            <option value="" class="bg-gray-900">Select Service Interest</option>
-                            <option value="cybersecurity" class="bg-gray-900">Cybersecurity Management</option>
-                            <option value="functional-safety" class="bg-gray-900">Functional Safety</option>
-                            <option value="ota-updates" class="bg-gray-900">OTA Updates</option>
-                            <option value="aspice" class="bg-gray-900">ASPICE</option>
-                            <option value="autosar" class="bg-gray-900">AUTOSAR</option>
-                            <option value="training" class="bg-gray-900">Training & Consulting</option>
-                            <option value="sdv-solutions" class="bg-gray-900">SDV Solutions</option>
-                            <option value="other" class="bg-gray-900">Other</option>
-                        </select>
-                        <textarea placeholder="Your Message" rows="5" required
-                                  class="w-full p-4 rounded-xl theme-bg-tertiary border theme-border-primary focus:border-cyan-500
-                                         outline-none transition-colors duration-300 theme-text-primary placeholder-gray-400 resize-none"></textarea>
-            <button type="submit"
-                                class="w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600
-                                       hover:from-blue-600 hover:to-cyan-500 rounded-xl shadow-lg
-                                       transition-all duration-300 transform hover:scale-105 hover:shadow-2xl
-                                       hover:shadow-cyan-500/25 theme-text-primary font-semibold text-lg">
-                Send Message
-            </button>
-        </form>
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-6">Send us a Message</h3>
+                        <p class="theme-text-tertiary mb-8">
+                            Ready to start your SDV journey? Fill out the form below and our team will get back to you within 24 hours.
+                        </p>
+                        
+                        <form class="space-y-6 relative z-10">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" placeholder="Your Name" required
+                                       class="form-input w-full">
+                                <input type="email" placeholder="Your Email" required
+                                       class="form-input w-full">
+                            </div>
+                            <input type="text" placeholder="Company/Organization"
+                                   class="form-input w-full">
+                            <select class="form-input w-full">
+                                <option value="">Select Service Interest</option>
+                                <option value="cybersecurity">Cybersecurity Management</option>
+                                <option value="functional-safety">Functional Safety</option>
+                                <option value="ota-updates">OTA Updates</option>
+                                <option value="aspice">ASPICE</option>
+                                <option value="autosar">AUTOSAR</option>
+                                <option value="training">Training & Consulting</option>
+                                <option value="sdv-solutions">SDV Solutions</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <textarea placeholder="Tell us about your project requirements, timeline, and any specific challenges you're facing..." 
+                                      rows="5" required class="form-textarea w-full"></textarea>
+                            <button type="submit" class="submit-button w-full">
+                                Send Message
+                                <svg class="w-5 h-5 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1472,7 +3565,7 @@
         <div class="grid md:grid-cols-4 gap-8 mb-8">
             <!-- Company Info -->
             <div class="md:col-span-2">
-                <h3 class="text-2xl font-extrabold gradient-text mb-4">DestroSolutions</h3>
+                <h3 class="text-2xl font-extrabold logo-gradient mb-4">DestroSolutions</h3>
                 <p class="theme-text-quaternary leading-relaxed mb-6">
                     Pioneering the future of mobility with Software-Defined Vehicle solutions.
                     We enable secure, compliant, and intelligent automotive platforms for tomorrow's connected world.
@@ -1582,18 +3675,21 @@
     function toggleTheme() {
         const html = document.documentElement;
         const currentTheme = html.getAttribute('data-theme');
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
+        const navbarSunIcon = document.getElementById('navbar-sun-icon');
+        const navbarMoonIcon = document.getElementById('navbar-moon-icon');
+        const heroImage = document.querySelector('.hero-bg-image');
 
         if (currentTheme === 'light') {
             html.setAttribute('data-theme', 'dark');
-            sunIcon.classList.remove('hidden');
-            moonIcon.classList.add('hidden');
+            if (heroImage) heroImage.src = '/images/dark1.jpg';
+            if (navbarSunIcon) navbarSunIcon.classList.remove('hidden');
+            if (navbarMoonIcon) navbarMoonIcon.classList.add('hidden');
             localStorage.setItem('theme', 'dark');
         } else {
             html.setAttribute('data-theme', 'light');
-            sunIcon.classList.add('hidden');
-            moonIcon.classList.remove('hidden');
+            if (heroImage) heroImage.src = '/images/light.jpg';
+            if (navbarSunIcon) navbarSunIcon.classList.add('hidden');
+            if (navbarMoonIcon) navbarMoonIcon.classList.remove('hidden');
             localStorage.setItem('theme', 'light');
         }
     }
@@ -1602,17 +3698,23 @@
     function initTheme() {
         const savedTheme = localStorage.getItem('theme') || 'dark';
         const html = document.documentElement;
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
+        const navbarSunIcon = document.getElementById('navbar-sun-icon');
+        const navbarMoonIcon = document.getElementById('navbar-moon-icon');
+        const heroImage = document.querySelector('.hero-bg-image');
 
         html.setAttribute('data-theme', savedTheme);
 
+        // Update hero background image and navbar icons based on theme
+        if (heroImage) {
         if (savedTheme === 'light') {
-            sunIcon.classList.add('hidden');
-            moonIcon.classList.remove('hidden');
+                heroImage.src = '/images/light.jpg';
+                if (navbarSunIcon) navbarSunIcon.classList.add('hidden');
+                if (navbarMoonIcon) navbarMoonIcon.classList.remove('hidden');
         } else {
-            sunIcon.classList.remove('hidden');
-            moonIcon.classList.add('hidden');
+                heroImage.src = '/images/dark1.jpg';
+                if (navbarSunIcon) navbarSunIcon.classList.remove('hidden');
+                if (navbarMoonIcon) navbarMoonIcon.classList.add('hidden');
+            }
         }
     }
 
