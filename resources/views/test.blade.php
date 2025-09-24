@@ -14,6 +14,7 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@300;400;600;900&display=swap"
         rel="stylesheet">
 </head>
+
 <body class="font-inter">
 <!-- resources/views/components/navbar.blade.php -->
 @php
@@ -42,13 +43,12 @@
     <div
         x-ref="topLogo"
         :style="scrolled ? 'transform: translateY(-' + logoHeight + 'px); opacity:0;' : 'transform: translateY(0); opacity:1;'"
-        class="bg-white w-full transition-all duration-500 ease-in-out"
-    >
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        class="bg-white w-full transition-all duration-500 ease-in-out">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex items-center space-x-4">
                 <!-- Use your provided SVG icon here -->
                 <!-- Replace old <img src="/images/destro-icon.svg" ...> with this SVG -->
-                <svg xmlns="http://www.w3.org/2000/svg"
+                <!-- <svg xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 -43.92 122.88 122.88"
                      class="h-10 w-10 text-blue-700 transition-colors duration-300 hover:text-blue-500"
                      fill="currentColor">
@@ -69,7 +69,8 @@
              c0.06-23.9-28.79-21.18-26.62,2.82H35.48C44.8,5.49,5.04,5.4,12.1,28.7C9.62,31.38,3.77,27.34,0,18.75
              c1.03-1.02,2.16-1.99,3.42-2.89c-0.06-0.05,0.06,0.19-0.15-0.17c-0.21-0.36,0.51-1.87,1.99-2.74
              C13.02,8.4,31.73,8.52,40.82,10.3L40.82,10.3z"/>
-                </svg>
+                </svg> -->
+                <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-transparent bg-clip-text p-4 rounded-lg">D</span>
 
                 <div>
                     <div class="text-2xl font-extrabold text-gray-900 leading-tight">Destro Solution</div>
@@ -83,8 +84,7 @@
     <nav
         class="fixed top-0 left-0 w-full z-50 transform transition-transform duration-500 ease-in-out"
         :style="scrolled ? 'transform: translateY(0)' : 'transform: translateY(' + logoHeight + 'px)'"
-        aria-label="Primary"
-    >
+        aria-label="Primary">
         <div class="bg-white shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="h-16 flex items-center justify-between">
@@ -92,7 +92,7 @@
                     <div class="flex items-center space-x-6">
                         <!-- small logo icon (fade-in when scrolled) -->
                         <!-- Replace old <img src="/images/destro-icon.svg" ...> with this SVG -->
-                        <svg xmlns="http://www.w3.org/2000/svg"
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 -43.92 122.88 122.88"
                              class="h-10 w-10 text-blue-700 transition-colors duration-300 hover:text-blue-500"
                              fill="currentColor">
@@ -113,7 +113,7 @@
              c0.06-23.9-28.79-21.18-26.62,2.82H35.48C44.8,5.49,5.04,5.4,12.1,28.7C9.62,31.38,3.77,27.34,0,18.75
              c1.03-1.02,2.16-1.99,3.42-2.89c-0.06-0.05,0.06,0.19-0.15-0.17c-0.21-0.36,0.51-1.87,1.99-2.74
              C13.02,8.4,31.73,8.52,40.82,10.3L40.82,10.3z"/>
-                        </svg>
+                        </svg> -->
 
 
                         <!-- Desktop menu (left) -->
@@ -224,7 +224,6 @@
         </div>
     </nav>
 </div>
-
 
 <!-- Banner / Hero Section -->
 <div x-data="slider()" x-init="start()" class="relative w-full overflow-hidden bg-gray-50">
