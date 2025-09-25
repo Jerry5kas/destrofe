@@ -13,3 +13,8 @@ Route::get('/destro', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
+
+Route::get('/test', function () {
+    return view('test');
+});
