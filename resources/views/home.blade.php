@@ -868,15 +868,15 @@
         };
         window.addEventListener('scroll', handleScroll, { passive: true });
     }"
-    class="w-full"
->
+    class="w-full">
+
     <!-- ---------- Top Main Logo (slides up when scrolled) ---------- -->
     <div
         x-ref="headerBlock"
         :class="scrolled ? 'transform -translate-y-full opacity-0' : 'transform translate-y-0 opacity-100'"
-        class="bg-white w-full transition-all duration-500 ease-in-out relative z-40"
+        class="bg-white w-full px-0 sm:px-9 transition-all duration-500 ease-in-out relative z-40"
     >
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div class="flex items-center justify-between">
                 <!-- Left: Logo and Brand -->
                 <div class="flex items-center space-x-4">
@@ -884,9 +884,9 @@
                     <div class="relative group">
                         <!-- Logo Container -->
                         <div
-                            class="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-500 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                            class="flex items-center justify-center w-9 h-9 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-500 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
                             <!-- Main Logo Letter -->
-                            <div class="z-10 text-white font-logo text-2xl">
+                            <div class="z-10 text-white font-logo text-lg">
                                 D
                             </div>
 
@@ -903,8 +903,8 @@
                     </div>
 
                     <div>
-                        <div class="font-brand text-2xl text-gray-900">Destro Solution</div>
-                        <div class="font-brand-subtitle text-sm text-gray-500">Bringing SDV to Life</div>
+                        <div class="font-brand text-lg text-gray-900">Destro Solution</div>
+                        <div class="font-brand-subtitle text-xs text-gray-500">Bringing SDV to Life</div>
                     </div>
                 </div>
 
@@ -941,10 +941,10 @@
             x-transition:leave-end="opacity-0 -translate-y-4"
             class="md:hidden bg-white border-t border-gray-100 shadow-lg relative z-50"
         >
-            <div class="px-6 py-6 space-y-1">
+            <div class="px-6 py-4 space-y-1">
                 @foreach ($menuItems as $item)
                     <a href="{{ $item['url'] }}"
-                       class="group relative block text-gray-800 font-nav py-3 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600 bg-blue-50' : '' }}">
+                       class="group relative text-xs block text-gray-800 font-nav py-3 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600 bg-blue-50' : '' }}">
                         <span class="relative z-10">{{ $item['label'] }}</span>
 
                         <!-- Animated underline -->
@@ -991,10 +991,9 @@
     <nav
         :class="scrolled ? 'fixed top-0 left-0 w-full z-50 bg-white shadow-sm' : 'relative bg-white z-40'"
         class="hidden md:block transition-all duration-500 ease-in-out"
-        aria-label="Primary"
-    >
+        aria-label="Primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="h-16 flex items-center justify-between">
+            <div class="h-12 flex items-center justify-between">
                 <!-- Left: small logo + menu -->
                 <div class="flex items-center space-x-6">
                     <!-- small logo icon (hidden initially, shows when scrolled) -->
@@ -1026,8 +1025,8 @@
                     <div class="flex items-center space-x-8">
                         @foreach ($menuItems as $item)
                             <a href="{{ $item['url'] }}"
-                               class="group relative text-gray-800 font-nav px-3 py-2 transition-all duration-300 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600' : '' }}">
-                                <span class="relative z-10">
+                               class="group relative  text-gray-800 font-nav px-3 py-2 transition-all duration-300 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600' : '' }}">
+                                <span class="relative z-10 text-sm">
                                     {{ $item['label'] }}
                                 </span>
 
@@ -1071,7 +1070,6 @@
                 </div>
             </div>
         </div>
-
     </nav>
 
 
@@ -1080,7 +1078,7 @@
         <!-- Banner -->
         <div class="relative w-full overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
             <!-- Slides -->
-            <div class="relative h-[400px] sm:h-[450px] lg:h-[500px]">
+            <div class="relative h-[300px] sm:h-[450px] lg:h-[500px]">
                 <template x-for="(slide, index) in slides" :key="index">
                     <div
                         x-show="activeIndex === index"
@@ -1132,7 +1130,7 @@
                                     }"
                                     >
                             <!-- Text Card with Glass Morphism -->
-                            <div class="relative max-w-xl group">
+                            <div class="relative max-w-sm group">
                                 <!-- Glass morphism background -->
                                 <div
                                     class="absolute inset-0 bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl"></div>
@@ -1144,15 +1142,15 @@
                                 <!-- Content -->
                                 <div class="relative p-6 lg:p-8">
                                     <!-- Title with animation -->
-                                    <h2 class="font-heading-2 text-white mb-4 transform transition-all duration-700 group-hover:scale-105"
+                                    <h5 class="font-heading-5 text-white mb-4 transform transition-all duration-700 group-hover:scale-105"
                                         x-text="slide.title"
                                         x-transition:enter="transition ease-out duration-700"
                                         x-transition:enter-start="opacity-0 translate-y-8"
                                         x-transition:enter-end="opacity-100 translate-y-0">
-                                    </h2>
+                                    </h5>
 
                                     <!-- Description with animation -->
-                                    <p class="font-body-large text-white/90 mb-6 transform transition-all duration-700 delay-100 group-hover:translate-x-2"
+                                    <p class="font-body-small text-white/90 mb-6 line-clamp-2 transform transition-all duration-700 delay-100 group-hover:translate-x-2"
                                        x-text="slide.text"
                                        x-transition:enter="transition ease-out duration-700 delay-200"
                                        x-transition:enter-start="opacity-0 translate-y-8"
@@ -1161,13 +1159,13 @@
 
                                     <!-- CTA Button with enhanced animation -->
                                     <a :href="slide.link"
-                                       class="inline-flex items-center px-8 py-4 bg-white backdrop-blur-sm hover:from-blue-600 hover:to-blue-700 text-cyan-600 rounded-2xl font-button-large shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 border border-white/20"
+                                       class="inline-flex items-center px-4 py-2 bg-blue-700 backdrop-blur-sm hover:bg-gradient hover:from-blue-600 hover:to-blue-700 text-cyan-50 rounded-sm font-button-small shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 border border-white/20"
                                        x-transition:enter="transition ease-out duration-700 delay-300"
                                        x-transition:enter-start="opacity-0 translate-y-8"
                                        x-transition:enter-end="opacity-100 translate-y-0">
                                         <span x-text="slide.button"></span>
                                         <svg
-                                            class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                                            class="ml-2 w-3 h-3 transition-transform duration-300 group-hover:translate-x-1"
                                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M9 5l7 7-7 7"/>
@@ -1187,13 +1185,13 @@
 
 
         <!-- Navigation Controls (Below Banner) -->
-        <div class="bg-white py-6 shadow-lg">
+        <div class="bg-white py-3 shadow-lg">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
                     <!-- Left Arrow -->
                     <button @click="prev()"
-                            class="group flex items-center justify-center w-12 h-12 border-2 border-blue-600 text-blue-600 rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none"
+                            class="group flex items-center justify-center w-9 h-9 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                        <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none"
                              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
                         </svg>
@@ -1205,11 +1203,11 @@
                             <div class="relative cursor-pointer" @click="goToSlide(index)">
                                 <!-- Inactive dot -->
                                 <div
-                                    class="w-3 h-3 rounded-full bg-blue-200 transition-all duration-300 hover:bg-blue-400"
+                                    class="w-2 h-2 rounded-full bg-blue-200 transition-all duration-300 hover:bg-blue-400"
                                     x-show="activeIndex !== index"></div>
                                 <!-- Active progress bar -->
                                 <div x-show="activeIndex === index"
-                                     class="h-3 rounded-full bg-blue-200 overflow-hidden w-16 transition-all duration-200 ease-in-out">
+                                     class="h-2 rounded-full bg-blue-200 overflow-hidden w-12 transition-all duration-200 ease-in-out">
                                     <div
                                         class="h-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-50 ease-linear"
                                         :style="{ width: progress + '%' }"></div>
@@ -1220,8 +1218,8 @@
 
                     <!-- Right Arrow -->
                     <button @click="next()"
-                            class="group flex items-center justify-center w-12 h-12 border-2 border-blue-600 text-blue-600 rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none"
+                            class="group flex items-center justify-center w-9 h-9 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                        <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none"
                              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                         </svg>
@@ -1237,11 +1235,11 @@
 
 <!-- Our Drive Section -->
 <section class="bg-gray-50 py-16 lg:py-24 content-fade-in">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <!-- Left Content -->
             <div class="space-y-6 slide-in-left">
-                <h2 class="font-heading-1 text-gray-900 text-reveal">
+                <h2 class="font-heading-2 text-gray-900 text-reveal">
                     Our drive, our purpose
                     <br>
                     <span class="text-blue-600">Enabling You To Shape A Better</span>
@@ -1252,7 +1250,7 @@
 
             <!-- Right Content -->
             <div class="space-y-8 slide-in-right">
-                <p class="font-body-large text-gray-700">
+                <p class="font-body-large text-gray-700 leading-wider">
                     At DestroSolutions, we enable the future of mobility by driving the transition to Software-Defined
                     Vehicles (SDVs). Our expertise spans end-to-end automotive cybersecurity, software update
                     management, functional safety, and E/E architecture transformation. Our commitment to Safety &
@@ -1309,10 +1307,10 @@
       category: 'SDV Transformation'
     }
 ] }" class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-24 content-fade-in">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16 scale-in">
-            <h2 class="font-heading-1 text-gray-900 mb-6 text-reveal">
+            <h2 class="font-heading-2 text-gray-900 mb-6 text-reveal">
                 The Future Begins
             </h2>
             <p class="font-body-large text-gray-600 max-w-3xl mx-auto text-reveal">
@@ -1324,7 +1322,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             <template x-for="(card, index) in cards" :key="index">
                 <div
-                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
+                    class="group bg-white rounded-md shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
                     :class="`stagger-delay-${(index % 6) + 1}`">
 
                     <!-- Image Container with Overlay -->
@@ -1369,7 +1367,7 @@
 
                     <!-- Hover Glow Effect -->
                     <div
-                        class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        class="absolute inset-0 bg-gradient-to-r from-blue-200/10 to-purple-200/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
             </template>
         </div>
@@ -1438,7 +1436,7 @@
         }
     ]
 }" class="bg-white py-16 content-fade-in">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Heading -->
         <div class="scale-in">
             <h2 class="font-heading-3 text-gray-900 mb-6 text-reveal">
@@ -1472,7 +1470,7 @@
                     <!-- Image Section -->
                     <div class="w-full lg:w-2/3 overflow-hidden">
                         <img :src="product.image" :alt="product.title"
-                             class="w-full shadow-lg h-72 sm:h-72 lg:h-72 object-cover rounded-lg transition-transform duration-300 group-hover:scale-105 lazy-image"
+                             class="w-full shadow-lg h-72 sm:h-72 lg:h-72 object-cover rounded-lg transition-transform duration-600 group-hover:scale-100 group-hover:ease-in-out lazy-image"
                              :class="product.position === 'right' ? 'lg:rounded-l-2xl lg:rounded-r-none' : 'lg:rounded-l-none lg:rounded-r-2xl'">
                     </div>
                 </div>
@@ -1666,10 +1664,10 @@
       category: 'Operations'
     }
 ] }" class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-24 content-fade-in">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16 scale-in">
-            <h2 class="font-heading-1 text-gray-900 mb-6 text-reveal">
+            <h2 class="font-heading-2 text-gray-900 mb-6 text-reveal">
                 Our Software-defined Vehicle (SDV) solutions
             </h2>
             <p class="font-body-large text-gray-600 max-w-3xl mx-auto text-reveal">
@@ -1735,7 +1733,7 @@
 
 <!-- Contact Us Section -->
 <section class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-24 content-fade-in">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16 scale-in">
             <h2 class="font-heading-1 text-gray-900 mb-6 text-reveal">
@@ -2009,13 +2007,14 @@
             isPaused: false,
             slides: [
                 {
-                    title: "Transformation needs leadership",
-                    text: "Why 75% fail - and how leadership makes the difference. Discover the key elements of successful digital transformation.",
-                    button: "Explore More",
+                    title: "Digital. Smart. Future.",
+                    text: "MHP delivers innovative solutions for digital transformation across all industries with proven expertise.",
+                    button: "Learn more",
                     link: "/destro",
-                    image: "{{asset('images/dark4.jpg')}}",
+                    image: "{{asset('images/dark2.jpg')}}",
                     position: "right"
                 },
+
                 {
                     title: "Driving Innovation Forward",
                     text: "We develop strategies and technologies that sustainably transform businesses and create lasting value.",
@@ -2024,12 +2023,13 @@
                     image: "{{asset('images/light3.jpg')}}",
                     position: "left"
                 },
+
                 {
-                    title: "Digital. Smart. Future.",
-                    text: "MHP delivers innovative solutions for digital transformation across all industries with proven expertise.",
-                    button: "Learn more",
+                    title: "Transformation needs leadership",
+                    text: "Why 75% fail - and how leadership makes the difference. Discover the key elements of successful digital transformation.",
+                    button: "Explore More",
                     link: "/destro",
-                    image: "{{asset('images/dark2.jpg')}}",
+                    image: "{{asset('images/dark4.jpg')}}",
                     position: "right"
                 },
 
