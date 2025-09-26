@@ -840,9 +840,97 @@
     $menuItems = [
         ['label' => 'Home', 'url' => '/'],
         ['label' => 'Quantum', 'url' => '/destro'],
-        ['label' => 'Services', 'url' => '/destro'],
-        ['label' => 'Products', 'url' => '/destro'],
-        ['label' => 'Training', 'url' => '/destro'],
+        [
+            'label' => 'Services', 
+            'url' => '/destro',
+            'hasSubmenu' => true,
+            'submenu' => [
+                [
+                    'title' => 'Cybersecurity Management',
+                    'image' => 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ],
+                [
+                    'title' => 'Functional Safety',
+                    'image' => 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ],
+                [
+                    'title' => 'Software Updates',
+                    'image' => 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ],
+                [
+                    'title' => 'ASPICE Compliance',
+                    'image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ]
+            ]
+        ],
+        [
+            'label' => 'Products', 
+            'url' => '/destro',
+            'hasSubmenu' => true,
+            'submenu' => [
+                [
+                    'title' => 'Automator AI',
+                    'image' => 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ],
+                [
+                    'title' => 'IDPS System',
+                    'image' => 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ],
+                [
+                    'title' => 'AI Data Collector',
+                    'image' => 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ],
+                [
+                    'title' => 'SBOM Manager',
+                    'image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ],
+                [
+                    'title' => 'vSOC Platform',
+                    'image' => 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ],
+                [
+                    'title' => 'OTA Updater',
+                    'image' => 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ]
+            ]
+        ],
+        [
+            'label' => 'Training', 
+            'url' => '/destro',
+            'hasSubmenu' => true,
+            'submenu' => [
+                [
+                    'title' => 'Cybersecurity Training',
+                    'image' => 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ],
+                [
+                    'title' => 'Functional Safety',
+                    'image' => 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ],
+                [
+                    'title' => 'ASPICE Training',
+                    'image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ],
+                [
+                    'title' => 'AUTOSAR Training',
+                    'image' => 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'url' => '/destro'
+                ]
+            ]
+        ],
         ['label' => 'Blog', 'url' => '/destro'],
     ];
 @endphp
@@ -943,15 +1031,45 @@
         >
             <div class="px-6 py-4 space-y-1">
                 @foreach ($menuItems as $item)
-                    <a href="{{ $item['url'] }}"
-                       class="group relative text-xs block text-gray-800 font-nav py-3 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600 bg-blue-50' : '' }}">
-                        <span class="relative z-10">{{ $item['label'] }}</span>
-
-                        <!-- Animated underline -->
-                        <span
-                            class="absolute left-4 bottom-2 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"
-                            style="width: calc(100% - 2rem);"></span>
-                    </a>
+                    @if(isset($item['hasSubmenu']) && $item['hasSubmenu'])
+                        <!-- Mobile Submenu Item -->
+                        <div x-data="{ open: false }" class="space-y-1">
+                            <button @click="open = !open" 
+                                    class="group relative w-full text-left text-xs text-gray-800 font-nav py-3 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                <span class="relative z-10">{{ $item['label'] }}</span>
+                                <svg class="w-4 h-4 transition-transform duration-300" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            
+                            <!-- Submenu Items -->
+                            <div x-show="open" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                 class="ml-4 space-y-1"
+                                 style="display: none;">
+                                @foreach($item['submenu'] as $subItem)
+                                    <a href="{{ $subItem['url'] }}"
+                                       class="group relative text-xs block text-gray-600 font-nav py-2 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 flex items-center">
+                                        <img src="{{ $subItem['image'] }}" alt="{{ $subItem['title'] }}" class="w-8 h-8 rounded-lg mr-3 object-cover">
+                                        <span class="relative z-10">{{ $subItem['title'] }}</span>
+                                    </a>
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <!-- Regular Mobile Menu Item -->
+                        <a href="{{ $item['url'] }}"
+                           class="group relative text-xs block text-gray-800 font-nav py-3 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600 bg-blue-50' : '' }}">
+                            <span class="relative z-10">{{ $item['label'] }}</span>
+                            <!-- Animated underline -->
+                            <span class="absolute left-4 bottom-2 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}" style="width: calc(100% - 2rem);"></span>
+                        </a>
+                    @endif
                 @endforeach
 
                 <!-- Enhanced Action Buttons -->
@@ -1024,16 +1142,69 @@
                     <!-- Desktop menu (left) -->
                     <div class="flex items-center space-x-8">
                         @foreach ($menuItems as $item)
-                            <a href="{{ $item['url'] }}"
-                               class="group relative  text-gray-800 font-nav px-3 py-2 transition-all duration-300 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600' : '' }}">
-                                <span class="relative z-10 text-sm">
-                                    {{ $item['label'] }}
-                                </span>
+                            @if(isset($item['hasSubmenu']) && $item['hasSubmenu'])
+                                <!-- Mega Menu Item -->
+                                <div class="relative group" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                                    <a href="{{ $item['url'] }}"
+                                       class="group relative text-gray-800 font-nav px-3 py-2 transition-all duration-300 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600' : '' }}">
+                                        <span class="relative z-10 text-sm">
+                                            {{ $item['label'] }}
+                                        </span>
+                                        <!-- Arrow down icon -->
+                                        <svg class="inline-block ml-1 w-3 h-3 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                        </svg>
+                                        <!-- Gradient blue underline -->
+                                        <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"></span>
+                                    </a>
 
-                                <!-- Gradient blue underline with smooth hover effect -->
-                                <span
-                                    class="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"></span>
-                            </a>
+                                    <!-- Mega Menu Dropdown -->
+                                    <div x-show="open" 
+                                         x-transition:enter="transition ease-out duration-200"
+                                         x-transition:enter-start="opacity-0 transform scale-95"
+                                         x-transition:enter-end="opacity-100 transform scale-100"
+                                         x-transition:leave="transition ease-in duration-150"
+                                         x-transition:leave-start="opacity-100 transform scale-100"
+                                         x-transition:leave-end="opacity-0 transform scale-95"
+                                         class="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 z-50 overflow-hidden"
+                                         style="display: none;">
+                                        
+                                        <!-- Menu Items - Single Column Landscape Layout -->
+                                        <div class="p-4">
+                                            <div class="space-y-2">
+                                                @foreach($item['submenu'] as $subItem)
+                                                    <a href="{{ $subItem['url'] }}" 
+                                                       class="group/item flex items-center p-3 rounded-lg hover:bg-blue-50 transition-all duration-300 hover:scale-[1.02]">
+                                                        <!-- Image - Left Side -->
+                                                        <div class="relative w-12 h-12 mr-3 overflow-hidden rounded-lg shadow-sm group-hover/item:shadow-md transition-shadow duration-300">
+                                                            <img src="{{ $subItem['image'] }}" 
+                                                                 alt="{{ $subItem['title'] }}" 
+                                                                 class="w-full h-full object-cover transition-transform duration-300 group-hover/item:scale-110">
+                                                            <!-- Overlay -->
+                                                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></div>
+                                                        </div>
+                                                        
+                                                        <!-- Title - Right Side -->
+                                                        <h4 class="text-xs font-medium text-gray-900 group-hover/item:text-blue-600 transition-colors duration-300">
+                                                            {{ $subItem['title'] }}
+                                                        </h4>
+                                                    </a>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <!-- Regular Menu Item -->
+                                <a href="{{ $item['url'] }}"
+                                   class="group relative text-gray-800 font-nav px-3 py-2 transition-all duration-300 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600' : '' }}">
+                                    <span class="relative z-10 text-sm">
+                                        {{ $item['label'] }}
+                                    </span>
+                                    <!-- Gradient blue underline -->
+                                    <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"></span>
+                                </a>
+                            @endif
                         @endforeach
                     </div>
                 </div>

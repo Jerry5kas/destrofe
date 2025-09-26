@@ -1078,7 +1078,7 @@
         <!-- Banner -->
         <div class="relative w-full overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
             <!-- Slides -->
-            <div class="relative h-[300px] sm:h-[450px] lg:h-[500px]">
+            <div class="relative h-[450px] sm:h-[450px] lg:h-[500px]">
                 <template x-for="(slide, index) in slides" :key="index">
                     <div
                         x-show="activeIndex === index"
