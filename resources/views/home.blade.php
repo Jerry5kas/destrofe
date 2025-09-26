@@ -16,6 +16,11 @@
     <!-- Professional Typography System -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* ===== ALPINE.JS X-CLOAK ===== */
+        [x-cloak] {
+            display: none !important;
+        }
+
         /* ===== PROFESSIONAL TYPOGRAPHY SYSTEM ===== */
         :root {
             /* Font Families */
@@ -960,11 +965,11 @@
     }"
     class="w-full">
 
-    <!-- ---------- Top Main Logo (slides up when scrolled) ---------- -->
+    <!-- ---------- Mobile Fixed Navbar (always visible on mobile) ---------- -->
     <div
         x-ref="headerBlock"
-        :class="scrolled ? 'transform -translate-y-full opacity-0' : 'transform translate-y-0 opacity-100'"
-        class="bg-white w-full px-0 sm:px-9 transition-all duration-500 ease-in-out relative z-40"
+        class="bg-white w-full px-0 sm:px-9 transition-all duration-500 ease-in-out fixed top-0 left-0 right-0 z-50 md:relative md:z-40 md:transition-all md:duration-500 md:ease-in-out"
+        :class="scrolled ? 'md:transform md:-translate-y-full md:opacity-0' : 'md:transform md:translate-y-0 md:opacity-100'"
     >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div class="flex items-center justify-between">
@@ -1020,88 +1025,133 @@
             </div>
         </div>
 
-        <!-- Mobile dropdown (moved here from desktop navbar) -->
+        <!-- Enhanced Mobile Dropdown with Fixed Height -->
         <div
             x-show="open"
+            x-cloak
             x-transition:enter="transition ease-out duration-300"
             x-transition:enter-start="opacity-0 -translate-y-4"
             x-transition:enter-end="opacity-100 translate-y-0"
             x-transition:leave="transition ease-in duration-250"
             x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-4"
-            class="md:hidden bg-white border-t border-gray-100 shadow-lg relative z-50"
+            class="md:hidden bg-white border-t border-gray-200 shadow-xl absolute top-full left-0 right-0 z-40"
+            x-data="{
+                activeDropdown: null,
+                maxHeight: '400px',
+                init() {
+                    this.maxHeight = Math.min(window.innerHeight * 0.6, 400) + 'px';
+                },
+                toggleDropdown(dropdownId) {
+                    if (this.activeDropdown === dropdownId) {
+                        this.activeDropdown = null;
+                    } else {
+                        this.activeDropdown = dropdownId;
+                    }
+                },
+                isDropdownOpen(dropdownId) {
+                    return this.activeDropdown === dropdownId;
+                }
+            }"
+            :style="{ maxHeight: maxHeight }"
         >
-            <div class="px-6 py-4 space-y-1">
-                @foreach ($menuItems as $item)
-                    @if(isset($item['hasSubmenu']) && $item['hasSubmenu'])
-                        <!-- Mobile Submenu Item -->
-                        <div x-data="{ open: false }" class="space-y-1">
-                            <button @click="open = !open"
-                                    class="group relative w-full text-left text-xs text-gray-800 font-nav py-3 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
-                                <span class="relative z-10">{{ $item['label'] }}</span>
-                                <svg class="w-4 h-4 transition-transform duration-300" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
+            <div class="overflow-y-auto" :style="{ maxHeight: maxHeight }">
+                <div class="px-4 py-4 space-y-1">
+                    @foreach ($menuItems as $item)
+                        @if(isset($item['hasSubmenu']) && $item['hasSubmenu'])
+                            <!-- Enhanced Mobile Submenu Item -->
+                            <div class="space-y-1">
+                                <button @click="toggleDropdown('{{ $item['label'] }}')"
+                                        class="group relative w-full text-left text-sm text-gray-800 font-medium py-3 px-4 rounded-xl transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 hover:shadow-md hover:scale-[1.02] flex items-center justify-between border border-transparent hover:border-blue-200">
+                                    <span class="relative z-10 group-hover:text-blue-700 transition-colors duration-300">{{ $item['label'] }}</span>
+                                    <svg class="w-4 h-4 transition-all duration-300 group-hover:text-blue-500" :class="isDropdownOpen('{{ $item['label'] }}') ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                    <!-- Hover Glow Effect -->
+                                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                </button>
 
-                            <!-- Submenu Items -->
-                            <div x-show="open"
-                                 x-transition:enter="transition ease-out duration-200"
-                                 x-transition:enter-start="opacity-0 transform scale-95"
-                                 x-transition:enter-end="opacity-100 transform scale-100"
-                                 x-transition:leave="transition ease-in duration-150"
-                                 x-transition:leave-start="opacity-100 transform scale-100"
-                                 x-transition:leave-end="opacity-0 transform scale-95"
-                                 class="ml-4 space-y-1"
-                                 style="display: none;">
-                                @foreach($item['submenu'] as $subItem)
-                                    <a href="{{ $subItem['url'] }}"
-                                       class="group relative text-xs block text-gray-600 font-nav py-2 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 flex items-center">
-                                        <img src="{{ $subItem['image'] }}" alt="{{ $subItem['title'] }}" class="w-8 h-8 rounded-lg mr-3 object-cover">
-                                        <span class="relative z-10">{{ $subItem['title'] }}</span>
-                                    </a>
-                                @endforeach
+                                <!-- Enhanced Submenu Items -->
+                                <div x-show="isDropdownOpen('{{ $item['label'] }}')"
+                                     x-cloak
+                                     x-transition:enter="transition ease-out duration-200"
+                                     x-transition:enter-start="opacity-0 transform scale-95"
+                                     x-transition:enter-end="opacity-100 transform scale-100"
+                                     x-transition:leave="transition ease-in duration-150"
+                                     x-transition:leave-start="opacity-100 transform scale-100"
+                                     x-transition:leave-end="opacity-0 transform scale-95"
+                                     class="ml-3 space-y-1"
+                                     style="display: none;">
+                                    @foreach($item['submenu'] as $subItem)
+                                        <a href="{{ $subItem['url'] }}"
+                                           class="group relative text-sm block text-gray-600 py-3 px-4 rounded-xl transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 hover:shadow-md hover:scale-[1.02] flex items-center border border-transparent hover:border-blue-200">
+                                            <!-- Enhanced Image with Hover Effects -->
+                                            <div class="relative w-10 h-10 mr-3 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                                                <img src="{{ $subItem['image'] }}" alt="{{ $subItem['title'] }}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                                                <!-- Hover Overlay -->
+                                                <div class="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                            </div>
+
+                                            <!-- Enhanced Text with Hover Effects -->
+                                            <div class="flex-1">
+                                                <span class="font-medium group-hover:text-blue-700 transition-colors duration-300">{{ $subItem['title'] }}</span>
+                                            </div>
+
+                                            <!-- Hover Arrow Icon -->
+                                            <svg class="w-4 h-4 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300 opacity-0 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                            </svg>
+
+                                            <!-- Hover Glow Effect -->
+                                            <div class="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                        </a>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
-                    @else
-                        <!-- Regular Mobile Menu Item -->
-                        <a href="{{ $item['url'] }}"
-                           class="group relative text-xs block text-gray-800 font-nav py-3 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600 bg-blue-50' : '' }}">
-                            <span class="relative z-10">{{ $item['label'] }}</span>
-                            <!-- Animated underline -->
-                            <span class="absolute left-4 bottom-2 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}" style="width: calc(100% - 2rem);"></span>
-                        </a>
-                    @endif
-                @endforeach
+                        @else
+                            <!-- Enhanced Regular Mobile Menu Item -->
+                            <a href="{{ $item['url'] }}"
+                               class="group relative text-sm block text-gray-800 font-medium py-3 px-4 rounded-xl transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 hover:shadow-md hover:scale-[1.02] border border-transparent hover:border-blue-200 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600 bg-blue-50 border-blue-200' : '' }}">
+                                <span class="group-hover:text-blue-700 transition-colors duration-300">{{ $item['label'] }}</span>
+                                <!-- Hover Arrow Icon -->
+                                <svg class="w-4 h-4 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300 opacity-0 group-hover:opacity-100 absolute right-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                                <!-- Hover Glow Effect -->
+                                <div class="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </a>
+                        @endif
+                    @endforeach
 
-                <!-- Enhanced Action Buttons -->
-                <div class="flex items-center justify-center space-x-6 pt-6 border-t border-gray-100">
-                    <!-- Search Button -->
-                    <button
-                        class="group relative flex items-center justify-center w-12 h-12 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                        <svg class="h-5 w-5 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110"
-                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                        </svg>
-                        <!-- Subtle glow effect -->
-                        <div
-                            class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"></div>
-                    </button>
+                    <!-- Enhanced Action Buttons -->
+                    <div class="flex items-center justify-center space-x-4 pt-6 border-t border-gray-200">
+                        <!-- Search Button -->
+                        <button
+                            class="group relative flex items-center justify-center w-12 h-12 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg border border-transparent hover:border-blue-200">
+                            <svg class="h-5 w-5 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110"
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                            <!-- Subtle glow effect -->
+                            <div
+                                class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"></div>
+                        </button>
 
-                    <!-- Language Button -->
-                    <button
-                        class="group relative flex items-center justify-center w-12 h-12 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                             stroke="currentColor"
-                             class="h-5 w-5 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"/>
-                        </svg>
-                        <!-- Subtle glow effect -->
-                        <div
-                            class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"></div>
-                    </button>
+                        <!-- Language Button -->
+                        <button
+                            class="group relative flex items-center justify-center w-12 h-12 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg border border-transparent hover:border-blue-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                 stroke="currentColor"
+                                 class="h-5 w-5 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"/>
+                            </svg>
+                            <!-- Subtle glow effect -->
+                            <div
+                                class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"></div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1247,7 +1297,7 @@
 
 
     <!-- Enhanced Banner / Hero Section -->
-    <div x-data="slider()" x-init="start()" class="w-full relative">
+    <div x-data="slider()" x-init="start()" class="w-full relative pt-16 md:pt-0">
         <!-- Main Banner Container -->
         <div class="relative w-full overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
             <!-- Animated Background Elements -->
