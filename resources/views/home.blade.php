@@ -1444,39 +1444,117 @@
 </div>
 
 
-<!-- Our Drive Section -->
-<section class="bg-gray-50 py-16 lg:py-24 content-fade-in">
-    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <!-- Left Content -->
-            <div class="space-y-6 slide-in-left">
-                <h2 class="font-heading-2 text-gray-900 text-reveal">
+<!-- Enhanced Our Drive Section -->
+<section class="relative bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 py-20 lg:py-32 content-fade-in overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div class="absolute top-40 right-20 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-cyan-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 4s;"></div>
+    </div>
+
+    <div class="relative max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+            <!-- Enhanced Left Content -->
+            <div class="space-y-8 slide-in-left">
+                <!-- Category Badge -->
+                <div class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Our Mission
+                </div>
+
+                <!-- Enhanced Heading -->
+                <h2 class="font-heading-1 text-gray-900 text-reveal leading-tight">
                     Our drive, our purpose
                     <br>
-                    <span class="text-blue-600">Enabling You To Shape A Better</span>
+                    <span class="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 bg-clip-text text-transparent">
+                        Enabling You To Shape A Better
+                    </span>
                     <br>
-                    Tomorrow
+                    <span class="text-gray-800">Tomorrow</span>
                 </h2>
+
+                <!-- Enhanced Stats -->
+                <div class="grid grid-cols-2 gap-6 pt-4">
+                    <div class="group">
+                        <div class="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">500+</div>
+                        <div class="text-sm text-gray-600 font-medium">Projects Delivered</div>
+                    </div>
+                    <div class="group">
+                        <div class="text-3xl font-bold text-indigo-600 group-hover:scale-110 transition-transform duration-300">15+</div>
+                        <div class="text-sm text-gray-600 font-medium">Years Experience</div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Right Content -->
+            <!-- Enhanced Right Content -->
             <div class="space-y-8 slide-in-right">
-                <p class="font-body-large text-gray-700 leading-wider">
-                    At DestroSolutions, we enable the future of mobility by driving the transition to Software-Defined
-                    Vehicles (SDVs). Our expertise spans end-to-end automotive cybersecurity, software update
-                    management, functional safety, and E/E architecture transformation. Our commitment to Safety &
-                    security standards, expert training positions us as a trusted partner in delivering tomorrow's
-                    mobility—today.
-                </p>
+                <!-- Enhanced Description Card -->
+                <div class="relative bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                    <!-- Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 rounded-2xl"></div>
 
-                <!-- CTA Button -->
-                <div class="pt-4">
+                    <!-- Content -->
+                    <div class="relative z-10">
+                        <p class="font-body-large text-gray-700 leading-relaxed mb-6">
+                            At DestroSolutions, we enable the future of mobility by driving the transition to Software-Defined
+                            Vehicles (SDVs). Our expertise spans end-to-end automotive cybersecurity, software update
+                            management, functional safety, and E/E architecture transformation.
+                        </p>
+
+                        <p class="font-body text-gray-600 leading-relaxed mb-8">
+                            Our commitment to Safety & security standards, expert training positions us as a trusted partner in delivering tomorrow's mobility—today.
+                        </p>
+
+                        <!-- Enhanced Features List -->
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center group">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-200 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <span class="font-medium text-gray-800">End-to-End Cybersecurity Solutions</span>
+                            </div>
+                            <div class="flex items-center group">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-indigo-200 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <span class="font-medium text-gray-800">Software-Defined Vehicle Expertise</span>
+                            </div>
+                            <div class="flex items-center group">
+                                <div class="w-8 h-8 bg-cyan-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-cyan-200 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <span class="font-medium text-gray-800">Industry-Leading Training Programs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
                     <a href="/destro"
-                       class="inline-flex items-center px-8 py-4 border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-lg font-button transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                        Who we are
+                       class="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl font-button-large transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                        <span>Who we are</span>
                         <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
                              fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+
+                    <a href="/destro"
+                       class="group inline-flex items-center justify-center px-8 py-4 border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-xl font-button-large transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        <span>Our Solutions</span>
+                        <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                         </svg>
                     </a>
                 </div>
@@ -1486,109 +1564,118 @@
 </section>
 
 
-<section x-data="{ cards: [
-    {
-      title: 'End To End Security',
-      text: 'Secure-by-design solutions across the full vehicle lifecycle—from development to decommissioning.',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      link: '#',
-      category: 'Cybersecurity'
-    },
-    {
-      title: 'Standards-Aligned Engineering',
-      text: 'Built to meet ASPICE, AUTOSAR, CSMS, SUMS, FuSa & SOTIF Automotive-Grade Reliability',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-{{--      image: 'https://images.unsplash.com/photo-1537041373298-55dbb337e651?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',--}}
-{{--      image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',--}}
-      link: '#',
-      category: 'Standards Compliance'
-    },
-    {
-      title: 'Expert Training & Consulting',
-      text: 'Upskill your team skills and expertise to drive innovation in the SDV ERA',
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      link: '#',
-      category: 'Training & Consulting'
-    },
-    {
-      title: 'Accelerating the SDV Shift',
-      text: 'Pioneering Software-Defined Vehicle (SDV) transformations with E/E Systems, OTA.',
-      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      link: '#',
-      category: 'SDV Transformation'
-    }
-] }" class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-24 content-fade-in">
+<!-- Compact Future Solutions Section -->
+<section x-data="{
+    cards: [
+        {
+            title: 'End To End Security',
+            text: 'Secure-by-design solutions across the full vehicle lifecycle—from development to decommissioning.',
+            image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+            link: '/destro',
+            category: 'Cybersecurity',
+            features: ['Threat Detection', 'Risk Assessment', 'Compliance Monitoring']
+        },
+        {
+            title: 'Standards-Aligned Engineering',
+            text: 'Built to meet ASPICE, AUTOSAR, CSMS, SUMS, FuSa & SOTIF Automotive-Grade Reliability',
+            image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+            link: '/destro',
+            category: 'Standards Compliance',
+            features: ['ASPICE Compliance', 'AUTOSAR Standards', 'Quality Gates']
+        },
+        {
+            title: 'Expert Training & Consulting',
+            text: 'Upskill your team skills and expertise to drive innovation in the SDV ERA',
+            image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+            link: '/destro',
+            category: 'Training & Consulting',
+            features: ['Expert Training', 'Skill Development', 'Industry Expertise']
+        },
+        {
+            title: 'Accelerating the SDV Shift',
+            text: 'Pioneering Software-Defined Vehicle (SDV) transformations with E/E Systems, OTA.',
+            image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+            link: '/destro',
+            category: 'SDV Transformation',
+            features: ['E/E Architecture', 'OTA Updates', 'SDV Solutions']
+        }
+    ]
+}" class="bg-gradient-to-br from-gray-50 to-gray-100 py-12 lg:py-16 content-fade-in">
+
     <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Header -->
-        <div class="text-center mb-16 scale-in">
-            <h2 class="font-heading-2 text-gray-900 mb-6 text-reveal">
+        <!-- Compact Section Header -->
+        <div class="text-center mb-12 scale-in">
+            <h2 class="font-heading-2 text-gray-900 mb-4 text-reveal">
                 The Future Begins
             </h2>
-            <p class="font-body-large text-gray-600 max-w-3xl mx-auto text-reveal">
-                Innovative products, services and training
+            <p class="font-body text-gray-600 max-w-2xl mx-auto text-reveal">
+                Innovative products, services and training solutions
             </p>
         </div>
 
-        <!-- Enhanced Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+        <!-- Compact Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
             <template x-for="(card, index) in cards" :key="index">
-                <div
-                    class="group bg-white rounded-md shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
-                    :class="`stagger-delay-${(index % 6) + 1}`">
+                <div class="group bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden enhanced-card stagger-animation"
+                     :class="`stagger-delay-${(index % 6) + 1}`">
 
-                    <!-- Image Container with Overlay -->
-                    <div class="relative h-48 sm:h-56 overflow-hidden">
+                    <!-- Compact Image Container -->
+                    <div class="relative h-40 overflow-hidden">
                         <img :src="card.image" alt=""
-                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 lazy-image">
-                        <!-- Gradient Overlay -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 lazy-image">
+
                         <!-- Category Badge -->
-                        <div class="absolute top-4 left-4">
-                            <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full"
+                        <div class="absolute top-3 left-3">
+                            <span class="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full shadow-sm"
                                   x-text="card.category"></span>
                         </div>
                     </div>
 
-                    <!-- Content -->
-                    <div class="flex flex-col justify-between flex-1 p-6">
+                    <!-- Compact Content -->
+                    <div class="flex flex-col justify-between flex-1 p-5">
                         <div>
-                            <h3 class="font-card-title text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300"
+                            <h3 class="font-heading-5 text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300"
                                 x-text="card.title"></h3>
-                            <p class="font-card-description text-gray-600" x-text="card.text"></p>
+                            <p class="font-body-small text-gray-600 mb-4 line-clamp-2" x-text="card.text"></p>
+
+                            <!-- Always Visible Features List -->
+                            <div class="space-y-1 mb-4">
+                                <template x-for="feature in card.features" :key="feature">
+                                    <div class="flex items-center text-xs">
+                                        <svg class="w-3 h-3 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span class="text-gray-600" x-text="feature"></span>
+                                    </div>
+                                </template>
+                            </div>
                         </div>
 
-                        <!-- Enhanced Arrow Button -->
-                        <div class="mt-6 flex justify-start items-center gap-2">
+                        <!-- Compact CTA -->
+                        <div class="flex items-center justify-between pt-3 border-t border-gray-100">
                             <a :href="card.link"
                                class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
                                 Learn more
                             </a>
+
                             <a :href="card.link"
-                               class="group/btn inline-flex items-center justify-center w-5 h-5 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                                <svg class="w-3 h-3 transition-transform duration-300 group-hover/btn:translate-x-0.5"
-                                     fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                               class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                 </svg>
                             </a>
-                            <!-- Learn More Link -->
-
                         </div>
                     </div>
-
-                    <!-- Hover Glow Effect -->
-                    <div
-                        class="absolute inset-0 bg-gradient-to-r from-blue-200/10 to-purple-200/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
             </template>
         </div>
 
-        <!-- Call to Action -->
-        <div class="text-center mt-16">
+        <!-- Compact Call to Action -->
+        <div class="text-center mt-12">
             <a href="/destro"
-               class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl font-button-large shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+               class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-button shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
                 View All Solutions
-                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
             </a>
@@ -1597,184 +1684,138 @@
 </section>
 
 
-<!-- Products Section -->
+<!-- Compact Products Section -->
 <section x-data="{
     products: [
         {
             title: 'Automator AI',
             description: 'Automator lets OEMs use automation policies to instantly create new vehicle functions',
             image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-            icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-            position: 'left',
-            product: 'AI',
+            category: 'AI Solutions',
+            features: ['Policy Automation', 'Instant Deployment', 'Vehicle Functions']
         },
         {
             title: 'IDPS',
             subtitle: 'Intrusion Detection and Prevention System',
             description: 'Our IDPS continuously monitors in-vehicle networks and prevent Cyber attacks today and Quantum Era',
             image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-            icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-            position: 'right'
+            category: 'Cybersecurity',
+            features: ['Real-time Monitoring', 'Threat Detection', 'Quantum Security']
         },
         {
             title: 'AI Data Collector',
             description: 'Collector is a data acquisition and analytics tool that Collects & Process data for Vehicle Performance with integrated FIR',
             image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-            icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
-            position: 'left'
+            category: 'Data Analytics',
+            features: ['Data Acquisition', 'Performance Analytics', 'FIR Integration']
         },
         {
             title: 'SBOM',
             subtitle: 'Software Bill of Materials',
             description: 'SBOM ensure Visibility, Security, Compliance across your Supply chain',
             image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-            icon: 'M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
-            position: 'right'
+            category: 'Compliance',
+            features: ['Supply Chain Visibility', 'Security Compliance', 'Material Tracking']
         },
         {
             title: 'vSOC',
             subtitle: 'Vehicle Security Operations Center',
             description: 'vSOC is a centralized hub for monitoring, detecting, and responding to cyber threats across Fleet',
             image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-            icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
-            position: 'left'
+            category: 'Security Operations',
+            features: ['Fleet Monitoring', 'Threat Response', 'Centralized Security']
         },
         {
             title: 'OTA Updater',
             description: 'OTA Updater enables secure over-the-air software updates, with end-to-end Traceability',
             image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-            icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12',
-            position: 'right'
-        },
-         {
-            title: 'vSOC',
-            subtitle: 'Vehicle Security Operations Center',
-            description: 'vSOC is a centralized hub for monitoring, detecting, and responding to cyber threats across Fleet',
-            image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-            icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
-            position: 'left'
-        },
+            category: 'Software Updates',
+            features: ['Secure Updates', 'End-to-End Traceability', 'Over-the-Air Deployment']
+        }
     ]
-}" class="bg-white py-16 content-fade-in">
+}" class="bg-white py-12 lg:py-16 content-fade-in">
+
     <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Heading -->
-        <div class="scale-in">
-            <h2 class="font-heading-3 text-gray-900 mb-3 text-reveal">
+        <!-- Compact Section Header -->
+        <div class="text-center mb-12 scale-in">
+            <h2 class="font-heading-2 text-gray-900 mb-4 text-reveal">
                 Our Products
             </h2>
-            <p class="font-body-small text-gray-600 line-clamp-3 mb-9 text-reveal">
-                DestroSolutions delivers a robust portfolio of products engineered for the Software-Defined Vehicle era. Designed for security, compliance, and performance, our solutions seamlessly integrate into modern E/E architectures while aligning with global automotive standards.
+            <p class="font-body text-gray-600 max-w-3xl mx-auto text-reveal">
+                DestroSolutions delivers a robust portfolio of products engineered for the Software-Defined Vehicle era. Designed for security, compliance, and performance.
             </p>
         </div>
 
-        <!-- Featured Product (First Row) -->
-        <div class="mb-5">
-            <template x-for="(product, index) in products.slice(0, 1)" :key="index">
-                <!-- Featured Product Card -->
-                <div class="overflow-hidden flex flex-col shadow rounded-sm lg:flex-row items-center justify-center lg:items-stretch group enhanced-card stagger-animation"
-                     :class="[product.position === 'right' ? 'lg:flex-row-reverse slide-in-right' : 'lg:flex-row slide-in-left', `stagger-delay-${(index % 6) + 1}`]">
-
-                    <!-- Content Section -->
-                    <div class="w-full lg:w-1/3 h-auto flex flex-col justify-center rounded-l-lg pl-8">
-                        <h3 class="font-heading-4 text-gray-900 mb-4" x-text="product.title"></h3>
-                        <!-- <p x-show="product.subtitle" class="font-label text-gray-500 uppercase mb-2" x-text="product.subtitle"></p> -->
-                        <p class="font-body-large text-gray-600 line-clamp-3 mb-6" x-text="product.description"></p>
-                        <a href="/destro" class="max-w-max inline-flex items-center px-6 py-3 mb-6 border-2 border-blue-600 text-blue-600 font-button rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105">
-                            <span>Read more</span>
-                            {{--                            <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">--}}
-                            {{--                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="product.icon"></path>--}}
-                            {{--                            </svg>--}}
-                        </a>
-                    </div>
-
-                    <!-- Image Section -->
-                    <div class="w-full lg:w-2/3 overflow-hidden">
-                        <img :src="product.image" :alt="product.title"
-                             class="w-full shadow-lg h-72 sm:h-72 lg:h-72 object-cover rounded-sm transition-transform duration-600 group-hover:scale-100 group-hover:ease-in-out lazy-image"
-                             :class="product.position === 'right' ? 'lg:rounded-l-sm lg:rounded-r-none' : 'lg:rounded-l-none lg:rounded-r-sm'">
-                    </div>
-                </div>
-            </template>
-        </div>
-
-        <!-- Second Row - 2 Products -->
-        <div class="mb-5">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <template x-for="(product, index) in products.slice(1, 3)" :key="index">
-                    <div class="group bg-white rounded-sm shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
-                         :class="`stagger-delay-${(index % 6) + 1}`">
-
-                        <!-- Image Container with Overlay -->
-                        <div class="relative h-48 sm:h-56 overflow-hidden">
-                            <img :src="product.image" :alt="product.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-100 lazy-image">
-                            <!-- Gradient Overlay -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <!-- Category Badge -->
-                            {{--                            <div class="absolute top-4 left-4">--}}
-                            {{--                                <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full">Product</span>--}}
-                            {{--                            </div>--}}
-                        </div>
-
-                        <!-- Content -->
-                        <div class="flex flex-col justify-between flex-1 p-6">
-                            <div>
-                                <h3 class="font-card-title text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300" x-text="product.title"></h3>
-                                <p class="font-card-description text-gray-600 line-clamp-3" x-text="product.description"></p>
-                            </div>
-
-                            <!-- Enhanced Arrow Button -->
-                            <div class="mt-2 flex justify-between items-center">
-                                <!-- Learn More Link -->
-                                <a href="/destro" class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
-                                    Learn more →
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Hover Glow Effect -->
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-200/10 to-purple-200/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                    </div>
-                </template>
-            </div>
-        </div>
-
-        <!-- Third Row - Static Grid (No Sliding) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <template x-for="(product, index) in products.slice(3)" :key="index">
-                <div class="group bg-white rounded-sm shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
+        <!-- Compact Product Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <template x-for="(product, index) in products" :key="index">
+                <div class="group bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden enhanced-card stagger-animation"
                      :class="`stagger-delay-${(index % 6) + 1}`">
 
-                    <!-- Image Container with Overlay -->
-                    <div class="relative h-48 sm:h-56 overflow-hidden">
-                        <img :src="product.image" :alt="product.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-100 lazy-image">
-                        <!-- Gradient Overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <!-- Compact Image Container -->
+                    <div class="relative h-40 overflow-hidden">
+                        <img :src="product.image" :alt="product.title" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 lazy-image">
+
                         <!-- Category Badge -->
-                        {{--                        <div class="absolute top-4 left-4">--}}
-                        {{--                            <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full">Product</span>--}}
-                        {{--                        </div>--}}
+                        <div class="absolute top-3 left-3">
+                            <span class="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full shadow-sm"
+                                  x-text="product.category"></span>
+                        </div>
                     </div>
 
-                    <!-- Content -->
-                    <div class="flex flex-col justify-between flex-1 p-6">
+                    <!-- Compact Content -->
+                    <div class="flex flex-col justify-between flex-1 p-5">
                         <div>
-                            <h3 class="font-card-title text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300" x-text="product.title"></h3>
-                            <p class="font-card-description text-gray-600 line-clamp-3" x-text="product.description"></p>
+                            <h3 class="font-heading-5 text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300" x-text="product.title"></h3>
+                            <p class="font-body-small text-gray-600 mb-4 line-clamp-2" x-text="product.description"></p>
+
+                            <!-- Always Visible Features List -->
+                            <div class="space-y-1 mb-4">
+                                <template x-for="feature in product.features" :key="feature">
+                                    <div class="flex items-center text-xs">
+                                        <svg class="w-3 h-3 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span class="text-gray-600" x-text="feature"></span>
+                                    </div>
+                                </template>
+                            </div>
                         </div>
 
-                        <!-- Enhanced Arrow Button -->
-                        <div class="mt-2 flex justify-between items-center">
-                            <!-- Learn More Link -->
+                        <!-- Compact CTA -->
+                        <div class="flex items-center justify-between pt-3 border-t border-gray-100">
                             <a href="/destro" class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
-                                Learn more →
+                                Learn more
+                            </a>
+
+                            <a href="/destro" class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
                             </a>
                         </div>
                     </div>
-
-                    <!-- Hover Glow Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-200/10 to-purple-200/10 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
             </template>
+        </div>
+
+        <!-- Compact Call to Action -->
+        <div class="text-center mt-12">
+            <div class="inline-flex flex-col sm:flex-row gap-4">
+                <a href="/destro" class="group inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-button shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                    <span>View All Products</span>
+                    <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+
+                <a href="/destro" class="group inline-flex items-center justify-center px-6 py-3 border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-lg font-button transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <span>Request Demo</span>
+                    <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
 </section>
