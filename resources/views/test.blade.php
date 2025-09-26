@@ -1363,7 +1363,8 @@
     <!-- Enhanced Banner / Hero Section -->
     <div x-data="slider()" x-init="start()" class="w-full relative pt-16 md:pt-0">
         <!-- Main Banner Container -->
-        <div class="relative w-full overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
+        <div class="relative w-full overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900" 
+             @mouseenter="pause()" @mouseleave="resume()">
             <!-- Animated Background Elements -->
             <div class="absolute inset-0 opacity-20">
                 <div
@@ -1478,7 +1479,8 @@
         </div>
 
         <!-- Enhanced Navigation Controls -->
-        <div class="bg-white/95 backdrop-blur-sm py-4 shadow-lg border-t border-gray-200">
+        <div class="bg-white/95 backdrop-blur-sm py-4 shadow-lg border-t border-gray-200" 
+             @mouseenter.stop @mouseleave.stop>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
                     <!-- Previous Button -->
@@ -2652,9 +2654,6 @@
             ],
             start() {
                 this.animateProgress();
-                // Pause on hover
-                this.$el.addEventListener('mouseenter', () => this.pause());
-                this.$el.addEventListener('mouseleave', () => this.resume());
             },
             animateProgress() {
                 clearInterval(this.interval);
