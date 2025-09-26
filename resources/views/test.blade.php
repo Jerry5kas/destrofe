@@ -2326,14 +2326,12 @@
         <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col lg:flex-row enhanced-card">
             <!-- Left Side - Image -->
             <div class="w-full lg:w-1/2 slide-in-left">
-                <div class="relative h-full lg:h-full bg-cover bg-center bg-no-repeat"
+                <div class="relative h-full bg-cover bg-center bg-no-repeat"
                      style="background-image: url('https://images.unsplash.com/photo-1588702547919-26089e690ecc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')">
-                    <!-- Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                     <!-- Content Overlay -->
                     <div class="absolute bottom-4 left-4 right-4">
                         <h3 class="font-heading-5 text-white mb-2">Get in Touch</h3>
-                        <p class="font-body-small text-blue-100">Let's discuss your automotive cybersecurity needs</p>
+                        <p class="font-body-small text-white">Let's discuss your automotive cybersecurity needs</p>
                     </div>
                 </div>
             </div>

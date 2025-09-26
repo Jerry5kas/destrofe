@@ -14,7 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Professional Typography System -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <style>
         /* ===== ALPINE.JS X-CLOAK ===== */
         [x-cloak] {
@@ -39,17 +41,17 @@
             --font-black: 900;
 
             /* Typography Scale */
-            --text-xs: 0.75rem;      /* 12px */
-            --text-sm: 0.875rem;     /* 14px */
-            --text-base: 1rem;       /* 16px */
-            --text-lg: 1.125rem;     /* 18px */
-            --text-xl: 1.25rem;      /* 20px */
-            --text-2xl: 1.5rem;      /* 24px */
-            --text-3xl: 1.875rem;    /* 30px */
-            --text-4xl: 2.25rem;     /* 36px */
-            --text-5xl: 3rem;        /* 48px */
-            --text-6xl: 3.75rem;     /* 60px */
-            --text-7xl: 4.5rem;      /* 72px */
+            --text-xs: 0.75rem; /* 12px */
+            --text-sm: 0.875rem; /* 14px */
+            --text-base: 1rem; /* 16px */
+            --text-lg: 1.125rem; /* 18px */
+            --text-xl: 1.25rem; /* 20px */
+            --text-2xl: 1.5rem; /* 24px */
+            --text-3xl: 1.875rem; /* 30px */
+            --text-4xl: 2.25rem; /* 36px */
+            --text-5xl: 3rem; /* 48px */
+            --text-6xl: 3.75rem; /* 60px */
+            --text-7xl: 4.5rem; /* 72px */
 
             /* Line Heights */
             --leading-tight: 1.25;
@@ -243,10 +245,21 @@
 
         /* ===== RESPONSIVE TYPOGRAPHY ===== */
         @media (max-width: 768px) {
-            .font-heading-1 { font-size: var(--text-4xl); }
-            .font-heading-2 { font-size: var(--text-3xl); }
-            .font-heading-3 { font-size: var(--text-2xl); }
-            .font-heading-4 { font-size: var(--text-xl); }
+            .font-heading-1 {
+                font-size: var(--text-4xl);
+            }
+
+            .font-heading-2 {
+                font-size: var(--text-3xl);
+            }
+
+            .font-heading-3 {
+                font-size: var(--text-2xl);
+            }
+
+            .font-heading-4 {
+                font-size: var(--text-xl);
+            }
         }
 
         /* ===== ANIMATION KEYFRAMES ===== */
@@ -313,12 +326,29 @@
         }
 
         /* Staggered Delays */
-        .stagger-delay-1 { transition-delay: 0.1s; }
-        .stagger-delay-2 { transition-delay: 0.2s; }
-        .stagger-delay-3 { transition-delay: 0.3s; }
-        .stagger-delay-4 { transition-delay: 0.4s; }
-        .stagger-delay-5 { transition-delay: 0.5s; }
-        .stagger-delay-6 { transition-delay: 0.6s; }
+        .stagger-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .stagger-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .stagger-delay-5 {
+            transition-delay: 0.5s;
+        }
+
+        .stagger-delay-6 {
+            transition-delay: 0.6s;
+        }
 
         /* Content Loading Animations */
         .content-fade-in {
@@ -376,8 +406,12 @@
         }
 
         @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
         }
 
         /* Skeleton Placeholders */
@@ -463,8 +497,12 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Scroll Progress Indicator */
@@ -1063,12 +1101,17 @@
                             <div class="space-y-1">
                                 <button @click="toggleDropdown('{{ $item['label'] }}')"
                                         class="group relative w-full text-left text-sm text-gray-800 font-medium py-3 px-4 rounded-xl transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 hover:shadow-md hover:scale-[1.02] flex items-center justify-between border border-transparent hover:border-blue-200">
-                                    <span class="relative z-10 group-hover:text-blue-700 transition-colors duration-300">{{ $item['label'] }}</span>
-                                    <svg class="w-4 h-4 transition-all duration-300 group-hover:text-blue-500" :class="isDropdownOpen('{{ $item['label'] }}') ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    <span
+                                        class="relative z-10 group-hover:text-blue-700 transition-colors duration-300">{{ $item['label'] }}</span>
+                                    <svg class="w-4 h-4 transition-all duration-300 group-hover:text-blue-500"
+                                         :class="isDropdownOpen('{{ $item['label'] }}') ? 'rotate-180' : ''" fill="none"
+                                         stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M19 9l-7 7-7-7"></path>
                                     </svg>
                                     <!-- Hover Glow Effect -->
-                                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </button>
 
                                 <!-- Enhanced Submenu Items -->
@@ -1086,24 +1129,32 @@
                                         <a href="{{ $subItem['url'] }}"
                                            class="group relative text-sm block text-gray-600 py-3 px-4 rounded-xl transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 hover:shadow-md hover:scale-[1.02] flex items-center border border-transparent hover:border-blue-200">
                                             <!-- Enhanced Image with Hover Effects -->
-                                            <div class="relative w-10 h-10 mr-3 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                                                <img src="{{ $subItem['image'] }}" alt="{{ $subItem['title'] }}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                                            <div
+                                                class="relative w-10 h-10 mr-3 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                                                <img src="{{ $subItem['image'] }}" alt="{{ $subItem['title'] }}"
+                                                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                                                 <!-- Hover Overlay -->
-                                                <div class="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                                <div
+                                                    class="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                             </div>
 
                                             <!-- Enhanced Text with Hover Effects -->
                                             <div class="flex-1">
-                                                <span class="font-medium group-hover:text-blue-700 transition-colors duration-300">{{ $subItem['title'] }}</span>
+                                                <span
+                                                    class="font-medium group-hover:text-blue-700 transition-colors duration-300">{{ $subItem['title'] }}</span>
                                             </div>
 
                                             <!-- Hover Arrow Icon -->
-                                            <svg class="w-4 h-4 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300 opacity-0 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                            <svg
+                                                class="w-4 h-4 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300 opacity-0 group-hover:opacity-100"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M9 5l7 7-7 7"/>
                                             </svg>
 
                                             <!-- Hover Glow Effect -->
-                                            <div class="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                            <div
+                                                class="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                         </a>
                                     @endforeach
                                 </div>
@@ -1112,13 +1163,18 @@
                             <!-- Enhanced Regular Mobile Menu Item -->
                             <a href="{{ $item['url'] }}"
                                class="group relative text-sm block text-gray-800 font-medium py-3 px-4 rounded-xl transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 hover:shadow-md hover:scale-[1.02] border border-transparent hover:border-blue-200 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600 bg-blue-50 border-blue-200' : '' }}">
-                                <span class="group-hover:text-blue-700 transition-colors duration-300">{{ $item['label'] }}</span>
+                                <span
+                                    class="group-hover:text-blue-700 transition-colors duration-300">{{ $item['label'] }}</span>
                                 <!-- Hover Arrow Icon -->
-                                <svg class="w-4 h-4 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300 opacity-0 group-hover:opacity-100 absolute right-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                <svg
+                                    class="w-4 h-4 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300 opacity-0 group-hover:opacity-100 absolute right-4 top-1/2 transform -translate-y-1/2"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M9 5l7 7-7 7"/>
                                 </svg>
                                 <!-- Hover Glow Effect -->
-                                <div class="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </a>
                         @endif
                     @endforeach
@@ -1196,18 +1252,23 @@
                         @foreach ($menuItems as $item)
                             @if(isset($item['hasSubmenu']) && $item['hasSubmenu'])
                                 <!-- Mega Menu Item -->
-                                <div class="relative group" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                                <div class="relative group" x-data="{ open: false }" @mouseenter="open = true"
+                                     @mouseleave="open = false">
                                     <a href="{{ $item['url'] }}"
                                        class="group relative text-gray-800 font-nav px-3 py-2 transition-all duration-300 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600' : '' }}">
                                         <span class="relative z-10 text-sm">
                                             {{ $item['label'] }}
                                         </span>
                                         <!-- Arrow down icon -->
-                                        <svg class="inline-block ml-1 w-3 h-3 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                        <svg
+                                            class="inline-block ml-1 w-3 h-3 transition-transform duration-300 group-hover:rotate-180"
+                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M19 9l-7 7-7-7"></path>
                                         </svg>
                                         <!-- Gradient blue underline -->
-                                        <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"></span>
+                                        <span
+                                            class="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"></span>
                                     </a>
 
                                     <!-- Mega Menu Dropdown -->
@@ -1228,12 +1289,14 @@
                                                     <a href="{{ $subItem['url'] }}"
                                                        class="group/item flex items-center p-3 rounded-lg hover:bg-blue-50 transition-all duration-300 hover:scale-[1.02]">
                                                         <!-- Image - Left Side -->
-                                                        <div class="relative w-12 h-12 mr-3 overflow-hidden rounded-lg shadow-sm group-hover/item:shadow-md transition-shadow duration-300">
+                                                        <div
+                                                            class="relative w-12 h-12 mr-3 overflow-hidden rounded-lg shadow-sm group-hover/item:shadow-md transition-shadow duration-300">
                                                             <img src="{{ $subItem['image'] }}"
                                                                  alt="{{ $subItem['title'] }}"
                                                                  class="w-full h-full object-cover transition-transform duration-300 group-hover/item:scale-110">
                                                             <!-- Overlay -->
-                                                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></div>
+                                                            <div
+                                                                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></div>
                                                         </div>
 
                                                         <!-- Title - Right Side -->
@@ -1254,7 +1317,8 @@
                                         {{ $item['label'] }}
                                     </span>
                                     <!-- Gradient blue underline -->
-                                    <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"></span>
+                                    <span
+                                        class="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"></span>
                                 </a>
                             @endif
                         @endforeach
@@ -1302,9 +1366,14 @@
         <div class="relative w-full overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
             <!-- Animated Background Elements -->
             <div class="absolute inset-0 opacity-20">
-                <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-                <div class="absolute top-40 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 2s;"></div>
-                <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 4s;"></div>
+                <div
+                    class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+                <div
+                    class="absolute top-40 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"
+                    style="animation-delay: 2s;"></div>
+                <div
+                    class="absolute bottom-20 left-1/3 w-80 h-80 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"
+                    style="animation-delay: 4s;"></div>
             </div>
 
             <!-- Slides Container -->
@@ -1329,15 +1398,19 @@
                             </div>
 
                             <!-- Mobile Content Section -->
-                            <div class="flex-1 bg-gradient-to-br from-blue-900 to-indigo-900 px-6 py-8 flex flex-col justify-center">
+                            <div
+                                class="flex-1 bg-gradient-to-br from-blue-900 to-indigo-900 px-6 py-8 flex flex-col justify-center">
                                 <div class="text-center">
                                     <h2 class="font-heading-3 text-white mb-4" x-text="slide.title"></h2>
                                     <p class="font-body text-blue-100 mb-6 line-clamp-3" x-text="slide.text"></p>
                                     <a :href="slide.link"
                                        class="inline-flex items-center px-6 py-3 bg-white/20 hover:bg-white/30 text-white rounded-xl font-button transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/30">
                                         <span x-text="slide.button"></span>
-                                        <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                        <svg
+                                            class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M9 5l7 7-7 7"/>
                                         </svg>
                                     </a>
                                 </div>
@@ -1347,8 +1420,10 @@
                         <!-- Desktop Layout -->
                         <div class="hidden lg:block absolute inset-0">
                             <!-- Background Image -->
-                            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" :style="`background-image: url(${slide.image})`"></div>
-                            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-blue-900/80 to-transparent"></div>
+                            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                                 :style="`background-image: url(${slide.image})`"></div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-blue-900/80 to-transparent"></div>
 
                             <!-- Content Wrapper -->
                             <div class="relative h-full flex items-center justify-center px-20 z-10"
@@ -1361,30 +1436,38 @@
                                 <!-- Professional Content Card -->
                                 <div class="relative max-w-2xl group">
                                     <!-- Glass Morphism Card -->
-                                    <div class="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/20 shadow-2xl">
+                                    <div
+                                        class="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/20 shadow-2xl">
                                         <!-- Gradient Overlay -->
-                                        <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-3xl"></div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-3xl"></div>
 
                                         <!-- Content -->
                                         <div class="relative z-10">
                                             <!-- Title -->
-                                            <h1 class="font-heading-2 text-white mb-6 leading-tight" x-text="slide.title"></h1>
+                                            <h1 class="font-heading-2 text-white mb-6 leading-tight"
+                                                x-text="slide.title"></h1>
 
                                             <!-- Description -->
-                                            <p class="font-body-large text-blue-100 mb-8 leading-relaxed" x-text="slide.text"></p>
+                                            <p class="font-body-large text-blue-100 mb-8 leading-relaxed"
+                                               x-text="slide.text"></p>
 
                                             <!-- CTA Button -->
                                             <a :href="slide.link"
                                                class="inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white rounded-xl font-button-large transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/30 shadow-lg">
                                                 <span x-text="slide.button"></span>
-                                                <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                                <svg
+                                                    class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                          stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                                                 </svg>
                                             </a>
                                         </div>
 
                                         <!-- Hover Glow Effect -->
-                                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
                                     </div>
                                 </div>
                             </div>
@@ -1401,7 +1484,8 @@
                     <!-- Previous Button -->
                     <button @click="prev()"
                             class="group flex items-center justify-center w-12 h-12 bg-white border-2 border-blue-600 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl">
-                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none"
+                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                         </svg>
                     </button>
@@ -1411,18 +1495,21 @@
                         <template x-for="(slide, index) in slides" :key="index">
                             <div class="relative cursor-pointer group" @click="goToSlide(index)">
                                 <!-- Inactive State -->
-                                <div class="w-3 h-3 rounded-full bg-blue-200 transition-all duration-300 group-hover:bg-blue-400"
-                                     x-show="activeIndex !== index"></div>
+                                <div
+                                    class="w-3 h-3 rounded-full bg-blue-200 transition-all duration-300 group-hover:bg-blue-400"
+                                    x-show="activeIndex !== index"></div>
 
                                 <!-- Active State with Progress -->
                                 <div x-show="activeIndex === index" class="relative">
                                     <div class="w-16 h-2 bg-blue-200 rounded-full overflow-hidden">
-                                        <div class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-100 ease-linear"
-                                             :style="{ width: progress + '%' }"></div>
+                                        <div
+                                            class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-100 ease-linear"
+                                            :style="{ width: progress + '%' }"></div>
                                     </div>
                                     <!-- Slide Title Tooltip -->
-                                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
-                                         x-text="slide.title"></div>
+                                    <div
+                                        class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+                                        x-text="slide.title"></div>
                                 </div>
                             </div>
                         </template>
@@ -1431,7 +1518,8 @@
                     <!-- Next Button -->
                     <button @click="next()"
                             class="group flex items-center justify-center w-12 h-12 bg-white border-2 border-blue-600 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl">
-                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none"
+                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
                     </button>
@@ -1445,12 +1533,18 @@
 
 
 <!-- Enhanced Our Drive Section -->
-<section class="relative bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 py-20 lg:py-32 content-fade-in overflow-hidden">
+<section
+    class="relative bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 py-20 lg:py-32 content-fade-in overflow-hidden">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 opacity-30">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div class="absolute top-40 right-20 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 2s;"></div>
-        <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-cyan-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 4s;"></div>
+        <div
+            class="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div
+            class="absolute top-40 right-20 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse"
+            style="animation-delay: 2s;"></div>
+        <div
+            class="absolute bottom-20 left-1/3 w-80 h-80 bg-cyan-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse"
+            style="animation-delay: 4s;"></div>
     </div>
 
     <div class="relative max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1458,9 +1552,11 @@
             <!-- Enhanced Left Content -->
             <div class="space-y-8 slide-in-left">
                 <!-- Category Badge -->
-                <div class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                <div
+                    class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M13 10V3L4 14h7v7l9-11h-7z"/>
                     </svg>
                     Our Mission
                 </div>
@@ -1469,7 +1565,8 @@
                 <h2 class="font-heading-1 text-gray-900 text-reveal leading-tight">
                     Our drive, our purpose
                     <br>
-                    <span class="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 bg-clip-text text-transparent">
+                    <span
+                        class="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 bg-clip-text text-transparent">
                         Enabling You To Shape A Better
                     </span>
                     <br>
@@ -1479,11 +1576,17 @@
                 <!-- Enhanced Stats -->
                 <div class="grid grid-cols-2 gap-6 pt-4">
                     <div class="group">
-                        <div class="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">500+</div>
+                        <div
+                            class="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                            500+
+                        </div>
                         <div class="text-sm text-gray-600 font-medium">Projects Delivered</div>
                     </div>
                     <div class="group">
-                        <div class="text-3xl font-bold text-indigo-600 group-hover:scale-110 transition-transform duration-300">15+</div>
+                        <div
+                            class="text-3xl font-bold text-indigo-600 group-hover:scale-110 transition-transform duration-300">
+                            15+
+                        </div>
                         <div class="text-sm text-gray-600 font-medium">Years Experience</div>
                     </div>
                 </div>
@@ -1492,44 +1595,56 @@
             <!-- Enhanced Right Content -->
             <div class="space-y-8 slide-in-right">
                 <!-- Enhanced Description Card -->
-                <div class="relative bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                <div
+                    class="relative bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                     <!-- Gradient Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 rounded-2xl"></div>
 
                     <!-- Content -->
                     <div class="relative z-10">
                         <p class="font-body-large text-gray-700 leading-relaxed mb-6">
-                            At DestroSolutions, we enable the future of mobility by driving the transition to Software-Defined
+                            At DestroSolutions, we enable the future of mobility by driving the transition to
+                            Software-Defined
                             Vehicles (SDVs). Our expertise spans end-to-end automotive cybersecurity, software update
                             management, functional safety, and E/E architecture transformation.
                         </p>
 
                         <p class="font-body text-gray-600 leading-relaxed mb-8">
-                            Our commitment to Safety & security standards, expert training positions us as a trusted partner in delivering tomorrow's mobility—today.
+                            Our commitment to Safety & security standards, expert training positions us as a trusted
+                            partner in delivering tomorrow's mobility—today.
                         </p>
 
                         <!-- Enhanced Features List -->
                         <div class="space-y-4 mb-8">
                             <div class="flex items-center group">
-                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-200 transition-colors duration-300">
-                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <div
+                                    class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-200 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor"
+                                         viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M5 13l4 4L19 7"/>
                                     </svg>
                                 </div>
                                 <span class="font-medium text-gray-800">End-to-End Cybersecurity Solutions</span>
                             </div>
                             <div class="flex items-center group">
-                                <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-indigo-200 transition-colors duration-300">
-                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <div
+                                    class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-indigo-200 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor"
+                                         viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M5 13l4 4L19 7"/>
                                     </svg>
                                 </div>
                                 <span class="font-medium text-gray-800">Software-Defined Vehicle Expertise</span>
                             </div>
                             <div class="flex items-center group">
-                                <div class="w-8 h-8 bg-cyan-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-cyan-200 transition-colors duration-300">
-                                    <svg class="w-4 h-4 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <div
+                                    class="w-8 h-8 bg-cyan-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-cyan-200 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-cyan-600" fill="none" stroke="currentColor"
+                                         viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M5 13l4 4L19 7"/>
                                     </svg>
                                 </div>
                                 <span class="font-medium text-gray-800">Industry-Leading Training Programs</span>
@@ -1554,7 +1669,8 @@
                         <span>Our Solutions</span>
                         <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
                              fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                         </svg>
                     </a>
                 </div>
@@ -1616,8 +1732,9 @@
         <!-- Compact Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
             <template x-for="(card, index) in cards" :key="index">
-                <div class="group bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden enhanced-card stagger-animation"
-                     :class="`stagger-delay-${(index % 6) + 1}`">
+                <div
+                    class="group bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden enhanced-card stagger-animation"
+                    :class="`stagger-delay-${(index % 6) + 1}`">
 
                     <!-- Compact Image Container -->
                     <div class="relative h-40 overflow-hidden">
@@ -1642,8 +1759,10 @@
                             <div class="space-y-1 mb-4">
                                 <template x-for="feature in card.features" :key="feature">
                                     <div class="flex items-center text-xs">
-                                        <svg class="w-3 h-3 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        <svg class="w-3 h-3 text-green-500 mr-2 flex-shrink-0" fill="none"
+                                             stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M5 13l4 4L19 7"/>
                                         </svg>
                                         <span class="text-gray-600" x-text="feature"></span>
                                     </div>
@@ -1661,7 +1780,8 @@
                             <a :href="card.link"
                                class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105">
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M9 5l7 7-7 7"/>
                                 </svg>
                             </a>
                         </div>
@@ -1742,19 +1862,22 @@
                 Our Products
             </h2>
             <p class="font-body text-gray-600 max-w-3xl mx-auto text-reveal">
-                DestroSolutions delivers a robust portfolio of products engineered for the Software-Defined Vehicle era. Designed for security, compliance, and performance.
+                DestroSolutions delivers a robust portfolio of products engineered for the Software-Defined Vehicle era.
+                Designed for security, compliance, and performance.
             </p>
         </div>
 
         <!-- Compact Product Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <template x-for="(product, index) in products" :key="index">
-                <div class="group bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden enhanced-card stagger-animation"
-                     :class="`stagger-delay-${(index % 6) + 1}`">
+                <div
+                    class="group bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden enhanced-card stagger-animation"
+                    :class="`stagger-delay-${(index % 6) + 1}`">
 
                     <!-- Compact Image Container -->
                     <div class="relative h-40 overflow-hidden">
-                        <img :src="product.image" :alt="product.title" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 lazy-image">
+                        <img :src="product.image" :alt="product.title"
+                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 lazy-image">
 
                         <!-- Category Badge -->
                         <div class="absolute top-3 left-3">
@@ -1766,15 +1889,18 @@
                     <!-- Compact Content -->
                     <div class="flex flex-col justify-between flex-1 p-5">
                         <div>
-                            <h3 class="font-heading-5 text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300" x-text="product.title"></h3>
+                            <h3 class="font-heading-5 text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300"
+                                x-text="product.title"></h3>
                             <p class="font-body-small text-gray-600 mb-4 line-clamp-2" x-text="product.description"></p>
 
                             <!-- Always Visible Features List -->
                             <div class="space-y-1 mb-4">
                                 <template x-for="feature in product.features" :key="feature">
                                     <div class="flex items-center text-xs">
-                                        <svg class="w-3 h-3 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        <svg class="w-3 h-3 text-green-500 mr-2 flex-shrink-0" fill="none"
+                                             stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M5 13l4 4L19 7"/>
                                         </svg>
                                         <span class="text-gray-600" x-text="feature"></span>
                                     </div>
@@ -1784,13 +1910,16 @@
 
                         <!-- Compact CTA -->
                         <div class="flex items-center justify-between pt-3 border-t border-gray-100">
-                            <a href="/destro" class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
+                            <a href="/destro"
+                               class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
                                 Learn more
                             </a>
 
-                            <a href="/destro" class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105">
+                            <a href="/destro"
+                               class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105">
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M9 5l7 7-7 7"/>
                                 </svg>
                             </a>
                         </div>
@@ -1802,17 +1931,22 @@
         <!-- Compact Call to Action -->
         <div class="text-center mt-12">
             <div class="inline-flex flex-col sm:flex-row gap-4">
-                <a href="/destro" class="group inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-button shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <a href="/destro"
+                   class="group inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-button shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
                     <span>View All Products</span>
-                    <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none"
+                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
                 </a>
 
-                <a href="/destro" class="group inline-flex items-center justify-center px-6 py-3 border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-lg font-button transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <a href="/destro"
+                   class="group inline-flex items-center justify-center px-6 py-3 border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-lg font-button transition-all duration-300 hover:scale-105 hover:shadow-lg">
                     <span>Request Demo</span>
-                    <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none"
+                         stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                     </svg>
                 </a>
             </div>
@@ -1898,17 +2032,24 @@
 
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div class="absolute top-40 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 2s;"></div>
-        <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 4s;"></div>
+        <div
+            class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div
+            class="absolute top-40 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"
+            style="animation-delay: 2s;"></div>
+        <div
+            class="absolute bottom-20 left-1/3 w-80 h-80 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"
+            style="animation-delay: 4s;"></div>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Enhanced Section Header -->
         <div class="text-center mb-16 scale-in">
-            <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-blue-100 font-label mb-6">
+            <div
+                class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-blue-100 font-label mb-6">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"/>
                 </svg>
                 Expert Services
             </div>
@@ -1919,7 +2060,8 @@
                 </span>
             </h2>
             <p class="font-body-large text-blue-100 max-w-4xl mx-auto text-reveal leading-relaxed">
-                At DestroSolutions, we provide expert consulting and engineering services to support OEMs and Tier-1 suppliers in delivering secure, compliant, and future-ready vehicle platforms.
+                At DestroSolutions, we provide expert consulting and engineering services to support OEMs and Tier-1
+                suppliers in delivering secure, compliant, and future-ready vehicle platforms.
             </p>
         </div>
 
@@ -1931,7 +2073,8 @@
                      :style="`transform: translateX(-${currentIndex * 100}%)`">
                     <template x-for="(service, index) in services" :key="index">
                         <div class="w-full flex-shrink-0 px-4 h-full">
-                            <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl p-8 h-full border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl max-w-6xl mx-auto flex items-center">
+                            <div
+                                class="group relative bg-white/10 backdrop-blur-lg rounded-2xl p-8 h-full border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl max-w-6xl mx-auto flex items-center">
                                 <!-- Service Content - Image Left, Content Right -->
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
                                     <!-- Left Side - Service Image -->
@@ -1940,11 +2083,13 @@
                                             <img :src="service.image" :alt="service.title"
                                                  class="w-full h-64 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-105 lazy-image">
                                             <!-- Gradient Overlay -->
-                                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                            <div
+                                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                                             <!-- Service Category Badge -->
                                             <div class="absolute top-4 left-4">
-                                                <span class="px-4 py-2 bg-gradient-to-r text-white text-sm font-semibold rounded-full shadow-lg"
-                                                      :class="service.color" x-text="service.category"></span>
+                                                <span
+                                                    class="px-4 py-2 bg-gradient-to-r text-white text-sm font-semibold rounded-full shadow-lg"
+                                                    :class="service.color" x-text="service.category"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -1952,17 +2097,21 @@
                                     <!-- Right Side - Content & CTA -->
                                     <div class="order-1 lg:order-2 text-center lg:text-left">
                                         <!-- Service Title -->
-                                        <h3 class="font-heading-4 text-white mb-4 group-hover:text-blue-300 transition-colors duration-300 line-clamp-1" x-text="service.title"></h3>
+                                        <h3 class="font-heading-4 text-white mb-4 group-hover:text-blue-300 transition-colors duration-300 line-clamp-1"
+                                            x-text="service.title"></h3>
 
                                         <!-- Service Description -->
-                                        <p class="font-body-large text-blue-100 leading-relaxed mb-6 line-clamp-2" x-text="service.description"></p>
+                                        <p class="font-body-large text-blue-100 leading-relaxed mb-6 line-clamp-2"
+                                           x-text="service.description"></p>
 
                                         <!-- Features List -->
                                         <div class="space-y-3 mb-8">
                                             <template x-for="feature in service.features" :key="feature">
                                                 <div class="flex items-center">
-                                                    <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                    <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none"
+                                                         stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                              stroke-width="2" d="M5 13l4 4L19 7"/>
                                                     </svg>
                                                     <span class="font-body text-blue-200" x-text="feature"></span>
                                                 </div>
@@ -1970,17 +2119,22 @@
                                         </div>
 
                                         <!-- Learn More Button -->
-                                        <a href="/destro" class="inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white rounded-xl font-button-large transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/30 shadow-lg w-fit">
+                                        <a href="/destro"
+                                           class="inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white rounded-xl font-button-large transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/30 shadow-lg w-fit">
                                             <span>Learn More</span>
-                                            <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                            <svg
+                                                class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                                             </svg>
                                         </a>
                                     </div>
                                 </div>
 
                                 <!-- Hover Glow Effect -->
-                                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                             </div>
                         </div>
                     </template>
@@ -1992,7 +2146,8 @@
                 <!-- Previous Button -->
                 <button @click="prevSlide()"
                         class="group w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/30">
-                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none"
+                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                     </svg>
                 </button>
@@ -2012,7 +2167,8 @@
                 <!-- Next Button -->
                 <button @click="nextSlide()"
                         class="group w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/30">
-                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none"
+                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
                 </button>
@@ -2021,161 +2177,180 @@
             <!-- Compact Progress Indicator -->
             <div class="mt-4 flex justify-center">
                 <div class="w-48 h-1 bg-white/20 rounded-full overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full transition-all duration-500 ease-out"
-                         :style="`width: ${((currentIndex + 1) / services.length) * 100}%`"></div>
+                    <div
+                        class="h-full bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full transition-all duration-500 ease-out"
+                        :style="`width: ${((currentIndex + 1) / services.length) * 100}%`"></div>
                 </div>
             </div>
-        </div>
-
-</section>
-
-<!-- SDV Solutions Section -->
-<section x-data="{ cards: [
-    {
-      title: 'SDV Cloud',
-      text: 'SDV Orchestrator Platform, Vehicle Software Update Platform & Digital Vehicle Twin, Subscription Management Platform, Virtual Workbenches for Simulations and DevOps',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      link: '#',
-      category: 'Cloud Solutions'
-    },
-    {
-      title: 'Over-the-Air (OTA)',
-      text: 'Over-the-Air updates are essential for modern automotive software. We provide secure and efficient OTA strategies that reduce recall costs and keep vehicles at peak performance.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      link: '#',
-      category: 'Software Updates'
-    },
-    {
-      title: 'Apps and Services Engineering',
-      text: 'Create infotainment apps, driver-assist tools, and cloud-based services that enrich the driving experience. We cover development from embedded systems to backend services',
-      image: 'https://images.unsplash.com/photo-1508780709619-79562169bc64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      link: '#',
-      category: 'App Development'
-    },
-    {
-      title: 'SDV OPS',
-      text: 'Optimize operations for Software-Defined Vehicles with automated pipelines, continuous monitoring, and quick incident response.',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      link: '#',
-      category: 'Operations'
-    }
-] }" class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-24 content-fade-in">
-    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Header -->
-        <div class="text-center mb-16 scale-in">
-            <h2 class="font-heading-2 text-gray-900 mb-6 text-reveal">
-                Our Software-defined Vehicle (SDV) solutions
-            </h2>
-            <p class="font-body-large text-gray-600 max-w-3xl mx-auto text-reveal">
-                Driving the shift towards Software-Defined Vehicles (SDVs)
-            </p>
-        </div>
-
-        <!-- Enhanced Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <template x-for="(card, index) in cards" :key="index">
-                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
-                     :class="`stagger-delay-${(index % 6) + 1}`">
-
-                    <!-- Image Container with Overlay -->
-                    <div class="relative h-48 sm:h-56 overflow-hidden">
-                        <img :src="card.image" alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 lazy-image">
-                        <!-- Gradient Overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <!-- Category Badge -->
-                        <div class="absolute top-4 left-4">
-                            <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full" x-text="card.category"></span>
-                        </div>
-                    </div>
-
-                    <!-- Content -->
-                    <div class="flex flex-col justify-between flex-1 p-6">
-                        <div>
-                            <h3 class="font-card-title text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300" x-text="card.title"></h3>
-                            <p class="font-card-description text-gray-600 line-clamp-3" x-text="card.text"></p>
-                        </div>
-
-                        <!-- Enhanced Arrow Button -->
-                        <div class="mt-2 flex justify-between items-center">
-                            {{--                            <a :href="card.link" class="group/btn inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">--}}
-                            {{--                                <svg class="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">--}}
-                            {{--                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>--}}
-                            {{--                                </svg>--}}
-                            {{--                            </a>--}}
-                            <!-- Learn More Link -->
-                            <a :href="card.link" class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
-                                Learn more →
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Hover Glow Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                </div>
-            </template>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="text-center mt-16">
-            <a href="/destro" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl font-button-large shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                View All Solutions
-                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-            </a>
         </div>
     </div>
 </section>
 
-<!-- Contact Us Section -->
-<section class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-24 content-fade-in">
+<!-- Compact SDV Solutions Section -->
+<section x-data="{
+    cards: [
+        {
+            title: 'SDV Cloud',
+            text: 'SDV Orchestrator Platform, Vehicle Software Update Platform & Digital Vehicle Twin, Subscription Management Platform, Virtual Workbenches for Simulations and DevOps',
+            image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+            link: '/destro',
+            category: 'Cloud Solutions',
+            features: ['Orchestrator Platform', 'Digital Vehicle Twin', 'Virtual Workbenches']
+        },
+        {
+            title: 'Over-the-Air (OTA)',
+            text: 'Over-the-Air updates are essential for modern automotive software. We provide secure and efficient OTA strategies that reduce recall costs and keep vehicles at peak performance.',
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+            link: '/destro',
+            category: 'Software Updates',
+            features: ['Secure Updates', 'Cost Reduction', 'Performance Optimization']
+        },
+        {
+            title: 'Apps and Services Engineering',
+            text: 'Create infotainment apps, driver-assist tools, and cloud-based services that enrich the driving experience. We cover development from embedded systems to backend services',
+            image: 'https://images.unsplash.com/photo-1508780709619-79562169bc64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+            link: '/destro',
+            category: 'App Development',
+            features: ['Infotainment Apps', 'Driver-Assist Tools', 'Backend Services']
+        },
+        {
+            title: 'SDV OPS',
+            text: 'Optimize operations for Software-Defined Vehicles with automated pipelines, continuous monitoring, and quick incident response.',
+            image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+            link: '/destro',
+            category: 'Operations',
+            features: ['Automated Pipelines', 'Continuous Monitoring', 'Incident Response']
+        }
+    ]
+}" class="bg-gradient-to-br from-gray-50 to-gray-100 py-12 lg:py-16 content-fade-in">
+
     <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Header -->
-        <div class="text-center mb-16 scale-in">
-            <h2 class="font-heading-1 text-gray-900 mb-6 text-reveal">
+        <!-- Compact Section Header -->
+        <div class="text-center mb-12 scale-in">
+            <h2 class="font-heading-2 text-gray-900 mb-4 text-reveal">
+                SDV Solutions
+            </h2>
+            <p class="font-body text-gray-600 max-w-3xl mx-auto text-reveal">
+                Driving the shift towards Software-Defined Vehicles (SDVs) with comprehensive cloud platforms and engineering solutions.
+            </p>
+        </div>
+
+        <!-- Compact SDV Solutions Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <template x-for="(card, index) in cards" :key="index">
+                <div class="group bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden enhanced-card stagger-animation"
+                     :class="`stagger-delay-${(index % 6) + 1}`">
+
+                    <!-- Compact Image Container -->
+                    <div class="relative h-40 overflow-hidden">
+                        <img :src="card.image" :alt="card.title" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 lazy-image">
+
+                        <!-- Category Badge -->
+                        <div class="absolute top-3 left-3">
+                            <span class="px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full shadow-sm"
+                                  x-text="card.category"></span>
+                        </div>
+                    </div>
+
+                    <!-- Compact Content -->
+                    <div class="flex flex-col justify-between flex-1 p-5">
+                        <div>
+                            <h3 class="font-heading-5 text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300" x-text="card.title"></h3>
+                            <p class="font-body-small text-gray-600 mb-4 line-clamp-2" x-text="card.text"></p>
+
+                            <!-- Always Visible Features List -->
+                            <div class="space-y-1 mb-4">
+                                <template x-for="feature in card.features" :key="feature">
+                                    <div class="flex items-center text-xs">
+                                        <svg class="w-3 h-3 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span class="text-gray-600" x-text="feature"></span>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+
+                        <!-- Compact CTA -->
+                        <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+                            <a :href="card.link" class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
+                                Learn more
+                            </a>
+
+                            <a :href="card.link" class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Compact Call to Action -->
+        <div class="text-center mt-12">
+            <div class="inline-flex flex-col sm:flex-row gap-4">
+                <a href="/destro" class="group inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-button shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                    <span>View All Solutions</span>
+                    <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+
+                <a href="/destro" class="group inline-flex items-center justify-center px-6 py-3 border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-600 hover:text-white rounded-lg font-button transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <span>Get Started</span>
+                    <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Compact Contact Us Section -->
+<section class="bg-gradient-to-br from-gray-50 to-gray-100 py-12 lg:py-16 content-fade-in">
+    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Compact Section Header -->
+        <div class="text-center mb-12 scale-in">
+            <h2 class="font-heading-2 text-gray-900 mb-4 text-reveal">
                 Contact Us
             </h2>
-            <p class="font-body-large text-gray-600 max-w-3xl mx-auto text-reveal">
+            <p class="font-body text-gray-600 max-w-3xl mx-auto text-reveal">
                 Ready to redefine your automotive and cybersecurity journey? We're here to help. Reach out to us for consultations, product inquiries, or partnership opportunities.
             </p>
         </div>
 
-        <!-- Contact Content -->
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col lg:flex-row enhanced-card">
+        <!-- Compact Contact Content -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col lg:flex-row enhanced-card">
             <!-- Left Side - Image -->
             <div class="w-full lg:w-1/2 slide-in-left">
-                <div class="relative h-64 lg:h-full min-h-[400px]">
-                    <!-- Skeleton placeholder -->
-                    <div class="skeleton skeleton-image contact-image-skeleton absolute inset-0 z-10"></div>
-                    <img data-src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                         alt="Contact Us"
-                         class="w-full h-full object-cover lazy-image opacity-0 transition-opacity duration-1000 ease-out"
-                         onload="this.classList.add('loaded'); this.style.opacity='1'; this.previousElementSibling.style.opacity='0'; setTimeout(() => this.previousElementSibling.remove(), 500);">
-                    <!-- Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div class="relative h-full bg-cover bg-center bg-no-repeat"
+                     style="background-image: url('https://images.unsplash.com/photo-1588702547919-26089e690ecc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')">
                     <!-- Content Overlay -->
-                    <div class="absolute bottom-6 left-6 right-6">
+                    <div class="absolute bottom-4 left-4 right-4">
                         <h3 class="font-heading-5 text-white mb-2">Get in Touch</h3>
-                        <p class="font-body text-blue-100">Let's discuss your automotive cybersecurity needs</p>
+                        <p class="font-body-small text-white">Let's discuss your automotive cybersecurity needs</p>
                     </div>
                 </div>
             </div>
 
             <!-- Right Side - Contact Form -->
-            <div class="w-full lg:w-1/2 p-8 lg:p-12 slide-in-right">
-                <form class="space-y-6">
+            <div class="w-full lg:w-1/2 p-6 lg:p-8 slide-in-right">
+                <form class="space-y-4">
                     <!-- Name and Email Row -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label for="firstName" class="block font-label text-gray-700 mb-2">First Name</label>
                             <input type="text" id="firstName" name="firstName"
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                                    placeholder="Enter your first name">
                         </div>
                         <div>
                             <label for="lastName" class="block font-label text-gray-700 mb-2">Last Name</label>
                             <input type="text" id="lastName" name="lastName"
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                                    placeholder="Enter your last name">
                         </div>
                     </div>
@@ -2184,7 +2359,7 @@
                     <div>
                         <label for="email" class="block font-label text-gray-700 mb-2">Email Address</label>
                         <input type="email" id="email" name="email"
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                                placeholder="Enter your email address">
                     </div>
 
@@ -2192,7 +2367,7 @@
                     <div>
                         <label for="company" class="block font-label text-gray-700 mb-2">Company</label>
                         <input type="text" id="company" name="company"
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
                                placeholder="Enter your company name">
                     </div>
 
@@ -2200,7 +2375,7 @@
                     <div>
                         <label for="service" class="block font-label text-gray-700 mb-2">Service Interest</label>
                         <select id="service" name="service"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300">
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300">
                             <option value="">Select a service</option>
                             <option value="cybersecurity">Cybersecurity Management Systems</option>
                             <option value="functional-safety">Functional Safety</option>
@@ -2216,31 +2391,34 @@
                     <!-- Message -->
                     <div>
                         <label for="message" class="block font-label text-gray-700 mb-2">Message</label>
-                        <textarea id="message" name="message" rows="4"
-                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
+                        <textarea id="message" name="message" rows="3"
+                                  class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
                                   placeholder="Tell us about your project or requirements"></textarea>
                     </div>
 
                     <!-- Submit Button -->
-                    <div class="pt-4">
+                    <div class="pt-2">
                         <button type="submit"
                                 onclick="window.lazyLoadingSystem.addButtonLoading(this)"
-                                class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-button-large py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                                class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-button py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center">
                             <span>Send Message</span>
-                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
                             </svg>
                         </button>
                     </div>
                 </form>
 
-                <!-- Contact Info -->
-                <div class="mt-8 pt-8 border-t border-gray-200">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Compact Contact Info -->
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="flex items-center">
-                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor"
+                                     viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
                             </div>
                             <div>
@@ -2249,14 +2427,16 @@
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor"
+                                     viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                                 </svg>
                             </div>
                             <div>
                                 <p class="font-label text-gray-900">Phone</p>
-                                <p class="font-body-small text-gray-600">+1 (555) 123-4567</p>
+                                <p class="font-body-small text-gray-600">+91-93987 93452 | +49-15510142201</p>
                             </div>
                         </div>
                     </div>
@@ -2275,26 +2455,32 @@
             <!-- Company Info -->
             <div class="lg:col-span-2">
                 <div class="flex items-center mb-4">
-                    <div class="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-500 rounded-xl shadow-lg mr-3">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-500 rounded-xl shadow-lg mr-3">
                         <div class="text-white font-black text-xl tracking-tight">D</div>
                     </div>
                     <h3 class="font-brand text-2xl text-white">DestroSolutions</h3>
                 </div>
                 <p class="font-body text-gray-300 mb-6 max-w-md leading-relaxed">
-                    Enabling the future of mobility through Software-Defined Vehicles (SDVs) with comprehensive automotive cybersecurity and compliance solutions.
+                    Enabling the future of mobility through Software-Defined Vehicles (SDVs) with comprehensive
+                    automotive cybersecurity and compliance solutions.
                 </p>
 
                 <!-- Contact Info Compact -->
                 <div class="space-y-3">
                     <div class="flex items-center">
-                        <svg class="w-4 h-4 text-blue-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        <svg class="w-4 h-4 text-blue-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor"
+                             viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                         </svg>
                         <span class="font-body-small text-gray-300">info@destrosolutions.com</span>
                     </div>
                     <div class="flex items-center">
-                        <svg class="w-4 h-4 text-blue-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        <svg class="w-4 h-4 text-blue-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor"
+                             viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                         </svg>
                         <span class="font-body-small text-gray-300">+91-93987 93452 | +49-15510142201</span>
                     </div>
@@ -2305,11 +2491,21 @@
             <div>
                 <h4 class="font-heading-6 text-white mb-4">Solutions</h4>
                 <ul class="space-y-2">
-                    <li><a href="/destro" class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Products</a></li>
-                    <li><a href="/destro" class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Services</a></li>
-                    <li><a href="/destro" class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Training</a></li>
-                    <li><a href="/destro" class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">SDV Solutions</a></li>
-                    <li><a href="/destro" class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Cybersecurity</a></li>
+                    <li><a href="/destro"
+                           class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Products</a>
+                    </li>
+                    <li><a href="/destro"
+                           class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Services</a>
+                    </li>
+                    <li><a href="/destro"
+                           class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Training</a>
+                    </li>
+                    <li><a href="/destro"
+                           class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">SDV
+                            Solutions</a></li>
+                    <li><a href="/destro"
+                           class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Cybersecurity</a>
+                    </li>
                 </ul>
             </div>
 
@@ -2317,11 +2513,21 @@
             <div>
                 <h4 class="font-heading-6 text-white mb-4">Company</h4>
                 <ul class="space-y-2">
-                    <li><a href="/destro" class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">About Us</a></li>
-                    <li><a href="/destro" class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Blog</a></li>
-                    <li><a href="/destro" class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Careers</a></li>
-                    <li><a href="/destro" class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Contact</a></li>
-                    <li><a href="/destro" class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Privacy Policy</a></li>
+                    <li><a href="/destro"
+                           class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">About
+                            Us</a></li>
+                    <li><a href="/destro"
+                           class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Blog</a>
+                    </li>
+                    <li><a href="/destro"
+                           class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Careers</a>
+                    </li>
+                    <li><a href="/destro"
+                           class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Contact</a>
+                    </li>
+                    <li><a href="/destro"
+                           class="font-body-small text-gray-300 hover:text-blue-400 transition-colors duration-200">Privacy
+                            Policy</a></li>
                 </ul>
             </div>
         </div>
@@ -2331,7 +2537,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- India Office -->
                 <div class="flex items-start">
-                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                    <div
+                        class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3 mt-1 flex-shrink-0">
                         <span class="text-sm">🇮🇳</span>
                     </div>
                     <div>
@@ -2345,7 +2552,8 @@
 
                 <!-- Germany Office -->
                 <div class="flex items-start">
-                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                    <div
+                        class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3 mt-1 flex-shrink-0">
                         <span class="text-sm">🇩🇪</span>
                     </div>
                     <div>
@@ -2376,14 +2584,18 @@
 
                 <!-- Social Links -->
                 <div class="flex items-center space-x-4">
-                    <a href="/destro" class="w-8 h-8 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors duration-200">
+                    <a href="/destro"
+                       class="w-8 h-8 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors duration-200">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                     </a>
-                    <a href="/destro" class="w-8 h-8 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors duration-200">
+                    <a href="/destro"
+                       class="w-8 h-8 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors duration-200">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            <path
+                                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                         </svg>
                     </a>
                 </div>
@@ -2503,7 +2715,7 @@
     }
 
     // Add keyboard shortcut for testing (Ctrl+Shift+A)
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.ctrlKey && e.shiftKey && e.key === 'A') {
             e.preventDefault();
             testAnimations();
