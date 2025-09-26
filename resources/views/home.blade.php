@@ -1269,7 +1269,7 @@
                         x-transition:leave-start="opacity-100 transform scale-100"
                         x-transition:leave-end="opacity-0 transform scale-95"
                         class="absolute inset-0 w-full h-full flex flex-col lg:flex-row group">
-                        
+
                         <!-- Mobile Layout -->
                         <div class="lg:hidden w-full h-full flex flex-col">
                             <!-- Mobile Image Section -->
@@ -1277,7 +1277,7 @@
                                 <img :src="slide.image" alt="" class="w-full h-full object-cover lazy-image">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             </div>
-                            
+
                             <!-- Mobile Content Section -->
                             <div class="flex-1 bg-gradient-to-br from-blue-900 to-indigo-900 px-6 py-8 flex flex-col justify-center">
                                 <div class="text-center">
@@ -1299,7 +1299,7 @@
                             <!-- Background Image -->
                             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" :style="`background-image: url(${slide.image})`"></div>
                             <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-blue-900/80 to-transparent"></div>
-                            
+
                             <!-- Content Wrapper -->
                             <div class="relative h-full flex items-center justify-center px-20 z-10"
                                  :class="{
@@ -1307,22 +1307,22 @@
                                      'justify-center': slide.position === 'center',
                                      'justify-end': slide.position === 'right'
                                  }">
-                                
+
                                 <!-- Professional Content Card -->
                                 <div class="relative max-w-2xl group">
                                     <!-- Glass Morphism Card -->
                                     <div class="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/20 shadow-2xl">
                                         <!-- Gradient Overlay -->
                                         <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-3xl"></div>
-                                        
+
                                         <!-- Content -->
                                         <div class="relative z-10">
                                             <!-- Title -->
                                             <h1 class="font-heading-2 text-white mb-6 leading-tight" x-text="slide.title"></h1>
-                                            
+
                                             <!-- Description -->
                                             <p class="font-body-large text-blue-100 mb-8 leading-relaxed" x-text="slide.text"></p>
-                                            
+
                                             <!-- CTA Button -->
                                             <a :href="slide.link"
                                                class="inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white rounded-xl font-button-large transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/30 shadow-lg">
@@ -1332,7 +1332,7 @@
                                                 </svg>
                                             </a>
                                         </div>
-                                        
+
                                         <!-- Hover Glow Effect -->
                                         <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
                                     </div>
@@ -1363,7 +1363,7 @@
                                 <!-- Inactive State -->
                                 <div class="w-3 h-3 rounded-full bg-blue-200 transition-all duration-300 group-hover:bg-blue-400"
                                      x-show="activeIndex !== index"></div>
-                                
+
                                 <!-- Active State with Progress -->
                                 <div x-show="activeIndex === index" class="relative">
                                     <div class="w-16 h-2 bg-blue-200 rounded-full overflow-hidden">
@@ -1475,7 +1475,7 @@
                 The Future Begins
             </h2>
             <p class="font-body-large text-gray-600 max-w-3xl mx-auto text-reveal">
-            Innovative products, services and training
+                Innovative products, services and training
             </p>
         </div>
 
@@ -1610,11 +1610,11 @@
         <!-- Section Heading -->
         <div class="scale-in">
             <h2 class="font-heading-3 text-gray-900 mb-3 text-reveal">
-            Our Products
-        </h2>
+                Our Products
+            </h2>
             <p class="font-body-small text-gray-600 line-clamp-3 mb-9 text-reveal">
-        DestroSolutions delivers a robust portfolio of products engineered for the Software-Defined Vehicle era. Designed for security, compliance, and performance, our solutions seamlessly integrate into modern E/E architectures while aligning with global automotive standards.
-        </p>
+                DestroSolutions delivers a robust portfolio of products engineered for the Software-Defined Vehicle era. Designed for security, compliance, and performance, our solutions seamlessly integrate into modern E/E architectures while aligning with global automotive standards.
+            </p>
         </div>
 
         <!-- Featured Product (First Row) -->
@@ -1631,9 +1631,9 @@
                         <p class="font-body-large text-gray-600 line-clamp-3 mb-6" x-text="product.description"></p>
                         <a href="/destro" class="max-w-max inline-flex items-center px-6 py-3 mb-6 border-2 border-blue-600 text-blue-600 font-button rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105">
                             <span>Read more</span>
-{{--                            <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">--}}
-{{--                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="product.icon"></path>--}}
-{{--                            </svg>--}}
+                            {{--                            <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">--}}
+                            {{--                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="product.icon"></path>--}}
+                            {{--                            </svg>--}}
                         </a>
                     </div>
 
@@ -1660,9 +1660,9 @@
                             <!-- Gradient Overlay -->
                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             <!-- Category Badge -->
-{{--                            <div class="absolute top-4 left-4">--}}
-{{--                                <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full">Product</span>--}}
-{{--                            </div>--}}
+                            {{--                            <div class="absolute top-4 left-4">--}}
+                            {{--                                <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full">Product</span>--}}
+                            {{--                            </div>--}}
                         </div>
 
                         <!-- Content -->
@@ -1700,9 +1700,9 @@
                         <!-- Gradient Overlay -->
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <!-- Category Badge -->
-{{--                        <div class="absolute top-4 left-4">--}}
-{{--                            <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full">Product</span>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="absolute top-4 left-4">--}}
+                        {{--                            <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full">Product</span>--}}
+                        {{--                        </div>--}}
                     </div>
 
                     <!-- Content -->
@@ -2006,11 +2006,11 @@
 
                         <!-- Enhanced Arrow Button -->
                         <div class="mt-2 flex justify-between items-center">
-{{--                            <a :href="card.link" class="group/btn inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">--}}
-{{--                                <svg class="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">--}}
-{{--                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>--}}
-{{--                                </svg>--}}
-{{--                            </a>--}}
+                            {{--                            <a :href="card.link" class="group/btn inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">--}}
+                            {{--                                <svg class="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">--}}
+                            {{--                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>--}}
+                            {{--                                </svg>--}}
+                            {{--                            </a>--}}
                             <!-- Learn More Link -->
                             <a :href="card.link" class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
                                 Learn more →
