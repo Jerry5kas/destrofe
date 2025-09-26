@@ -1394,7 +1394,8 @@
             description: 'Automator lets OEMs use automation policies to instantly create new vehicle functions',
             image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
             icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-            position: 'left'
+            position: 'left',
+            product: 'AI',
         },
         {
             title: 'IDPS',
@@ -1433,25 +1434,33 @@
             image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
             icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12',
             position: 'right'
-        }
+        },
+         {
+            title: 'vSOC',
+            subtitle: 'Vehicle Security Operations Center',
+            description: 'vSOC is a centralized hub for monitoring, detecting, and responding to cyber threats across Fleet',
+            image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+            icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+            position: 'left'
+        },
     ]
 }" class="bg-white py-16 content-fade-in">
     <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Heading -->
         <div class="scale-in">
-            <h2 class="font-heading-3 text-gray-900 mb-6 text-reveal">
+            <h2 class="font-heading-3 text-gray-900 mb-3 text-reveal">
             Our Products
         </h2>
-            <p class="font-body-large text-gray-600 line-clamp-3 mb-6 text-reveal">
+            <p class="font-body-small text-gray-600 line-clamp-3 mb-9 text-reveal">
         DestroSolutions delivers a robust portfolio of products engineered for the Software-Defined Vehicle era. Designed for security, compliance, and performance, our solutions seamlessly integrate into modern E/E architectures while aligning with global automotive standards.
         </p>
         </div>
 
-        <!-- Products with Alternating Layout -->
-        <div class="space-y-16">
-            <template x-for="(product, index) in products" :key="index">
-                <!-- Product Card -->
-                <div class="overflow-hidden flex flex-col rounded-lg lg:flex-row items-center justify-center lg:items-stretch group enhanced-card stagger-animation"
+        <!-- Featured Product (First Row) -->
+        <div class="mb-5">
+            <template x-for="(product, index) in products.slice(0, 1)" :key="index">
+                <!-- Featured Product Card -->
+                <div class="overflow-hidden flex flex-col shadow rounded-sm lg:flex-row items-center justify-center lg:items-stretch group enhanced-card stagger-animation"
                      :class="[product.position === 'right' ? 'lg:flex-row-reverse slide-in-right' : 'lg:flex-row slide-in-left', `stagger-delay-${(index % 6) + 1}`]">
 
                     <!-- Content Section -->
@@ -1461,18 +1470,98 @@
                         <p class="font-body-large text-gray-600 line-clamp-3 mb-6" x-text="product.description"></p>
                         <a href="/destro" class="max-w-max inline-flex items-center px-6 py-3 mb-6 border-2 border-blue-600 text-blue-600 font-button rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105">
                             <span>Read more</span>
-                            <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="product.icon"></path>
-                            </svg>
+{{--                            <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">--}}
+{{--                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="product.icon"></path>--}}
+{{--                            </svg>--}}
                         </a>
                     </div>
 
                     <!-- Image Section -->
                     <div class="w-full lg:w-2/3 overflow-hidden">
                         <img :src="product.image" :alt="product.title"
-                             class="w-full shadow-lg h-72 sm:h-72 lg:h-72 object-cover rounded-lg transition-transform duration-600 group-hover:scale-100 group-hover:ease-in-out lazy-image"
-                             :class="product.position === 'right' ? 'lg:rounded-l-2xl lg:rounded-r-none' : 'lg:rounded-l-none lg:rounded-r-2xl'">
+                             class="w-full shadow-lg h-72 sm:h-72 lg:h-72 object-cover rounded-sm transition-transform duration-600 group-hover:scale-100 group-hover:ease-in-out lazy-image"
+                             :class="product.position === 'right' ? 'lg:rounded-l-sm lg:rounded-r-none' : 'lg:rounded-l-none lg:rounded-r-sm'">
                     </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Second Row - 2 Products -->
+        <div class="mb-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <template x-for="(product, index) in products.slice(1, 3)" :key="index">
+                    <div class="group bg-white rounded-sm shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
+                         :class="`stagger-delay-${(index % 6) + 1}`">
+
+                        <!-- Image Container with Overlay -->
+                        <div class="relative h-48 sm:h-56 overflow-hidden">
+                            <img :src="product.image" :alt="product.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-100 lazy-image">
+                            <!-- Gradient Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <!-- Category Badge -->
+{{--                            <div class="absolute top-4 left-4">--}}
+{{--                                <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full">Product</span>--}}
+{{--                            </div>--}}
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex flex-col justify-between flex-1 p-6">
+                            <div>
+                                <h3 class="font-card-title text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300" x-text="product.title"></h3>
+                                <p class="font-card-description text-gray-600 line-clamp-3" x-text="product.description"></p>
+                            </div>
+
+                            <!-- Enhanced Arrow Button -->
+                            <div class="mt-2 flex justify-between items-center">
+                                <!-- Learn More Link -->
+                                <a href="/destro" class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
+                                    Learn more →
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Hover Glow Effect -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-200/10 to-purple-200/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Third Row - Static Grid (No Sliding) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <template x-for="(product, index) in products.slice(3)" :key="index">
+                <div class="group bg-white rounded-sm shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
+                     :class="`stagger-delay-${(index % 6) + 1}`">
+
+                    <!-- Image Container with Overlay -->
+                    <div class="relative h-48 sm:h-56 overflow-hidden">
+                        <img :src="product.image" :alt="product.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-100 lazy-image">
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- Category Badge -->
+{{--                        <div class="absolute top-4 left-4">--}}
+{{--                            <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full">Product</span>--}}
+{{--                        </div>--}}
+                    </div>
+
+                    <!-- Content -->
+                    <div class="flex flex-col justify-between flex-1 p-6">
+                        <div>
+                            <h3 class="font-card-title text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300" x-text="product.title"></h3>
+                            <p class="font-card-description text-gray-600 line-clamp-3" x-text="product.description"></p>
+                        </div>
+
+                        <!-- Enhanced Arrow Button -->
+                        <div class="mt-2 flex justify-between items-center">
+                            <!-- Learn More Link -->
+                            <a href="/destro" class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
+                                Learn more →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hover Glow Effect -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-200/10 to-purple-200/10 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
             </template>
         </div>

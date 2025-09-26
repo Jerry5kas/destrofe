@@ -840,152 +840,15 @@
     $menuItems = [
         ['label' => 'Home', 'url' => '/'],
         ['label' => 'Quantum', 'url' => '/destro'],
-        [
-            'label' => 'Services', 
-            'url' => '/destro',
-            'hasDropdown' => true,
-            'dropdownItems' => [
-                [
-                    'label' => 'Cybersecurity Management Systems', 
-                    'url' => '/services/cybersecurity',
-                    'image' => 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Comprehensive security frameworks and management systems'
-                ],
-                [
-                    'label' => 'Functional Safety', 
-                    'url' => '/services/functional-safety',
-                    'image' => 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Expert guidance on ISO 26262 compliance'
-                ],
-                [
-                    'label' => 'Software Update Management', 
-                    'url' => '/services/software-updates',
-                    'image' => 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'End-to-end OTA update solutions'
-                ],
-                [
-                    'label' => 'ASPICE Compliance', 
-                    'url' => '/services/aspice',
-                    'image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Process improvement and assessment services'
-                ],
-                [
-                    'label' => 'AUTOSAR Implementation', 
-                    'url' => '/services/autosar',
-                    'image' => 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'AUTOSAR architecture implementation'
-                ],
-                [
-                    'label' => 'SDV Consulting', 
-                    'url' => '/services/sdv-consulting',
-                    'image' => 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Software-Defined Vehicle consulting'
-                ],
-            ]
-        ],
-        [
-            'label' => 'Products', 
-            'url' => '/destro',
-            'hasDropdown' => true,
-            'dropdownItems' => [
-                [
-                    'label' => 'Automator AI', 
-                    'url' => '/products/automator-ai',
-                    'image' => 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Automation policies for vehicle functions'
-                ],
-                [
-                    'label' => 'IDPS - Intrusion Detection', 
-                    'url' => '/products/idps',
-                    'image' => 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Continuous monitoring and prevention'
-                ],
-                [
-                    'label' => 'AI Data Collector', 
-                    'url' => '/products/data-collector',
-                    'image' => 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Data acquisition and analytics tool'
-                ],
-                [
-                    'label' => 'SBOM - Software Bill of Materials', 
-                    'url' => '/products/sbom',
-                    'image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Visibility, Security, Compliance'
-                ],
-                [
-                    'label' => 'vSOC - Vehicle Security Operations', 
-                    'url' => '/products/vsoc',
-                    'image' => 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Centralized security monitoring hub'
-                ],
-                [
-                    'label' => 'OTA Updater', 
-                    'url' => '/products/ota-updater',
-                    'image' => 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Secure over-the-air software updates'
-                ],
-            ]
-        ],
-        [
-            'label' => 'Training', 
-            'url' => '/destro',
-            'hasDropdown' => true,
-            'dropdownItems' => [
-                [
-                    'label' => 'Cybersecurity Fundamentals', 
-                    'url' => '/training/cybersecurity',
-                    'image' => 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Master automotive cybersecurity principles'
-                ],
-                [
-                    'label' => 'Functional Safety Training', 
-                    'url' => '/training/functional-safety',
-                    'image' => 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'ISO 26262 and functional safety standards'
-                ],
-                [
-                    'label' => 'ASPICE Process Training', 
-                    'url' => '/training/aspice',
-                    'image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Automotive SPICE process improvement'
-                ],
-                [
-                    'label' => 'AUTOSAR Architecture', 
-                    'url' => '/training/autosar',
-                    'image' => 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Standardized automotive software development'
-                ],
-                [
-                    'label' => 'SDV Development', 
-                    'url' => '/training/sdv-development',
-                    'image' => 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Software-Defined Vehicle development'
-                ],
-                [
-                    'label' => 'Compliance & Standards', 
-                    'url' => '/training/compliance',
-                    'image' => 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                    'description' => 'Automotive compliance and standards'
-                ],
-            ]
-        ],
+        ['label' => 'Services', 'url' => '/destro'],
+        ['label' => 'Products', 'url' => '/destro'],
+        ['label' => 'Training', 'url' => '/destro'],
         ['label' => 'Blog', 'url' => '/destro'],
     ];
 @endphp
 
 <div
-    x-data="{ 
-        open: false, 
-        scrolled: false, 
-        headerHeight: 0,
-        activeDropdown: null,
-        showDropdown(dropdownName) {
-            this.activeDropdown = dropdownName;
-        },
-        hideDropdown() {
-            this.activeDropdown = null;
-        }
-    }"
+    x-data="{ open:false, scrolled:false, headerHeight: 0 }"
     x-init="() => {
         const setHeight = () => { headerHeight = $refs.headerBlock ? $refs.headerBlock.offsetHeight : 0 };
         setHeight();
@@ -1005,15 +868,15 @@
         };
         window.addEventListener('scroll', handleScroll, { passive: true });
     }"
-    class="w-full"
->
+    class="w-full">
+
     <!-- ---------- Top Main Logo (slides up when scrolled) ---------- -->
     <div
         x-ref="headerBlock"
         :class="scrolled ? 'transform -translate-y-full opacity-0' : 'transform translate-y-0 opacity-100'"
-        class="bg-white w-full transition-all duration-500 ease-in-out relative z-40"
+        class="bg-white w-full px-0 sm:px-9 transition-all duration-500 ease-in-out relative z-40"
     >
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div class="flex items-center justify-between">
                 <!-- Left: Logo and Brand -->
                 <div class="flex items-center space-x-4">
@@ -1021,9 +884,9 @@
                     <div class="relative group">
                         <!-- Logo Container -->
                         <div
-                            class="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-500 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                            class="flex items-center justify-center w-9 h-9 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-500 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
                             <!-- Main Logo Letter -->
-                            <div class="z-10 text-white font-logo text-2xl">
+                            <div class="z-10 text-white font-logo text-lg">
                                 D
                             </div>
 
@@ -1040,8 +903,8 @@
                     </div>
 
                     <div>
-                        <div class="font-brand text-2xl text-gray-900">Destro Solution</div>
-                        <div class="font-brand-subtitle text-sm text-gray-500">Bringing SDV to Life</div>
+                        <div class="font-brand text-lg text-gray-900">Destro Solution</div>
+                        <div class="font-brand-subtitle text-xs text-gray-500">Bringing SDV to Life</div>
                     </div>
                 </div>
 
@@ -1078,67 +941,17 @@
             x-transition:leave-end="opacity-0 -translate-y-4"
             class="md:hidden bg-white border-t border-gray-100 shadow-lg relative z-50"
         >
-            <div class="px-6 py-6 space-y-1">
+            <div class="px-6 py-4 space-y-1">
                 @foreach ($menuItems as $item)
-                    @if(isset($item['hasDropdown']) && $item['hasDropdown'])
-                        <!-- Mobile Dropdown Menu Item -->
-                        <div class="space-y-1">
-                            <a href="{{ $item['url'] }}"
-                               class="group relative block text-gray-800 font-nav py-3 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600 bg-blue-50' : '' }}">
-                                <span class="relative z-10 flex items-center justify-between">
-                                    {{ $item['label'] }}
-                                    <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                    </svg>
-                                </span>
-                                <!-- Animated underline -->
-                                <span
-                                    class="absolute left-4 bottom-2 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"
-                                    style="width: calc(100% - 2rem);"></span>
-                            </a>
-                            
-                            <!-- Mobile Simplified Cards -->
-                            <div class="ml-4 space-y-2">
-                                @foreach($item['dropdownItems'] as $dropdownItem)
-                                    <a href="{{ $dropdownItem['url'] }}" 
-                                       class="group/mobile-card block bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md hover:border-blue-300 transition-all duration-300">
-                                        <div class="flex items-center p-3">
-                                            <!-- Mobile Card Image -->
-                                            <div class="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden">
-                                                <img src="{{ $dropdownItem['image'] }}" 
-                                                     alt="{{ $dropdownItem['label'] }}"
-                                                     class="w-full h-full object-cover">
-                                            </div>
-                                            
-                                            <!-- Mobile Card Content - Simplified -->
-                                            <div class="flex-1 ml-3">
-                                                <h4 class="font-body text-gray-900 text-sm group-hover/mobile-card:text-blue-600 transition-colors duration-200">
-                                                    {{ $dropdownItem['label'] }}
-                                                </h4>
-                                            </div>
-                                            
-                                            <!-- Arrow Icon -->
-                                            <svg class="w-4 h-4 text-gray-400 group-hover/mobile-card:text-blue-500 group-hover/mobile-card:translate-x-0.5 transition-all duration-200" 
-                                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                @endforeach
-                            </div>
-                        </div>
-                    @else
-                        <!-- Regular Mobile Menu Item -->
-                        <a href="{{ $item['url'] }}"
-                           class="group relative block text-gray-800 font-nav py-3 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600 bg-blue-50' : '' }}">
-                            <span class="relative z-10">{{ $item['label'] }}</span>
+                    <a href="{{ $item['url'] }}"
+                       class="group relative text-xs block text-gray-800 font-nav py-3 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600 bg-blue-50' : '' }}">
+                        <span class="relative z-10">{{ $item['label'] }}</span>
 
-                            <!-- Animated underline -->
-                            <span
-                                class="absolute left-4 bottom-2 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"
-                                style="width: calc(100% - 2rem);"></span>
-                        </a>
-                    @endif
+                        <!-- Animated underline -->
+                        <span
+                            class="absolute left-4 bottom-2 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"
+                            style="width: calc(100% - 2rem);"></span>
+                    </a>
                 @endforeach
 
                 <!-- Enhanced Action Buttons -->
@@ -1178,10 +991,9 @@
     <nav
         :class="scrolled ? 'fixed top-0 left-0 w-full z-50 bg-white shadow-sm' : 'relative bg-white z-40'"
         class="hidden md:block transition-all duration-500 ease-in-out"
-        aria-label="Primary"
-    >
+        aria-label="Primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="h-16 flex items-center justify-between">
+            <div class="h-12 flex items-center justify-between">
                 <!-- Left: small logo + menu -->
                 <div class="flex items-center space-x-6">
                     <!-- small logo icon (hidden initially, shows when scrolled) -->
@@ -1212,131 +1024,16 @@
                     <!-- Desktop menu (left) -->
                     <div class="flex items-center space-x-8">
                         @foreach ($menuItems as $item)
-                            @if(isset($item['hasDropdown']) && $item['hasDropdown'])
-                                <!-- Dropdown Menu Item -->
-                                <div class="relative group"
-                                     @mouseenter="showDropdown('{{ $item['label'] }}')"
-                                     @mouseleave="hideDropdown()">
-                                    <a href="{{ $item['url'] }}"
-                                       class="flex items-center text-gray-800 font-nav px-3 py-2 transition-all duration-300 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600' : '' }}">
-                                        <span class="relative z-10">
-                                            {{ $item['label'] }}
-                                        </span>
-                                        <!-- Dropdown Arrow -->
-                                        <svg class="ml-1 w-4 h-4 transition-transform duration-300 group-hover:rotate-180" 
-                                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                        </svg>
-                                        
-                                        <!-- Gradient blue underline with smooth hover effect -->
-                                        <span
-                                            class="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"></span>
-                                    </a>
+                            <a href="{{ $item['url'] }}"
+                               class="group relative  text-gray-800 font-nav px-3 py-2 transition-all duration-300 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600' : '' }}">
+                                <span class="relative z-10 text-sm">
+                                    {{ $item['label'] }}
+                                </span>
 
-                                    <!-- Full-Screen Width Dropdown Component -->
-                                    <div x-show="activeDropdown === '{{ $item['label'] }}'"
-                                         x-transition:enter="transition ease-out duration-300"
-                                         x-transition:enter-start="opacity-0 transform scale-95 translate-y-4"
-                                         x-transition:enter-end="opacity-100 transform scale-100 translate-y-0"
-                                         x-transition:leave="transition ease-in duration-200"
-                                         x-transition:leave-start="opacity-100 transform scale-100 translate-y-0"
-                                         x-transition:leave-end="opacity-0 transform scale-95 translate-y-4"
-                                         class="absolute top-full left-0 mt-4 w-screen bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50"
-                                         style="display: none;">
-                                        
-                                        <!-- Modern Header -->
-                                        <div class="bg-gradient-to-r from-blue-50 via-blue-100 to-cyan-50 px-8 py-6 border-b border-blue-200">
-                                            <div class="flex items-center justify-between">
-                                                <div>
-                                                    <h3 class="font-heading-3 text-gray-900">{{ $item['label'] }}</h3>
-                                                    <p class="font-body text-gray-600 mt-2">Explore our comprehensive {{ strtolower($item['label']) }} solutions</p>
-                                                </div>
-                                                <div class="hidden lg:flex items-center space-x-4">
-                                                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-                                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Full-Width Card Grid -->
-                                        <div class="px-8 py-8">
-                                            <div class="max-w-7xl mx-auto">
-                                                <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-6">
-                                                    @foreach($item['dropdownItems'] as $dropdownItem)
-                                                        <a href="{{ $dropdownItem['url'] }}" 
-                                                           class="group/card bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-blue-300 transition-all duration-300 hover:-translate-y-2">
-                                                            <!-- Card Image -->
-                                                            <div class="relative h-28 overflow-hidden">
-                                                                <img src="{{ $dropdownItem['image'] }}" 
-                                                                     alt="{{ $dropdownItem['label'] }}"
-                                                                     class="w-full h-full object-cover transition-transform duration-300 group-hover/card:scale-110 lazy-image">
-                                                                <!-- Gradient Overlay -->
-                                                                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
-                                                            </div>
-                                                            
-                                                            <!-- Card Content - Minimal -->
-                                                            <div class="p-4 text-center">
-                                                                <h4 class="font-body text-gray-900 text-sm group-hover/card:text-blue-600 transition-colors duration-200 line-clamp-2 leading-tight">
-                                                                    {{ $dropdownItem['label'] }}
-                                                                </h4>
-                                                                
-                                                                <!-- Arrow Icon -->
-                                                                <div class="mt-3 flex justify-center">
-                                                                    <svg class="w-4 h-4 text-gray-400 group-hover/card:text-blue-500 group-hover/card:translate-x-0.5 transition-all duration-200" 
-                                                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                                                    </svg>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Full-Width Footer -->
-                                        <div class="bg-gray-50 border-t border-gray-200">
-                                            <div class="max-w-7xl mx-auto px-8 py-6">
-                                                <div class="flex items-center justify-between">
-                                                    <div class="flex items-center space-x-4">
-                                                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                                            </svg>
-                                                        </div>
-                                                        <div>
-                                                            <p class="font-body text-gray-900">Ready to explore all {{ $item['label'] }}?</p>
-                                                            <p class="font-body-small text-gray-600">Discover our complete solution portfolio</p>
-                                                        </div>
-                                                    </div>
-                                                    <a href="{{ $item['url'] }}" 
-                                                       class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-button transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                                                        View All {{ $item['label'] }}
-                                                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                                        </svg>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @else
-                                <!-- Regular Menu Item -->
-                                <a href="{{ $item['url'] }}"
-                                   class="group relative text-gray-800 font-nav px-3 py-2 transition-all duration-300 hover:text-blue-600 {{ request()->is(trim($item['url'], '/')) ? 'text-blue-600' : '' }}">
-                                    <span class="relative z-10">
-                                        {{ $item['label'] }}
-                                    </span>
-
-                                    <!-- Gradient blue underline with smooth hover effect -->
-                                    <span
-                                        class="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"></span>
-                                </a>
-                            @endif
+                                <!-- Gradient blue underline with smooth hover effect -->
+                                <span
+                                    class="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 group-hover:w-full {{ request()->is(trim($item['url'], '/')) ? 'w-full' : '' }}"></span>
+                            </a>
                         @endforeach
                     </div>
                 </div>
@@ -1373,7 +1070,6 @@
                 </div>
             </div>
         </div>
-
     </nav>
 
 
@@ -1382,7 +1078,7 @@
         <!-- Banner -->
         <div class="relative w-full overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
             <!-- Slides -->
-            <div class="relative h-[400px] sm:h-[450px] lg:h-[500px]">
+            <div class="relative h-[300px] sm:h-[450px] lg:h-[500px]">
                 <template x-for="(slide, index) in slides" :key="index">
                     <div
                         x-show="activeIndex === index"
@@ -1432,9 +1128,9 @@
                                       'lg:justify-center text-center': slide.position === 'center',
                                       'lg:justify-end text-right': slide.position === 'right'
                                     }"
-                                    >
+                        >
                             <!-- Text Card with Glass Morphism -->
-                            <div class="relative max-w-xl group">
+                            <div class="relative max-w-sm group">
                                 <!-- Glass morphism background -->
                                 <div
                                     class="absolute inset-0 bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl"></div>
@@ -1446,15 +1142,15 @@
                                 <!-- Content -->
                                 <div class="relative p-6 lg:p-8">
                                     <!-- Title with animation -->
-                                    <h2 class="font-heading-2 text-white mb-4 transform transition-all duration-700 group-hover:scale-105"
+                                    <h5 class="font-heading-5 text-white mb-4 transform transition-all duration-700 group-hover:scale-105"
                                         x-text="slide.title"
                                         x-transition:enter="transition ease-out duration-700"
                                         x-transition:enter-start="opacity-0 translate-y-8"
                                         x-transition:enter-end="opacity-100 translate-y-0">
-                                    </h2>
+                                    </h5>
 
                                     <!-- Description with animation -->
-                                    <p class="font-body-large text-white/90 mb-6 transform transition-all duration-700 delay-100 group-hover:translate-x-2"
+                                    <p class="font-body-small text-white/90 mb-6 line-clamp-2 transform transition-all duration-700 delay-100 group-hover:translate-x-2"
                                        x-text="slide.text"
                                        x-transition:enter="transition ease-out duration-700 delay-200"
                                        x-transition:enter-start="opacity-0 translate-y-8"
@@ -1463,13 +1159,13 @@
 
                                     <!-- CTA Button with enhanced animation -->
                                     <a :href="slide.link"
-                                       class="inline-flex items-center px-8 py-4 bg-white backdrop-blur-sm hover:from-blue-600 hover:to-blue-700 text-cyan-600 rounded-2xl font-button-large shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 border border-white/20"
+                                       class="inline-flex items-center px-4 py-2 bg-blue-700 backdrop-blur-sm hover:bg-gradient hover:from-blue-600 hover:to-blue-700 text-cyan-50 rounded-sm font-button-small shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 border border-white/20"
                                        x-transition:enter="transition ease-out duration-700 delay-300"
                                        x-transition:enter-start="opacity-0 translate-y-8"
                                        x-transition:enter-end="opacity-100 translate-y-0">
                                         <span x-text="slide.button"></span>
                                         <svg
-                                            class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                                            class="ml-2 w-3 h-3 transition-transform duration-300 group-hover:translate-x-1"
                                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M9 5l7 7-7 7"/>
@@ -1489,13 +1185,13 @@
 
 
         <!-- Navigation Controls (Below Banner) -->
-        <div class="bg-white py-6 shadow-lg">
+        <div class="bg-white py-3 shadow-lg">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
                     <!-- Left Arrow -->
                     <button @click="prev()"
-                            class="group flex items-center justify-center w-12 h-12 border-2 border-blue-600 text-blue-600 rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none"
+                            class="group flex items-center justify-center w-9 h-9 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                        <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none"
                              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
                         </svg>
@@ -1507,11 +1203,11 @@
                             <div class="relative cursor-pointer" @click="goToSlide(index)">
                                 <!-- Inactive dot -->
                                 <div
-                                    class="w-3 h-3 rounded-full bg-blue-200 transition-all duration-300 hover:bg-blue-400"
+                                    class="w-2 h-2 rounded-full bg-blue-200 transition-all duration-300 hover:bg-blue-400"
                                     x-show="activeIndex !== index"></div>
                                 <!-- Active progress bar -->
                                 <div x-show="activeIndex === index"
-                                     class="h-3 rounded-full bg-blue-200 overflow-hidden w-16 transition-all duration-200 ease-in-out">
+                                     class="h-2 rounded-full bg-blue-200 overflow-hidden w-12 transition-all duration-200 ease-in-out">
                                     <div
                                         class="h-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-50 ease-linear"
                                         :style="{ width: progress + '%' }"></div>
@@ -1522,8 +1218,8 @@
 
                     <!-- Right Arrow -->
                     <button @click="next()"
-                            class="group flex items-center justify-center w-12 h-12 border-2 border-blue-600 text-blue-600 rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none"
+                            class="group flex items-center justify-center w-9 h-9 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                        <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none"
                              stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                         </svg>
@@ -1539,11 +1235,11 @@
 
 <!-- Our Drive Section -->
 <section class="bg-gray-50 py-16 lg:py-24 content-fade-in">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <!-- Left Content -->
             <div class="space-y-6 slide-in-left">
-                <h2 class="font-heading-1 text-gray-900 text-reveal">
+                <h2 class="font-heading-2 text-gray-900 text-reveal">
                     Our drive, our purpose
                     <br>
                     <span class="text-blue-600">Enabling You To Shape A Better</span>
@@ -1554,7 +1250,7 @@
 
             <!-- Right Content -->
             <div class="space-y-8 slide-in-right">
-                <p class="font-body-large text-gray-700">
+                <p class="font-body-large text-gray-700 leading-wider">
                     At DestroSolutions, we enable the future of mobility by driving the transition to Software-Defined
                     Vehicles (SDVs). Our expertise spans end-to-end automotive cybersecurity, software update
                     management, functional safety, and E/E architecture transformation. Our commitment to Safety &
@@ -1611,14 +1307,14 @@
       category: 'SDV Transformation'
     }
 ] }" class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-24 content-fade-in">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16 scale-in">
-            <h2 class="font-heading-1 text-gray-900 mb-6 text-reveal">
+            <h2 class="font-heading-2 text-gray-900 mb-6 text-reveal">
                 The Future Begins
             </h2>
             <p class="font-body-large text-gray-600 max-w-3xl mx-auto text-reveal">
-            Innovative products, services and training
+                Innovative products, services and training
             </p>
         </div>
 
@@ -1626,7 +1322,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             <template x-for="(card, index) in cards" :key="index">
                 <div
-                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
+                    class="group bg-white rounded-md shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
                     :class="`stagger-delay-${(index % 6) + 1}`">
 
                     <!-- Image Container with Overlay -->
@@ -1671,7 +1367,7 @@
 
                     <!-- Hover Glow Effect -->
                     <div
-                        class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        class="absolute inset-0 bg-gradient-to-r from-blue-200/10 to-purple-200/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
             </template>
         </div>
@@ -1698,7 +1394,8 @@
             description: 'Automator lets OEMs use automation policies to instantly create new vehicle functions',
             image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
             icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-            position: 'left'
+            position: 'left',
+            product: 'AI',
         },
         {
             title: 'IDPS',
@@ -1737,25 +1434,33 @@
             image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
             icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12',
             position: 'right'
-        }
+        },
+         {
+            title: 'vSOC',
+            subtitle: 'Vehicle Security Operations Center',
+            description: 'vSOC is a centralized hub for monitoring, detecting, and responding to cyber threats across Fleet',
+            image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+            icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+            position: 'left'
+        },
     ]
 }" class="bg-white py-16 content-fade-in">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Heading -->
         <div class="scale-in">
-            <h2 class="font-heading-3 text-gray-900 mb-6 text-reveal">
-            Our Products
-        </h2>
-            <p class="font-body-large text-gray-600 line-clamp-3 mb-6 text-reveal">
-        DestroSolutions delivers a robust portfolio of products engineered for the Software-Defined Vehicle era. Designed for security, compliance, and performance, our solutions seamlessly integrate into modern E/E architectures while aligning with global automotive standards.
-        </p>
+            <h2 class="font-heading-3 text-gray-900 mb-3 text-reveal">
+                Our Products
+            </h2>
+            <p class="font-body-small text-gray-600 line-clamp-3 mb-9 text-reveal">
+                DestroSolutions delivers a robust portfolio of products engineered for the Software-Defined Vehicle era. Designed for security, compliance, and performance, our solutions seamlessly integrate into modern E/E architectures while aligning with global automotive standards.
+            </p>
         </div>
 
-        <!-- Products with Alternating Layout -->
-        <div class="space-y-16">
-            <template x-for="(product, index) in products" :key="index">
-                <!-- Product Card -->
-                <div class="overflow-hidden flex flex-col rounded-lg lg:flex-row items-center justify-center lg:items-stretch group enhanced-card stagger-animation"
+        <!-- Featured Product (First Row) -->
+        <div class="mb-5">
+            <template x-for="(product, index) in products.slice(0, 1)" :key="index">
+                <!-- Featured Product Card -->
+                <div class="overflow-hidden flex flex-col shadow rounded-sm lg:flex-row items-center justify-center lg:items-stretch group enhanced-card stagger-animation"
                      :class="[product.position === 'right' ? 'lg:flex-row-reverse slide-in-right' : 'lg:flex-row slide-in-left', `stagger-delay-${(index % 6) + 1}`]">
 
                     <!-- Content Section -->
@@ -1765,18 +1470,98 @@
                         <p class="font-body-large text-gray-600 line-clamp-3 mb-6" x-text="product.description"></p>
                         <a href="/destro" class="max-w-max inline-flex items-center px-6 py-3 mb-6 border-2 border-blue-600 text-blue-600 font-button rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105">
                             <span>Read more</span>
-                            <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="product.icon"></path>
-                            </svg>
+                            {{--                            <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">--}}
+                            {{--                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="product.icon"></path>--}}
+                            {{--                            </svg>--}}
                         </a>
                     </div>
 
                     <!-- Image Section -->
                     <div class="w-full lg:w-2/3 overflow-hidden">
                         <img :src="product.image" :alt="product.title"
-                             class="w-full shadow-lg h-72 sm:h-72 lg:h-72 object-cover rounded-lg transition-transform duration-300 group-hover:scale-105 lazy-image"
-                             :class="product.position === 'right' ? 'lg:rounded-l-2xl lg:rounded-r-none' : 'lg:rounded-l-none lg:rounded-r-2xl'">
+                             class="w-full shadow-lg h-72 sm:h-72 lg:h-72 object-cover rounded-sm transition-transform duration-600 group-hover:scale-100 group-hover:ease-in-out lazy-image"
+                             :class="product.position === 'right' ? 'lg:rounded-l-sm lg:rounded-r-none' : 'lg:rounded-l-none lg:rounded-r-sm'">
                     </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Second Row - 2 Products -->
+        <div class="mb-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <template x-for="(product, index) in products.slice(1, 3)" :key="index">
+                    <div class="group bg-white rounded-sm shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
+                         :class="`stagger-delay-${(index % 6) + 1}`">
+
+                        <!-- Image Container with Overlay -->
+                        <div class="relative h-48 sm:h-56 overflow-hidden">
+                            <img :src="product.image" :alt="product.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-100 lazy-image">
+                            <!-- Gradient Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <!-- Category Badge -->
+                            {{--                            <div class="absolute top-4 left-4">--}}
+                            {{--                                <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full">Product</span>--}}
+                            {{--                            </div>--}}
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex flex-col justify-between flex-1 p-6">
+                            <div>
+                                <h3 class="font-card-title text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300" x-text="product.title"></h3>
+                                <p class="font-card-description text-gray-600 line-clamp-3" x-text="product.description"></p>
+                            </div>
+
+                            <!-- Enhanced Arrow Button -->
+                            <div class="mt-2 flex justify-between items-center">
+                                <!-- Learn More Link -->
+                                <a href="/destro" class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
+                                    Learn more →
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Hover Glow Effect -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-200/10 to-purple-200/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Third Row - Static Grid (No Sliding) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <template x-for="(product, index) in products.slice(3)" :key="index">
+                <div class="group bg-white rounded-sm shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden enhanced-card stagger-animation"
+                     :class="`stagger-delay-${(index % 6) + 1}`">
+
+                    <!-- Image Container with Overlay -->
+                    <div class="relative h-48 sm:h-56 overflow-hidden">
+                        <img :src="product.image" :alt="product.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-100 lazy-image">
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- Category Badge -->
+                        {{--                        <div class="absolute top-4 left-4">--}}
+                        {{--                            <span class="px-3 py-1 bg-blue-700/75 text-white text-xs font-semibold rounded-full">Product</span>--}}
+                        {{--                        </div>--}}
+                    </div>
+
+                    <!-- Content -->
+                    <div class="flex flex-col justify-between flex-1 p-6">
+                        <div>
+                            <h3 class="font-card-title text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300" x-text="product.title"></h3>
+                            <p class="font-card-description text-gray-600 line-clamp-3" x-text="product.description"></p>
+                        </div>
+
+                        <!-- Enhanced Arrow Button -->
+                        <div class="mt-2 flex justify-between items-center">
+                            <!-- Learn More Link -->
+                            <a href="/destro" class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
+                                Learn more →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hover Glow Effect -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-200/10 to-purple-200/10 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
             </template>
         </div>
@@ -1917,23 +1702,23 @@
             </div>
         </div>
 
-{{--        <!-- Bottom CTA -->--}}
-{{--        <div class="mt-16 text-center">--}}
-{{--            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">--}}
-{{--                <h3 class="text-2xl font-bold text-white mb-4">--}}
-{{--                    Ready to Transform Your Automotive Solutions?--}}
-{{--                </h3>--}}
-{{--                <p class="text-blue-100 mb-6">--}}
-{{--                    Let our experts help you navigate the complexities of automotive software development and compliance.--}}
-{{--                </p>--}}
-{{--                <a href="#" class="inline-flex items-center px-8 py-4 bg-white text-blue-900 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 hover:scale-105">--}}
-{{--                    Get Started Today--}}
-{{--                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">--}}
-{{--                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>--}}
-{{--                    </svg>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        {{--        <!-- Bottom CTA -->--}}
+        {{--        <div class="mt-16 text-center">--}}
+        {{--            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">--}}
+        {{--                <h3 class="text-2xl font-bold text-white mb-4">--}}
+        {{--                    Ready to Transform Your Automotive Solutions?--}}
+        {{--                </h3>--}}
+        {{--                <p class="text-blue-100 mb-6">--}}
+        {{--                    Let our experts help you navigate the complexities of automotive software development and compliance.--}}
+        {{--                </p>--}}
+        {{--                <a href="#" class="inline-flex items-center px-8 py-4 bg-white text-blue-900 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 hover:scale-105">--}}
+        {{--                    Get Started Today--}}
+        {{--                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">--}}
+        {{--                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>--}}
+        {{--                    </svg>--}}
+        {{--                </a>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
     </div>
 </section>
 
@@ -1968,10 +1753,10 @@
       category: 'Operations'
     }
 ] }" class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-24 content-fade-in">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16 scale-in">
-            <h2 class="font-heading-1 text-gray-900 mb-6 text-reveal">
+            <h2 class="font-heading-2 text-gray-900 mb-6 text-reveal">
                 Our Software-defined Vehicle (SDV) solutions
             </h2>
             <p class="font-body-large text-gray-600 max-w-3xl mx-auto text-reveal">
@@ -2005,11 +1790,11 @@
 
                         <!-- Enhanced Arrow Button -->
                         <div class="mt-2 flex justify-between items-center">
-{{--                            <a :href="card.link" class="group/btn inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">--}}
-{{--                                <svg class="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">--}}
-{{--                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>--}}
-{{--                                </svg>--}}
-{{--                            </a>--}}
+                            {{--                            <a :href="card.link" class="group/btn inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">--}}
+                            {{--                                <svg class="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">--}}
+                            {{--                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>--}}
+                            {{--                                </svg>--}}
+                            {{--                            </a>--}}
                             <!-- Learn More Link -->
                             <a :href="card.link" class="text-blue-600 hover:text-blue-800 font-button-small transition-colors duration-300">
                                 Learn more →
@@ -2037,7 +1822,7 @@
 
 <!-- Contact Us Section -->
 <section class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 lg:py-24 content-fade-in">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl md:w-[90%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16 scale-in">
             <h2 class="font-heading-1 text-gray-900 mb-6 text-reveal">
@@ -2311,13 +2096,14 @@
             isPaused: false,
             slides: [
                 {
-                    title: "Transformation needs leadership",
-                    text: "Why 75% fail - and how leadership makes the difference. Discover the key elements of successful digital transformation.",
-                    button: "Explore More",
+                    title: "Digital. Smart. Future.",
+                    text: "MHP delivers innovative solutions for digital transformation across all industries with proven expertise.",
+                    button: "Learn more",
                     link: "/destro",
-                    image: "{{asset('images/dark4.jpg')}}",
+                    image: "{{asset('images/dark2.jpg')}}",
                     position: "right"
                 },
+
                 {
                     title: "Driving Innovation Forward",
                     text: "We develop strategies and technologies that sustainably transform businesses and create lasting value.",
@@ -2326,12 +2112,13 @@
                     image: "{{asset('images/light3.jpg')}}",
                     position: "left"
                 },
+
                 {
-                    title: "Digital. Smart. Future.",
-                    text: "MHP delivers innovative solutions for digital transformation across all industries with proven expertise.",
-                    button: "Learn more",
+                    title: "Transformation needs leadership",
+                    text: "Why 75% fail - and how leadership makes the difference. Discover the key elements of successful digital transformation.",
+                    button: "Explore More",
                     link: "/destro",
-                    image: "{{asset('images/dark2.jpg')}}",
+                    image: "{{asset('images/dark4.jpg')}}",
                     position: "right"
                 },
 
