@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>DestroSolutions</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -841,7 +843,7 @@
         ['label' => 'Home', 'url' => '/'],
         ['label' => 'Quantum', 'url' => '/destro'],
         [
-            'label' => 'Services', 
+            'label' => 'Services',
             'url' => '/destro',
             'hasSubmenu' => true,
             'submenu' => [
@@ -868,7 +870,7 @@
             ]
         ],
         [
-            'label' => 'Products', 
+            'label' => 'Products',
             'url' => '/destro',
             'hasSubmenu' => true,
             'submenu' => [
@@ -905,7 +907,7 @@
             ]
         ],
         [
-            'label' => 'Training', 
+            'label' => 'Training',
             'url' => '/destro',
             'hasSubmenu' => true,
             'submenu' => [
@@ -1034,16 +1036,16 @@
                     @if(isset($item['hasSubmenu']) && $item['hasSubmenu'])
                         <!-- Mobile Submenu Item -->
                         <div x-data="{ open: false }" class="space-y-1">
-                            <button @click="open = !open" 
+                            <button @click="open = !open"
                                     class="group relative w-full text-left text-xs text-gray-800 font-nav py-3 px-4 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
                                 <span class="relative z-10">{{ $item['label'] }}</span>
                                 <svg class="w-4 h-4 transition-transform duration-300" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
-                            
+
                             <!-- Submenu Items -->
-                            <div x-show="open" 
+                            <div x-show="open"
                                  x-transition:enter="transition ease-out duration-200"
                                  x-transition:enter-start="opacity-0 transform scale-95"
                                  x-transition:enter-end="opacity-100 transform scale-100"
@@ -1159,7 +1161,7 @@
                                     </a>
 
                                     <!-- Mega Menu Dropdown -->
-                                    <div x-show="open" 
+                                    <div x-show="open"
                                          x-transition:enter="transition ease-out duration-200"
                                          x-transition:enter-start="opacity-0 transform scale-95"
                                          x-transition:enter-end="opacity-100 transform scale-100"
@@ -1168,22 +1170,22 @@
                                          x-transition:leave-end="opacity-0 transform scale-95"
                                          class="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 z-50 overflow-hidden"
                                          style="display: none;">
-                                        
+
                                         <!-- Menu Items - Single Column Landscape Layout -->
                                         <div class="p-4">
                                             <div class="space-y-2">
                                                 @foreach($item['submenu'] as $subItem)
-                                                    <a href="{{ $subItem['url'] }}" 
+                                                    <a href="{{ $subItem['url'] }}"
                                                        class="group/item flex items-center p-3 rounded-lg hover:bg-blue-50 transition-all duration-300 hover:scale-[1.02]">
                                                         <!-- Image - Left Side -->
                                                         <div class="relative w-12 h-12 mr-3 overflow-hidden rounded-lg shadow-sm group-hover/item:shadow-md transition-shadow duration-300">
-                                                            <img src="{{ $subItem['image'] }}" 
-                                                                 alt="{{ $subItem['title'] }}" 
+                                                            <img src="{{ $subItem['image'] }}"
+                                                                 alt="{{ $subItem['title'] }}"
                                                                  class="w-full h-full object-cover transition-transform duration-300 group-hover/item:scale-110">
                                                             <!-- Overlay -->
                                                             <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></div>
                                                         </div>
-                                                        
+
                                                         <!-- Title - Right Side -->
                                                         <h4 class="text-xs font-medium text-gray-900 group-hover/item:text-blue-600 transition-colors duration-300">
                                                             {{ $subItem['title'] }}
@@ -1244,109 +1246,97 @@
     </nav>
 
 
-    <!-- Banner / Hero Section with Navigation -->
-    <div x-data="slider()" x-init="start()" class="w-full">
-        <!-- Banner -->
-        <div class="relative w-full overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
-            <!-- Slides -->
-            <div class="relative h-[300px] sm:h-[450px] lg:h-[500px]">
+    <!-- Enhanced Banner / Hero Section -->
+    <div x-data="slider()" x-init="start()" class="w-full relative">
+        <!-- Main Banner Container -->
+        <div class="relative w-full overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0 opacity-20">
+                <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+                <div class="absolute top-40 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 2s;"></div>
+                <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 4s;"></div>
+            </div>
+
+            <!-- Slides Container -->
+            <div class="relative h-[400px] sm:h-[500px] lg:h-[600px]">
                 <template x-for="(slide, index) in slides" :key="index">
                     <div
                         x-show="activeIndex === index"
-                        x-transition:enter="transition ease-out duration-500"
+                        x-transition:enter="transition ease-out duration-700"
                         x-transition:enter-start="opacity-0 transform scale-105"
                         x-transition:enter-end="opacity-100 transform scale-100"
-                        x-transition:leave="transition ease-in duration-300"
+                        x-transition:leave="transition ease-in duration-500"
                         x-transition:leave-start="opacity-100 transform scale-100"
                         x-transition:leave-end="opacity-0 transform scale-95"
                         class="absolute inset-0 w-full h-full flex flex-col lg:flex-row group">
-                        <!-- Mobile layout: Clean structure - Image first, then content -->
-                        <div class="lg:hidden w-full h-auto bg-white">
-                            <!-- Mobile Image Section - Clean, full-width image -->
-                            <a :href="slide.link">
-                                <div class="w-full h-48 bg-gray-50 flex items-center justify-center">
-                                    <img :src="slide.image" alt="" class="w-full h-full object-cover lazy-image">
-                                </div>
-                            </a>
-                            <!-- Mobile Content Section - Clean white card -->
-                            <div class="bg-blue-600 px-6 py-8">
-                                <h2 class="font-heading-3 text-gray-100 mb-4" x-text="slide.title"></h2>
-                                <p class="font-body-large text-gray-100 mb-6"
-                                   x-text="slide.text"></p>
-                                <!-- <a :href="slide.link"
-                                   class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300">
-                                    <span x-text="slide.button"></span>
-                                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                    </svg>
-                                </a> -->
+                        
+                        <!-- Mobile Layout -->
+                        <div class="lg:hidden w-full h-full flex flex-col">
+                            <!-- Mobile Image Section -->
+                            <div class="relative h-1/2 overflow-hidden">
+                                <img :src="slide.image" alt="" class="w-full h-full object-cover lazy-image">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             </div>
-                        </div>
-
-                        <!-- Desktop Background Image -->
-                        <div
-                            class="hidden lg:block absolute inset-0 bg-contain sm:bg-cover bg-center bg-no-repeat "
-                            :style="`background-image: url(${slide.image})`">
-                        </div>
-                        <div
-                            class="hidden lg:block absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-transparent"></div>
-
-                        <!-- Content Wrapper -->
-                        <div
-                            class="relative flex-1 flex items-center justify-center lg:justify-start px-6 sm:px-12 lg:px-20 z-10"
-                            :class="{
-                                      'lg:justify-start text-left': slide.position === 'left',
-                                      'lg:justify-center text-center': slide.position === 'center',
-                                      'lg:justify-end text-right': slide.position === 'right'
-                                    }"
-                                    >
-                            <!-- Text Card with Glass Morphism -->
-                            <div class="relative max-w-sm group">
-                                <!-- Glass morphism background -->
-                                <div
-                                    class="absolute inset-0 bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl"></div>
-
-                                <!-- Gradient overlay for depth -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-3xl"></div>
-
-                                <!-- Content -->
-                                <div class="relative p-6 lg:p-8">
-                                    <!-- Title with animation -->
-                                    <h5 class="font-heading-5 text-white mb-4 transform transition-all duration-700 group-hover:scale-105"
-                                        x-text="slide.title"
-                                        x-transition:enter="transition ease-out duration-700"
-                                        x-transition:enter-start="opacity-0 translate-y-8"
-                                        x-transition:enter-end="opacity-100 translate-y-0">
-                                    </h5>
-
-                                    <!-- Description with animation -->
-                                    <p class="font-body-small text-white/90 mb-6 line-clamp-2 transform transition-all duration-700 delay-100 group-hover:translate-x-2"
-                                       x-text="slide.text"
-                                       x-transition:enter="transition ease-out duration-700 delay-200"
-                                       x-transition:enter-start="opacity-0 translate-y-8"
-                                       x-transition:enter-end="opacity-100 translate-y-0">
-                                    </p>
-
-                                    <!-- CTA Button with enhanced animation -->
+                            
+                            <!-- Mobile Content Section -->
+                            <div class="flex-1 bg-gradient-to-br from-blue-900 to-indigo-900 px-6 py-8 flex flex-col justify-center">
+                                <div class="text-center">
+                                    <h2 class="font-heading-3 text-white mb-4" x-text="slide.title"></h2>
+                                    <p class="font-body text-blue-100 mb-6 line-clamp-3" x-text="slide.text"></p>
                                     <a :href="slide.link"
-                                       class="inline-flex items-center px-4 py-2 bg-blue-700 backdrop-blur-sm hover:bg-gradient hover:from-blue-600 hover:to-blue-700 text-cyan-50 rounded-sm font-button-small shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 border border-white/20"
-                                       x-transition:enter="transition ease-out duration-700 delay-300"
-                                       x-transition:enter-start="opacity-0 translate-y-8"
-                                       x-transition:enter-end="opacity-100 translate-y-0">
+                                       class="inline-flex items-center px-6 py-3 bg-white/20 hover:bg-white/30 text-white rounded-xl font-button transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/30">
                                         <span x-text="slide.button"></span>
-                                        <svg
-                                            class="ml-2 w-3 h-3 transition-transform duration-300 group-hover:translate-x-1"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M9 5l7 7-7 7"/>
+                                        <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                         </svg>
                                     </a>
                                 </div>
+                            </div>
+                        </div>
 
-                                <!-- Subtle glow effect -->
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+                        <!-- Desktop Layout -->
+                        <div class="hidden lg:block absolute inset-0">
+                            <!-- Background Image -->
+                            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" :style="`background-image: url(${slide.image})`"></div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-blue-900/80 to-transparent"></div>
+                            
+                            <!-- Content Wrapper -->
+                            <div class="relative h-full flex items-center justify-center px-20 z-10"
+                                 :class="{
+                                     'justify-start': slide.position === 'left',
+                                     'justify-center': slide.position === 'center',
+                                     'justify-end': slide.position === 'right'
+                                 }">
+                                
+                                <!-- Professional Content Card -->
+                                <div class="relative max-w-2xl group">
+                                    <!-- Glass Morphism Card -->
+                                    <div class="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/20 shadow-2xl">
+                                        <!-- Gradient Overlay -->
+                                        <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-3xl"></div>
+                                        
+                                        <!-- Content -->
+                                        <div class="relative z-10">
+                                            <!-- Title -->
+                                            <h1 class="font-heading-2 text-white mb-6 leading-tight" x-text="slide.title"></h1>
+                                            
+                                            <!-- Description -->
+                                            <p class="font-body-large text-blue-100 mb-8 leading-relaxed" x-text="slide.text"></p>
+                                            
+                                            <!-- CTA Button -->
+                                            <a :href="slide.link"
+                                               class="inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white rounded-xl font-button-large transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/30 shadow-lg">
+                                                <span x-text="slide.button"></span>
+                                                <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        
+                                        <!-- Hover Glow Effect -->
+                                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1354,45 +1344,45 @@
             </div>
         </div>
 
-
-        <!-- Navigation Controls (Below Banner) -->
-        <div class="bg-white py-3 shadow-lg">
+        <!-- Enhanced Navigation Controls -->
+        <div class="bg-white/95 backdrop-blur-sm py-4 shadow-lg border-t border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
-                    <!-- Left Arrow -->
+                    <!-- Previous Button -->
                     <button @click="prev()"
-                            class="group flex items-center justify-center w-9 h-9 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                        <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none"
-                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                            class="group flex items-center justify-center w-12 h-12 bg-white border-2 border-blue-600 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl">
+                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                         </svg>
                     </button>
 
-                    <!-- Indicators -->
-                    <div class="flex items-center space-x-4">
+                    <!-- Enhanced Indicators -->
+                    <div class="flex items-center space-x-3">
                         <template x-for="(slide, index) in slides" :key="index">
-                            <div class="relative cursor-pointer" @click="goToSlide(index)">
-                                <!-- Inactive dot -->
-                                <div
-                                    class="w-2 h-2 rounded-full bg-blue-200 transition-all duration-300 hover:bg-blue-400"
-                                    x-show="activeIndex !== index"></div>
-                                <!-- Active progress bar -->
-                                <div x-show="activeIndex === index"
-                                     class="h-2 rounded-full bg-blue-200 overflow-hidden w-12 transition-all duration-200 ease-in-out">
-                                    <div
-                                        class="h-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-50 ease-linear"
-                                        :style="{ width: progress + '%' }"></div>
+                            <div class="relative cursor-pointer group" @click="goToSlide(index)">
+                                <!-- Inactive State -->
+                                <div class="w-3 h-3 rounded-full bg-blue-200 transition-all duration-300 group-hover:bg-blue-400"
+                                     x-show="activeIndex !== index"></div>
+                                
+                                <!-- Active State with Progress -->
+                                <div x-show="activeIndex === index" class="relative">
+                                    <div class="w-16 h-2 bg-blue-200 rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-100 ease-linear"
+                                             :style="{ width: progress + '%' }"></div>
+                                    </div>
+                                    <!-- Slide Title Tooltip -->
+                                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+                                         x-text="slide.title"></div>
                                 </div>
                             </div>
                         </template>
                     </div>
 
-                    <!-- Right Arrow -->
+                    <!-- Next Button -->
                     <button @click="next()"
-                            class="group flex items-center justify-center w-9 h-9 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                        <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none"
-                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                            class="group flex items-center justify-center w-12 h-12 bg-white border-2 border-blue-600 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl">
+                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
                     </button>
                 </div>
@@ -1739,33 +1729,48 @@
     </div>
 </section>
 
-<!-- Services Section -->
+<!-- Enhanced Services Section -->
 <section x-data="{
     services: [
         {
             title: 'Cybersecurity Management Systems',
             description: 'Comprehensive security frameworks and management systems to protect vehicle networks and data from cyber threats.',
-            icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
+            image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+            category: 'Security',
+            color: 'from-red-500 to-pink-600',
+            features: ['Threat Detection', 'Risk Assessment', 'Compliance Monitoring']
         },
         {
             title: 'Functional Safety',
             description: 'Expert guidance on ISO 26262 compliance and functional safety engineering for automotive systems.',
-            icon: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 15.5c-.77.833.192 2.5 1.732 2.5z'
+            image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+            category: 'Safety',
+            color: 'from-orange-500 to-red-600',
+            features: ['ISO 26262', 'Safety Analysis', 'Risk Management']
         },
         {
-            title: 'Software Update Management Systems',
+            title: 'Software Update Management',
             description: 'End-to-end OTA update solutions ensuring secure and reliable software deployment across vehicle fleets.',
-            icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12'
+            image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+            category: 'Updates',
+            color: 'from-blue-500 to-cyan-600',
+            features: ['OTA Updates', 'Version Control', 'Rollback Safety']
         },
         {
-            title: 'ASPICE (Automotive SPICE)',
+            title: 'ASPICE Compliance',
             description: 'Process improvement and assessment services to achieve ASPICE compliance and automotive software excellence.',
-            icon: 'M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01'
+            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+            category: 'Process',
+            color: 'from-purple-500 to-indigo-600',
+            features: ['Process Assessment', 'Quality Gates', 'Continuous Improvement']
         },
         {
-            title: 'AUTOSAR',
+            title: 'AUTOSAR Implementation',
             description: 'AUTOSAR architecture implementation and migration services for standardized automotive software development.',
-            icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+            category: 'Architecture',
+            color: 'from-green-500 to-emerald-600',
+            features: ['Architecture Design', 'Component Integration', 'Migration Support']
         }
     ],
     currentIndex: 0,
@@ -1782,7 +1787,7 @@
     startAutoSlide() {
         this.slideInterval = setInterval(() => {
             this.nextSlide();
-        }, 4000); // 4 seconds per slide
+        }, 5000); // 5 seconds per slide
     },
     pauseAutoSlide() {
         clearInterval(this.slideInterval);
@@ -1796,101 +1801,141 @@
     goToSlide(index) {
         this.currentIndex = index;
     }
-}" class="py-20 content-fade-in" style="background: linear-gradient(135deg, #0907C3 0%, #1411F5 100%);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Header -->
+}" class="py-6 lg:py-32 content-fade-in relative overflow-hidden">
+    <!-- Enhanced Background with Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900"></div>
+
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div class="absolute top-40 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style="animation-delay: 4s;"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Enhanced Section Header -->
         <div class="text-center mb-16 scale-in">
-            <h2 class="font-heading-1 text-white mb-6 text-reveal">
-                Our Services
+            <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-blue-100 font-label mb-6">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                Expert Services
+            </div>
+            <h2 class="font-heading-2 text-white mb-8 text-reveal">
+                Comprehensive Automotive
+                <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    Solutions
+                </span>
             </h2>
-            <p class="font-body-large text-blue-100 max-w-4xl mx-auto text-reveal">
+            <p class="font-body-large text-blue-100 max-w-4xl mx-auto text-reveal leading-relaxed">
                 At DestroSolutions, we provide expert consulting and engineering services to support OEMs and Tier-1 suppliers in delivering secure, compliant, and future-ready vehicle platforms.
             </p>
         </div>
 
-        <!-- Services Slider -->
-        <div class="relative">
-            <!-- Service Cards Container -->
-            <div class="overflow-hidden">
-                <div class="flex transition-transform duration-500 ease-in-out"
+        <!-- Clean Services Slider -->
+        <div class="relative max-h-96">
+            <!-- Services Slider Container -->
+            <div class="overflow-hidden h-96">
+                <div class="flex transition-transform duration-700 ease-in-out h-full"
                      :style="`transform: translateX(-${currentIndex * 100}%)`">
                     <template x-for="(service, index) in services" :key="index">
-                        <div class="w-full flex-shrink-0 px-4">
-                            <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 lg:p-12 text-center group hover:bg-white/20 transition-all duration-300">
-                                <!-- Service Icon -->
-                                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                                        <path stroke-linecap="round" stroke-linejoin="round" :d="service.icon"></path>
-                                    </svg>
+                        <div class="w-full flex-shrink-0 px-4 h-full">
+                            <div class="group relative bg-white/10 backdrop-blur-lg rounded-2xl p-8 h-full border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl max-w-6xl mx-auto flex items-center">
+                                <!-- Service Content - Image Left, Content Right -->
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
+                                    <!-- Left Side - Service Image -->
+                                    <div class="order-2 lg:order-1">
+                                        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                                            <img :src="service.image" :alt="service.title"
+                                                 class="w-full h-64 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-105 lazy-image">
+                                            <!-- Gradient Overlay -->
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                            <!-- Service Category Badge -->
+                                            <div class="absolute top-4 left-4">
+                                                <span class="px-4 py-2 bg-gradient-to-r text-white text-sm font-semibold rounded-full shadow-lg"
+                                                      :class="service.color" x-text="service.category"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Right Side - Content & CTA -->
+                                    <div class="order-1 lg:order-2 text-center lg:text-left">
+                                        <!-- Service Title -->
+                                        <h3 class="font-heading-4 text-white mb-4 group-hover:text-blue-300 transition-colors duration-300 line-clamp-1" x-text="service.title"></h3>
+
+                                        <!-- Service Description -->
+                                        <p class="font-body-large text-blue-100 leading-relaxed mb-6 line-clamp-2" x-text="service.description"></p>
+
+                                        <!-- Features List -->
+                                        <div class="space-y-3 mb-8">
+                                            <template x-for="feature in service.features" :key="feature">
+                                                <div class="flex items-center">
+                                                    <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                    </svg>
+                                                    <span class="font-body text-blue-200" x-text="feature"></span>
+                                                </div>
+                                            </template>
+                                        </div>
+
+                                        <!-- Learn More Button -->
+                                        <a href="/destro" class="inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white rounded-xl font-button-large transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/30 shadow-lg w-fit">
+                                            <span>Learn More</span>
+                                            <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </div>
 
-                                <!-- Service Title -->
-                                <h3 class="font-heading-4 text-white mb-4" x-text="service.title"></h3>
-
-                                <!-- Service Description -->
-                                <p class="font-body-large text-blue-100 mb-8 max-w-2xl mx-auto" x-text="service.description"></p>
-
-                                <!-- Learn More Button -->
-                                <a href="/destro" class="inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 text-white rounded-xl font-button-large transition-all duration-300 hover:scale-105 backdrop-blur-sm">
-                                    <span>Learn More</span>
-                                    <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                                    </svg>
-                                </a>
+                                <!-- Hover Glow Effect -->
+                                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                             </div>
                         </div>
                     </template>
                 </div>
             </div>
 
-            <!-- Navigation Controls -->
-            <div class="flex items-center justify-center mt-12 space-x-4">
+            <!-- Compact Navigation Controls -->
+            <div class="flex items-center justify-center mt-6 space-x-4">
                 <!-- Previous Button -->
                 <button @click="prevSlide()"
-                        class="w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 backdrop-blur-sm">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        class="group w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/30">
+                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                     </svg>
                 </button>
 
-                <!-- Dots Indicator -->
+                <!-- Compact Dots Indicator -->
                 <div class="flex items-center space-x-2">
                     <template x-for="(service, index) in services" :key="index">
                         <button @click="goToSlide(index)"
-                                class="w-3 h-3 rounded-full transition-all duration-300"
-                                :class="currentIndex === index ? 'bg-white' : 'bg-white/40 hover:bg-white/60'">
+                                class="group relative transition-all duration-300"
+                                :class="currentIndex === index ? 'scale-110' : 'hover:scale-105'">
+                            <div class="w-3 h-3 rounded-full transition-all duration-300"
+                                 :class="currentIndex === index ? 'bg-white shadow-md' : 'bg-white/40 hover:bg-white/60'"></div>
                         </button>
                     </template>
                 </div>
 
                 <!-- Next Button -->
                 <button @click="nextSlide()"
-                        class="w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 backdrop-blur-sm">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        class="group w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/30">
+                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
                 </button>
             </div>
+
+            <!-- Compact Progress Indicator -->
+            <div class="mt-4 flex justify-center">
+                <div class="w-48 h-1 bg-white/20 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full transition-all duration-500 ease-out"
+                         :style="`width: ${((currentIndex + 1) / services.length) * 100}%`"></div>
+                </div>
+            </div>
         </div>
 
-{{--        <!-- Bottom CTA -->--}}
-{{--        <div class="mt-16 text-center">--}}
-{{--            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">--}}
-{{--                <h3 class="text-2xl font-bold text-white mb-4">--}}
-{{--                    Ready to Transform Your Automotive Solutions?--}}
-{{--                </h3>--}}
-{{--                <p class="text-blue-100 mb-6">--}}
-{{--                    Let our experts help you navigate the complexities of automotive software development and compliance.--}}
-{{--                </p>--}}
-{{--                <a href="#" class="inline-flex items-center px-8 py-4 bg-white text-blue-900 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 hover:scale-105">--}}
-{{--                    Get Started Today--}}
-{{--                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">--}}
-{{--                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>--}}
-{{--                    </svg>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-    </div>
 </section>
 
 <!-- SDV Solutions Section -->
