@@ -1359,11 +1359,10 @@
         </div>
     </nav>
 
-
     <!-- Enhanced Banner / Hero Section -->
     <div x-data="slider()" x-init="start()" class="w-full relative pt-16 md:pt-0">
         <!-- Main Banner Container -->
-        <div class="relative w-full overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900" 
+        <div class="relative w-full overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900"
              @mouseenter="pause()" @mouseleave="resume()">
             <!-- Animated Background Elements -->
             <div class="absolute inset-0 opacity-20">
@@ -1423,8 +1422,7 @@
                             <!-- Background Image -->
                             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
                                  :style="`background-image: url(${slide.image})`"></div>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-blue-900/80 to-transparent"></div>
+{{--                            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-blue-900/80 to-transparent"></div>--}}
 
                             <!-- Content Wrapper -->
                             <div class="relative h-full flex items-center justify-center px-20 z-10"
@@ -1435,7 +1433,7 @@
                                  }">
 
                                 <!-- Professional Content Card -->
-                                <div class="relative max-w-2xl group">
+                                <div class="relative max-w-md xl:max-w-2xl group">
                                     <!-- Glass Morphism Card -->
                                     <div
                                         class="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/20 shadow-2xl">
@@ -1446,11 +1444,11 @@
                                         <!-- Content -->
                                         <div class="relative z-10">
                                             <!-- Title -->
-                                            <h1 class="font-heading-2 text-white mb-6 leading-tight"
+                                            <h1 class="xl:font-heading-2 font-heading-3 text-white mb-6 leading-tight"
                                                 x-text="slide.title"></h1>
 
                                             <!-- Description -->
-                                            <p class="font-body-large text-blue-100 mb-8 leading-relaxed"
+                                            <p class="font-body-small xl:font-body-large text-blue-100 mb-8 leading-relaxed"
                                                x-text="slide.text"></p>
 
                                             <!-- CTA Button -->
@@ -1479,7 +1477,7 @@
         </div>
 
         <!-- Enhanced Navigation Controls -->
-        <div class="bg-white/95 backdrop-blur-sm py-4 shadow-lg border-t border-gray-200" 
+        <div class="bg-white/95 backdrop-blur-sm py-4 shadow-lg border-t border-gray-200"
              @mouseenter.stop @mouseleave.stop>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
