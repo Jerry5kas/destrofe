@@ -11,4 +11,5 @@
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem odit ut voluptas?</li>
     <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem odit ut voluptas?</li>
 
+
 </x-layouts.app>
